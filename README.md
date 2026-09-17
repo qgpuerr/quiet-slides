@@ -41,25 +41,32 @@ Quiet Slides 摒弃千篇一律的扁平卡片模版，提供两套经过严格�
 
 ---
 
-### 3. 母色演色矩阵 (Master Palette Matrix)
+### 3. 全母色演色矩阵 · 一色一版式 (All-Palette & Diverse-Layout Matrix)
 
-每一套风格均配备专属调校的物理纸基母色。支持在控制抽屉内一键实时换色，并自动反转高对比度标注色，确保符合 **WCAG AAA 级** 顶级演讲可读性标准。
+每一套风格均配备专属调校的物理纸基母色。为了让您同时感受**全套母色的纸张质感**与**零模版教条下的不同版式架构**，每个母色均截取了不同的幻灯片排版，深浅纸底自动反转高对比度标注，严格满足 **WCAG AAA 级** 顶级演讲可读性标准。
 
-#### Style A · 物料档案版调色盘 (Artisan Paper Tones)
+#### Style A · 物料档案版全母色矩阵 (Artisan Paper · 9 大经典纸色)
 
-| 鼠草冷灰 (Celadon Tint) | 陶土红棕 (Terracotta Earth) |
-| :---: | :---: |
-| [![Celadon Tint](assets/screenshots/palette_artisan_celadon.png)](assets/screenshots/palette_artisan_celadon.png) | [![Terracotta Earth](assets/screenshots/palette_artisan_terracotta.png)](assets/screenshots/palette_artisan_terracotta.png) |
-| **燕麦米色 (Warm Oatmeal)** | **古典棉纸 (Laid Antique Ink)** |
-| [![Warm Oatmeal](assets/screenshots/palette_artisan_beige.png)](assets/screenshots/palette_artisan_beige.png) | [![Laid Antique Ink](assets/screenshots/palette_artisan_laid.png)](assets/screenshots/palette_artisan_laid.png) |
+| 01. 冷杉青绿 (Celadon) | 02. 陶土红棕 (Terracotta) | 03. 黄油票据 (Butter) |
+| :---: | :---: | :---: |
+| [![Celadon - Slide 1](assets/screenshots/palette_artisan_1_celadon_s1.png)](assets/screenshots/palette_artisan_1_celadon_s1.png) | [![Terracotta - Slide 2](assets/screenshots/palette_artisan_2_terracotta_s2.png)](assets/screenshots/palette_artisan_2_terracotta_s2.png) | [![Butter - Slide 3](assets/screenshots/palette_artisan_3_butter_s3.png)](assets/screenshots/palette_artisan_3_butter_s3.png) |
+| `Slide 1` · 不对称封面题花与工手微标 | `Slide 2` · 51% 空间张力对抗场 | `Slide 3` · 眨眼脉冲与生理节律波形 |
+| **04. 橄榄麻布 (Olive)** | **05. 干枯粉彩 (Blush)** | **06. 燕麦米色 (Beige)** |
+| [![Olive - Slide 4](assets/screenshots/palette_artisan_4_olive_s4.png)](assets/screenshots/palette_artisan_4_olive_s4.png) | [![Blush - Slide 5](assets/screenshots/palette_artisan_5_blush_s5.png)](assets/screenshots/palette_artisan_5_blush_s5.png) | [![Beige - Slide 6](assets/screenshots/palette_artisan_6_beige_s6.png)](assets/screenshots/palette_artisan_6_beige_s6.png) |
+| `Slide 4` · 6 级金字塔阶梯割舍断层 | `Slide 5` · 二维屏幕与180°空间轴线 | `Slide 6` · 典藏终章大字留白尾页 |
+| **07. 薄荷浅绿 (Pistachio)** | **08. 暖灰水泥 (Oyster)** | **09. 古典棉纸 (Laid)** |
+| [![Pistachio - Slide 2](assets/screenshots/palette_artisan_7_pistachio_s2.png)](assets/screenshots/palette_artisan_7_pistachio_s2.png) | [![Oyster - Slide 4](assets/screenshots/palette_artisan_8_oyster_s4.png)](assets/screenshots/palette_artisan_8_oyster_s4.png) | [![Laid - Slide 1](assets/screenshots/palette_artisan_9_laid_s1.png)](assets/screenshots/palette_artisan_9_laid_s1.png) |
+| `Slide 2` · 51% 极化律动浅色演色 | `Slide 4` · 建筑水泥质感阶梯割舍 | `Slide 1` · 深色棉纸配烫金典藏封面 |
 
-#### Style B · 静奢编辑版调色盘 (Minimal Editorial Tones)
+#### Style B · 静奢编辑版全母色矩阵 (Minimal Editorial · 6 大暖中性母色 1:1 映射)
 
-| 原胚冷炭 (Ecru Charcoal) | 雪花深榄 (Alabaster Olive) |
-| :---: | :---: |
-| [![Ecru Charcoal](assets/screenshots/palette_editorial_ecru.png)](assets/screenshots/palette_editorial_ecru.png) | [![Alabaster Olive](assets/screenshots/palette_editorial_alabaster.png)](assets/screenshots/palette_editorial_alabaster.png) |
-| **细沙生赭 (Sand Sienna)** | **羊皮群青 (Parchment Ultramarine)** |
-| [![Sand Sienna](assets/screenshots/palette_editorial_sand.png)](assets/screenshots/palette_editorial_sand.png) | [![Parchment Ultramarine](assets/screenshots/palette_editorial_navy.png)](assets/screenshots/palette_editorial_navy.png) |
+| 01. 原胚冷炭 (Ecru & Charcoal) | 02. 雪花深榄 (Alabaster & Olive) | 03. 细沙生赭 (Sand & Raw Umber) |
+| :---: | :---: | :---: |
+| [![Ecru - Slide 1](assets/screenshots/palette_editorial_1_ecru_s1.png)](assets/screenshots/palette_editorial_1_ecru_s1.png) | [![Alabaster - Slide 2](assets/screenshots/palette_editorial_2_alabaster_s2.png)](assets/screenshots/palette_editorial_2_alabaster_s2.png) | [![Sand - Slide 3](assets/screenshots/palette_editorial_3_sand_s3.png)](assets/screenshots/palette_editorial_3_sand_s3.png) |
+| `Slide 1` · 经典发丝网格封面与目录 | `Slide 2` · 视线聚焦与感知闭环流 | `Slide 3` · 跨栏巨号陈述与极简定义 |
+| **04. 羊皮群青 (Parchment & Navy)** | **05. 白垩岩板 (Chalk & Slate)** | **06. 暖乳浓缩 (Cream & Espresso)** |
+| [![Navy - Slide 4](assets/screenshots/palette_editorial_4_navy_s4.png)](assets/screenshots/palette_editorial_4_navy_s4.png) | [![Slate - Slide 5](assets/screenshots/palette_editorial_5_slate_s5.png)](assets/screenshots/palette_editorial_5_slate_s5.png) | [![Espresso - Slide 6](assets/screenshots/palette_editorial_6_espresso_s6.png)](assets/screenshots/palette_editorial_6_espresso_s6.png) |
+| `Slide 4` · 发丝级 3 阶同心圆核心辐射 | `Slide 5` · 三维机位 180° 空间轴线网格 | `Slide 6` · 现代编辑版沉静终章排印 |
 
 ---
 

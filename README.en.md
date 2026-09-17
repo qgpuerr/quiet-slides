@@ -41,25 +41,32 @@ We adhere to the **Zero-Template Doctrine** — every slide layout is derived di
 
 ---
 
-### 3. Master Palette Matrix
+### 3. All-Palette & Diverse-Layout Matrix (全母色演色矩阵 · 一色一版式)
 
-Each aesthetic system is paired with bespoke physical paper base colors. Switch palettes instantly with automatic high-contrast callout adaptation complying with **WCAG AAA** readability standards.
+Each aesthetic system is paired with bespoke physical paper base colors. To showcase both **the complete tactile spectrum of paper hues** and **the zero-template organic slide structures**, each colorway is captured on a different slide layout with automatic high-contrast callout adaptation complying with **WCAG AAA** readability standards.
 
-#### Style A · Artisan Paper Tones
+#### Style A · Artisan Paper Palette Matrix (9 Curated Workshop Colors)
 
-| Celadon Tint (鼠草冷灰) | Terracotta Earth (陶土红棕) |
-| :---: | :---: |
-| [![Celadon Tint](assets/screenshots/palette_artisan_celadon.png)](assets/screenshots/palette_artisan_celadon.png) | [![Terracotta Earth](assets/screenshots/palette_artisan_terracotta.png)](assets/screenshots/palette_artisan_terracotta.png) |
-| **Warm Oatmeal (燕麦米色)** | **Laid Antique Ink (古典棉纸)** |
-| [![Warm Oatmeal](assets/screenshots/palette_artisan_beige.png)](assets/screenshots/palette_artisan_beige.png) | [![Laid Antique Ink](assets/screenshots/palette_artisan_laid.png)](assets/screenshots/palette_artisan_laid.png) |
+| 01. Celadon (冷杉青绿) | 02. Terracotta (陶土红棕) | 03. Butter (黄油票据) |
+| :---: | :---: | :---: |
+| [![Celadon - Slide 1](assets/screenshots/palette_artisan_1_celadon_s1.png)](assets/screenshots/palette_artisan_1_celadon_s1.png) | [![Terracotta - Slide 2](assets/screenshots/palette_artisan_2_terracotta_s2.png)](assets/screenshots/palette_artisan_2_terracotta_s2.png) | [![Butter - Slide 3](assets/screenshots/palette_artisan_3_butter_s3.png)](assets/screenshots/palette_artisan_3_butter_s3.png) |
+| `Slide 1` · Asymmetrical Cover & Workshop Seal | `Slide 2` · 51% Polarizing Tension Field | `Slide 3` · Blink & Neural Waveforms |
+| **04. Olive (橄榄麻布)** | **05. Blush (干枯粉彩)** | **06. Beige (燕麦米色)** |
+| [![Olive - Slide 4](assets/screenshots/palette_artisan_4_olive_s4.png)](assets/screenshots/palette_artisan_4_olive_s4.png) | [![Blush - Slide 5](assets/screenshots/palette_artisan_5_blush_s5.png)](assets/screenshots/palette_artisan_5_blush_s5.png) | [![Beige - Slide 6](assets/screenshots/palette_artisan_6_beige_s6.png)](assets/screenshots/palette_artisan_6_beige_s6.png) |
+| `Slide 4` · 6-Step Sacrifice Staircase | `Slide 5` · 2D Screen & 180° Spatial Axis | `Slide 6` · Intentional Whitespace Conclusion |
+| **07. Pistachio (薄荷浅绿)** | **08. Oyster (暖灰水泥)** | **09. Laid Antique (古典棉纸)** |
+| [![Pistachio - Slide 2](assets/screenshots/palette_artisan_7_pistachio_s2.png)](assets/screenshots/palette_artisan_7_pistachio_s2.png) | [![Oyster - Slide 4](assets/screenshots/palette_artisan_8_oyster_s4.png)](assets/screenshots/palette_artisan_8_oyster_s4.png) | [![Laid - Slide 1](assets/screenshots/palette_artisan_9_laid_s1.png)](assets/screenshots/palette_artisan_9_laid_s1.png) |
+| `Slide 2` · 51% Law in Fresh Pale Mint | `Slide 4` · Architectural Concrete Staircase | `Slide 1` · Dark Cotton Paper with Gold Foil |
 
-#### Style B · Minimal Editorial Tones
+#### Style B · Minimal Editorial Palette Matrix (6 Warm Neutral Palettes 1:1)
 
-| Ecru Charcoal (原胚冷炭) | Alabaster Olive (雪花深榄) |
-| :---: | :---: |
-| [![Ecru Charcoal](assets/screenshots/palette_editorial_ecru.png)](assets/screenshots/palette_editorial_ecru.png) | [![Alabaster Olive](assets/screenshots/palette_editorial_alabaster.png)](assets/screenshots/palette_editorial_alabaster.png) |
-| **Sand Sienna (细沙生赭)** | **Parchment Ultramarine (羊皮群青)** |
-| [![Sand Sienna](assets/screenshots/palette_editorial_sand.png)](assets/screenshots/palette_editorial_sand.png) | [![Parchment Ultramarine](assets/screenshots/palette_editorial_navy.png)](assets/screenshots/palette_editorial_navy.png) |
+| 01. Ecru & Charcoal (原胚冷炭) | 02. Alabaster & Olive (雪花深榄) | 03. Sand & Raw Umber (细沙生赭) |
+| :---: | :---: | :---: |
+| [![Ecru - Slide 1](assets/screenshots/palette_editorial_1_ecru_s1.png)](assets/screenshots/palette_editorial_1_ecru_s1.png) | [![Alabaster - Slide 2](assets/screenshots/palette_editorial_2_alabaster_s2.png)](assets/screenshots/palette_editorial_2_alabaster_s2.png) | [![Sand - Slide 3](assets/screenshots/palette_editorial_3_sand_s3.png)](assets/screenshots/palette_editorial_3_sand_s3.png) |
+| `Slide 1` · Hairline Grid Cover & TOC | `Slide 2` · Eye Focus & Perceptual Loop | `Slide 3` · Giant Statement & Definition |
+| **04. Parchment & Navy (羊皮群青)** | **05. Chalk & Slate (白垩岩板)** | **06. Cream & Espresso (暖乳浓缩)** |
+| [![Navy - Slide 4](assets/screenshots/palette_editorial_4_navy_s4.png)](assets/screenshots/palette_editorial_4_navy_s4.png) | [![Slate - Slide 5](assets/screenshots/palette_editorial_5_slate_s5.png)](assets/screenshots/palette_editorial_5_slate_s5.png) | [![Espresso - Slide 6](assets/screenshots/palette_editorial_6_espresso_s6.png)](assets/screenshots/palette_editorial_6_espresso_s6.png) |
+| `Slide 4` · Hairline 3-Tier Concentrics | `Slide 5` · 3D Camera 180° Spatial Axis Grid | `Slide 6` · Serene Editorial Conclusion |
 
 ---
 
