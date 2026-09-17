@@ -1,0 +1,1988 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>剪辑六原则：静奢编辑美学 — Minimal Editorial Deck</title>
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- GSAP CDN -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  
+  <!-- Google Fonts: Editorial Serifs, Geometric Sans, Technical Monospace -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Courier+Prime:ital,wght@0,400;0,700;1,400&family=Noto+Serif+SC:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Oswald:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      /* 静奢编辑母色 (Palette 1: Ecru & Charcoal 原胚冷炭) */
+      --bg-stage: #EAE6DF;
+      --board-bg: #F5F2EB;
+      --board-text: #1C1917;
+      --board-muted: #706E6B;
+      --board-border: rgba(28, 25, 23, 0.12);
+      --card-bg: #FFFFFF;
+      --card-text: #1C1917;
+      --card-muted: #6B6864;
+      --ink-stamp: #9C4A2F;
+      --border-ink: rgba(28, 25, 23, 0.10);
+      --hairline: rgba(28, 25, 23, 0.14);
+      --accent: #9C4A2F;
+
+      --font-mono: 'Courier Prime', Courier, monospace;
+      --font-serif: 'Playfair Display', 'Noto Serif SC', Georgia, serif;
+      --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "PingFang SC", sans-serif;
+      --font-condensed: 'Oswald', 'Playfair Display', sans-serif;
+    }
+
+    html, body {
+      width: 100%;
+      height: 100%;
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+      background-color: var(--bg-stage);
+      font-family: var(--font-sans);
+      color: var(--board-text);
+      user-select: none;
+      -webkit-font-smoothing: antialiased;
+      transition: background-color 0.4s ease, color 0.4s ease;
+    }
+
+    .font-typewriter { font-family: var(--font-mono); letter-spacing: -0.01em; }
+    .font-editorial-serif { font-family: var(--font-serif); letter-spacing: -0.015em; }
+    .font-editorial-sans { font-family: var(--font-sans); }
+    .font-condensed-num { font-family: var(--font-condensed); }
+
+    /* 极细微网格定位标点 (仅微弱提示，营造精密出版质感) */
+    #editorial-grid-overlay {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      opacity: 0.25;
+      background-image: radial-gradient(rgba(28, 25, 23, 0.2) 0.75px, transparent 0.75px);
+      background-size: 24px 24px;
+      z-index: 1;
+    }
+
+    /* 视口弹性居中容器 */
+    #deck-viewport-wrap {
+      position: relative;
+      width: 100%;
+      flex: 1;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* 16:9 固定画布 (1280x720 纯几何比例) */
+    #deck-stage {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      width: 1280px;
+      height: 720px;
+      transform-origin: center center;
+      transform: translate(-50%, -50%) scale(1);
+      background-color: var(--board-bg);
+      color: var(--board-text);
+      box-shadow: 0 30px 60px -15px rgba(28, 25, 23, 0.15), 0 0 0 1px var(--board-border);
+      overflow: hidden;
+      transition: background-color 0.4s cubic-bezier(0.16, 1, 0.3, 1), color 0.4s ease, box-shadow 0.3s ease;
+    }
+
+    /* 全屏放映模式 (原生 Fullscreen 沉浸式演讲) */
+    body.is-fullscreen {
+      background-color: var(--board-bg) !important;
+      overflow: hidden !important;
+    }
+    body.is-fullscreen #deck-top-bar {
+      display: none !important;
+    }
+    body.is-fullscreen #drawer {
+      display: none !important;
+    }
+    body.is-fullscreen #deck-viewport-wrap {
+      position: fixed !important;
+      inset: 0 !important;
+      width: 100vw !important;
+      height: 100vh !important;
+      z-index: 20 !important;
+      padding: 0 !important;
+      margin: 0 !important;
+    }
+    body.is-fullscreen #deck-stage {
+      box-shadow: none !important;
+      border-radius: 0 !important;
+    }
+    body.is-fullscreen #deck-nav {
+      position: fixed !important;
+      bottom: 24px !important;
+      left: 50% !important;
+      transform: translateX(-50%) !important;
+      width: auto !important;
+      height: auto !important;
+      padding: 8px 20px !important;
+      border-radius: 9999px !important;
+      background: rgba(0, 0, 0, 0.22) !important;
+      backdrop-filter: blur(12px) !important;
+      -webkit-backdrop-filter: blur(12px) !important;
+      border: 1px solid rgba(255, 255, 255, 0.1) !important;
+      box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.3) !important;
+      display: flex !important;
+      justify-content: center !important;
+      align-items: center !important;
+      pointer-events: auto !important;
+      z-index: 50 !important;
+      transition: opacity 0.35s ease;
+    }
+    body.is-fullscreen #btn-prev,
+    body.is-fullscreen #btn-next,
+    body.is-fullscreen #deck-nav > div:first-child,
+    body.is-fullscreen #deck-nav > div:last-child {
+      display: none !important;
+    }
+    body.is-fullscreen #deck-indicators {
+      display: flex !important;
+      align-items: center !important;
+      gap: 8px !important;
+    }
+
+    /* 行内直编模式 (E) 高亮虚线 */
+    body.is-editing-mode [data-editable="true"],
+    body.is-editing-mode .editable-text,
+    body.is-editing-mode .deck-text {
+      outline: 1.5px dashed var(--ink-stamp) !important;
+      outline-offset: 3px;
+      border-radius: 2px;
+      cursor: text !important;
+      user-select: text !important;
+      pointer-events: auto !important;
+      position: relative;
+      z-index: 35 !important;
+      transition: outline 0.2s ease, background-color 0.2s ease;
+    }
+    body.is-editing-mode [data-editable="true"]:hover,
+    body.is-editing-mode .editable-text:hover,
+    body.is-editing-mode .deck-text:hover {
+      outline: 1.5px solid var(--ink-stamp) !important;
+      background-color: rgba(156, 74, 47, 0.08);
+    }
+    body.is-editing-mode [data-editable="true"]:focus,
+    body.is-editing-mode .editable-text:focus,
+    body.is-editing-mode .deck-text:focus {
+      outline: 2px solid var(--ink-stamp) !important;
+      background-color: rgba(255, 255, 255, 0.6);
+    }
+    body.is-editing-mode .slide-pane.active {
+      pointer-events: auto !important;
+      z-index: 30 !important;
+    }
+
+    /* 发丝十字对齐标记 */
+    .crosshair {
+      position: relative;
+    }
+    .crosshair::before {
+      content: '+';
+      position: absolute;
+      font-family: var(--font-mono);
+      font-size: 11px;
+      line-height: 1;
+      color: var(--board-muted);
+      opacity: 0.6;
+    }
+
+    /* 幻灯片容器 */
+    .slide-pane {
+      position: absolute;
+      inset: 0;
+      width: 1280px;
+      height: 720px;
+      padding: 56px 68px 52px 68px;
+      box-sizing: border-box;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      opacity: 0;
+      pointer-events: none;
+      z-index: 5;
+    }
+    .slide-pane.active {
+      opacity: 1;
+      pointer-events: auto;
+      z-index: 10;
+    }
+
+    /* 打印与导出 PDF 严格 16:9 规则 */
+    @media print {
+      @page {
+        size: 16in 9in;
+        margin: 0;
+      }
+      *, *::before, *::after {
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+      }
+      html, body {
+        background-color: var(--board-bg) !important;
+        width: 100% !important;
+        height: auto !important;
+        min-height: 100% !important;
+        overflow: visible !important;
+        margin: 0 !important;
+        padding: 0 !important;
+      }
+      #deck-top-bar, #drawer, #deck-nav, #btn-toggle-tune, #deck-toast, #paper-fiber-overlay, #editorial-grid-overlay {
+        display: none !important;
+      }
+      #deck-viewport-wrap {
+        display: block !important;
+        position: static !important;
+        width: 100% !important;
+        height: auto !important;
+        overflow: visible !important;
+        padding: 0 !important;
+        margin: 0 !important;
+      }
+      #deck-stage {
+        display: block !important;
+        position: static !important;
+        transform: none !important;
+        box-shadow: none !important;
+        border-radius: 0 !important;
+        width: 100% !important;
+        height: auto !important;
+        overflow: visible !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        background-color: transparent !important;
+      }
+      .slide-pane {
+        display: flex !important;
+        flex-direction: column !important;
+        justify-content: space-between !important;
+        position: relative !important;
+        inset: auto !important;
+        top: auto !important;
+        left: auto !important;
+        transform: none !important;
+        opacity: 1 !important;
+        visibility: visible !important;
+        pointer-events: auto !important;
+        width: 100vw !important;
+        height: 100vh !important;
+        min-height: 100vh !important;
+        max-height: 100vh !important;
+        box-sizing: border-box !important;
+        page-break-inside: avoid !important;
+        break-inside: avoid !important;
+        page-break-after: always !important;
+        break-after: page !important;
+        background-color: var(--board-bg) !important;
+      }
+      .slide-pane:last-child {
+        page-break-after: auto !important;
+        break-after: auto !important;
+      }
+      .slide-pane * {
+        opacity: 1 !important;
+        visibility: visible !important;
+      }
+    }
+  </style>
+</head>
+
+<body class="flex flex-col bg-[#EAE6DF]">
+
+  <!-- 顶部控制台 -->
+  <header id="deck-top-bar" class="h-12 border-b border-[rgba(28,25,23,0.1)] bg-[var(--board-bg)] px-6 flex items-center justify-between text-xs shrink-0 z-40 transition-colors">
+    <div class="flex items-center gap-3">
+      <span class="inline-flex items-center justify-center w-2 h-2 rounded-full bg-[var(--ink-stamp)]"></span>
+      <span class="font-typewriter uppercase tracking-wider font-semibold text-[var(--board-text)] text-[11px]">MINIMAL EDITORIAL // RULE OF SIX</span>
+      <span class="text-[var(--board-muted)] opacity-40">|</span>
+      <span class="font-editorial-serif text-[var(--board-muted)] italic text-[13px]">Walter Murch 沃尔特·默奇剪辑论</span>
+    </div>
+
+    <!-- 快捷按键提示 -->
+    <div class="hidden lg:flex items-center gap-4 text-[var(--board-muted)] font-typewriter text-[10px]">
+      <span class="flex items-center gap-1.5"><kbd class="px-1.5 py-0.5 rounded bg-black/5 border border-black/10 font-mono text-[9px] text-neutral-800">←</kbd><kbd class="px-1.5 py-0.5 rounded bg-black/5 border border-black/10 font-mono text-[9px] text-neutral-800">→</kbd> 翻页</span>
+      <span class="flex items-center gap-1.5"><kbd class="px-1.5 py-0.5 rounded bg-black/5 border border-black/10 font-mono text-[9px] text-neutral-800">F</kbd> 全屏</span>
+      <span class="flex items-center gap-1.5"><kbd class="px-1.5 py-0.5 rounded bg-black/5 border border-black/10 font-mono text-[9px] text-neutral-800">R</kbd> 重播</span>
+      <span class="flex items-center gap-1.5"><kbd class="px-1.5 py-0.5 rounded bg-black/5 border border-black/10 font-mono text-[9px] text-neutral-800">E</kbd> 直编</span>
+      <span class="flex items-center gap-1.5"><kbd class="px-1.5 py-0.5 rounded bg-black/5 border border-black/10 font-mono text-[9px] text-neutral-800">P</kbd> 导出PDF</span>
+    </div>
+
+    <!-- 右侧动作按钮 -->
+    <div class="flex items-center gap-2">
+      <a href="editing_principles_artisan.html" class="px-2.5 py-1 rounded text-[11px] font-medium border border-neutral-400/40 hover:bg-black/5 text-[var(--board-text)] transition flex items-center gap-1.5" title="Style A (物料档案)">
+        <svg class="w-3 h-3 text-amber-700" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path></svg>
+        <span>切换到 Style A</span>
+      </a>
+
+      <button id="btn-export-clean" class="px-2.5 py-1 rounded text-[11px] font-medium border border-neutral-400/40 hover:bg-black/5 text-[var(--board-text)] transition flex items-center gap-1" title="导出不含编辑栏与配置项的静态纯净演示文件，烘焙文案与配色，任意设备离线可用">
+        <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
+        <span>导出纯净 HTML</span>
+      </button>
+
+      <button id="btn-export-pdf" class="px-2.5 py-1 rounded text-[11px] font-medium border border-neutral-400/40 hover:bg-black/5 text-[var(--board-text)] transition flex items-center gap-1" title="打印或导出全部 6 页 16:9 PDF (P)">
+        <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z"></path></svg>
+        <span>导出 PDF</span>
+      </button>
+
+      <button id="btn-toggle-fs" class="px-2.5 py-1 rounded text-[11px] font-medium border border-neutral-400/40 hover:bg-black/5 text-[var(--board-text)] transition flex items-center gap-1" title="全屏放映 (F)">
+        <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5v-4m0 4h-4m4 0l-5-5"></path></svg>
+        <span>全屏</span>
+      </button>
+
+      <button id="btn-toggle-edit" class="px-2.5 py-1 rounded text-[11px] font-medium border border-neutral-400/40 hover:bg-black/5 text-[var(--board-text)] transition flex items-center gap-1" title="开启行内文案直编 (E)">
+        <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path></svg>
+        <span id="edit-mode-text">直编文案</span>
+      </button>
+
+      <button id="btn-toggle-tune" class="px-2.5 py-1 rounded text-[11px] font-semibold bg-[var(--board-text)] text-[var(--board-bg)] hover:opacity-90 transition flex items-center gap-1 shadow-sm" title="母色调校与高级选项">
+        <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4"></path></svg>
+        <span>母色调校</span>
+      </button>
+    </div>
+  </header>
+
+  <!-- 视口居中舞台 -->
+  <main id="deck-viewport-wrap">
+    <div id="deck-stage">
+      
+      <!-- 极细定位点层 -->
+      <div id="editorial-grid-overlay"></div>
+
+      <!-- 四角发丝对齐标点 -->
+      <div class="crosshair absolute top-6 left-6 pointer-events-none z-10"></div>
+      <div class="crosshair absolute top-6 right-6 pointer-events-none z-10"></div>
+      <div class="crosshair absolute bottom-6 left-6 pointer-events-none z-10"></div>
+      <div class="crosshair absolute bottom-6 right-6 pointer-events-none z-10"></div>
+
+      <!-- ====================================================================
+           SLIDE 1: HERO-WORD & ASYMMETRIC TOC (空镜巨字与不对称目录导读)
+           ==================================================================== -->
+      <div id="slide-1" class="slide-pane active" data-slide="1">
+        <!-- 顶栏导引 -->
+        <div class="flex items-center justify-between border-b border-[var(--hairline)] pb-4">
+          <div class="flex items-center gap-3">
+            <span class="font-typewriter text-[10px] tracking-widest uppercase text-[var(--ink-stamp)] font-bold">[ CRITERIA 00 // PREFACE ]</span>
+            <span class="text-[var(--board-muted)] text-[10px] opacity-40">/</span>
+            <span class="font-typewriter text-[10px] tracking-wider text-[var(--board-muted)] uppercase">THEORY OF SACRIFICE</span>
+          </div>
+          <div class="font-typewriter text-[10px] text-[var(--board-muted)] tracking-widest uppercase">
+            FIGURE 01 — WALTER MURCH RETROSPECTIVE
+          </div>
+        </div>
+
+        <!-- 中部主体：左侧巨型英雄排版，右侧不对称目录 -->
+        <div class="grid grid-cols-12 gap-10 flex-1 items-center py-6">
+          <!-- 左侧：巨号标题与核心论断 -->
+          <div class="col-span-7 pr-6 flex flex-col justify-center">
+            <div id="s1-subtitle" class="font-typewriter text-xs tracking-widest text-[var(--ink-stamp)] uppercase mb-3 font-semibold" data-editable="true" data-edit-id="s1-sub">
+              THE RULE OF SIX IN FILM EDITING
+            </div>
+            <h1 id="s1-title" class="font-editorial-serif text-[68px] leading-[1.04] font-normal text-[var(--board-text)] mb-6 tracking-tight" data-editable="true" data-edit-id="s1-h1">
+              剪辑的<br>
+              <span class="italic font-light">六项割舍法则</span>
+            </h1>
+            <p id="s1-lead" class="font-editorial-sans text-[15px] leading-relaxed text-[var(--board-muted)] max-w-[540px] mb-8" data-editable="true" data-edit-id="s1-p">
+              不可逆的优先权序列：两项冲突时，永远牺牲下位。
+            </p>
+            <div id="s1-quote-box" class="border-l-2 border-[var(--ink-stamp)] pl-4 py-1">
+              <span class="font-editorial-serif italic text-sm text-[var(--board-text)] block" data-editable="true" data-edit-id="s1-quote">
+                “情感成立，心智自会缝合一切错乱。”
+              </span>
+              <span class="font-typewriter text-[10px] text-[var(--board-muted)] uppercase tracking-wider block mt-1">
+                — Walter Murch, ACE, CAS
+              </span>
+            </div>
+          </div>
+
+          <!-- 右侧：不对称目录导读 (带百分比与发丝细线) -->
+          <div class="col-span-5 border-l border-[var(--hairline)] pl-8 flex flex-col justify-center">
+            <div class="font-typewriter text-[10px] tracking-widest uppercase text-[var(--board-muted)] mb-5 flex items-center justify-between">
+              <span>WEIGHT DISTRIBUTION</span>
+              <span>INDEX</span>
+            </div>
+            
+            <div id="s1-toc-list" class="space-y-3.5 font-editorial-sans text-xs">
+              <div class="group flex items-baseline justify-between border-b border-[var(--hairline)] pb-2 transition-colors">
+                <div class="flex items-baseline gap-3">
+                  <span class="font-typewriter text-[11px] text-[var(--ink-stamp)] font-bold">01.</span>
+                  <span class="font-medium text-[var(--board-text)] text-[13px]" data-editable="true" data-edit-id="s1-i1">EMOTION // 情感与共振</span>
+                </div>
+                <span class="font-typewriter font-bold text-[var(--ink-stamp)] text-sm">51%</span>
+              </div>
+
+              <div class="group flex items-baseline justify-between border-b border-[var(--hairline)] pb-2 transition-colors">
+                <div class="flex items-baseline gap-3">
+                  <span class="font-typewriter text-[11px] text-[var(--board-muted)] font-medium">02.</span>
+                  <span class="font-medium text-[var(--board-text)] text-[13px]" data-editable="true" data-edit-id="s1-i2">STORY // 故事叙事推进</span>
+                </div>
+                <span class="font-typewriter font-semibold text-[var(--board-text)] text-sm">23%</span>
+              </div>
+
+              <div class="group flex items-baseline justify-between border-b border-[var(--hairline)] pb-2 transition-colors">
+                <div class="flex items-baseline gap-3">
+                  <span class="font-typewriter text-[11px] text-[var(--board-muted)] font-medium">03.</span>
+                  <span class="font-medium text-[var(--board-text)] text-[13px]" data-editable="true" data-edit-id="s1-i3">RHYTHM // 视听节律节奏</span>
+                </div>
+                <span class="font-typewriter font-semibold text-[var(--board-text)] text-sm">10%</span>
+              </div>
+
+              <div class="group flex items-baseline justify-between border-b border-[var(--hairline)] pb-2 transition-colors">
+                <div class="flex items-baseline gap-3">
+                  <span class="font-typewriter text-[11px] text-[var(--board-muted)] font-medium">04.</span>
+                  <span class="font-medium text-[var(--board-text)] text-[13px]" data-editable="true" data-edit-id="s1-i4">EYE TRACE // 视线焦点引导</span>
+                </div>
+                <span class="font-typewriter font-semibold text-[var(--board-text)] text-sm">7%</span>
+              </div>
+
+              <div class="group flex items-baseline justify-between border-b border-[var(--hairline)] pb-2 transition-colors">
+                <div class="flex items-baseline gap-3">
+                  <span class="font-typewriter text-[11px] text-[var(--board-muted)] font-medium">05.</span>
+                  <span class="font-medium text-[var(--board-text)] text-[13px]" data-editable="true" data-edit-id="s1-i5">2D PLANE // 二维轴线连续性</span>
+                </div>
+                <span class="font-typewriter font-semibold text-[var(--board-text)] text-sm">5%</span>
+              </div>
+
+              <div class="group flex items-baseline justify-between border-b border-[var(--hairline)] pb-2 transition-colors">
+                <div class="flex items-baseline gap-3">
+                  <span class="font-typewriter text-[11px] text-[var(--board-muted)] font-medium">06.</span>
+                  <span class="font-medium text-[var(--board-text)] text-[13px]" data-editable="true" data-edit-id="s1-i6">3D SPACE // 三维物理真实空间</span>
+                </div>
+                <span class="font-typewriter font-semibold text-[var(--board-text)] text-sm">4%</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 底栏元数据 -->
+        <div class="flex items-center justify-between border-t border-[var(--hairline)] pt-3 text-[10px] font-typewriter text-[var(--board-muted)]">
+          <div>DOCUMENT ID: MC-1995-EDITING-DOCTRINE</div>
+          <div>IN THE BLINK OF AN EYE · SILMAN-JAMES PRESS</div>
+          <div class="font-bold text-[var(--board-text)]">01 / 06</div>
+        </div>
+      </div>
+
+
+      <!-- ====================================================================
+           SLIDE 2: LOOP CYCLE DIAGRAM (视听感知闭环 / 感知流转回环)
+           ==================================================================== -->
+      <div id="slide-2" class="slide-pane" data-slide="2">
+        <!-- 顶栏导引 -->
+        <div class="flex items-center justify-between border-b border-[var(--hairline)] pb-4">
+          <div class="flex items-center gap-3">
+            <span class="font-typewriter text-[10px] tracking-widest uppercase text-[var(--ink-stamp)] font-bold">[ DIAGRAM 01 // COGNITIVE LOOP ]</span>
+            <span class="text-[var(--board-muted)] text-[10px] opacity-40">/</span>
+            <span class="font-typewriter text-[10px] tracking-wider text-[var(--board-muted)] uppercase">AUDIENCE PERCEPTION</span>
+          </div>
+          <div class="font-typewriter text-[10px] text-[var(--board-muted)] tracking-widest uppercase">
+            FIGURE 02 — THE BLINK & THE CUT
+          </div>
+        </div>
+
+        <!-- 中部主体：左侧循环图解，右侧论述侧栏 -->
+        <div class="grid grid-cols-12 gap-8 flex-1 items-center py-6">
+          <!-- 左侧：精美矢量闭环图 (SVG + 节点微文字) -->
+          <div class="col-span-7 flex flex-col items-center justify-center">
+            <div id="s2-loop-svg-container" class="relative w-[440px] h-[300px] flex items-center justify-center">
+              
+              <!-- SVG 环形导轨与流动箭头 -->
+              <svg class="w-full h-full" viewBox="0 0 440 300" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <!-- 循环虚线底环 -->
+                <ellipse cx="220" cy="150" rx="150" ry="95" stroke="currentColor" class="text-[var(--board-text)] opacity-15" stroke-width="1.5" stroke-dasharray="4 4" />
+                
+                <!-- 动态循环四象限细线轨迹 -->
+                <path d="M 220 55 A 150 95 0 0 1 370 150" stroke="currentColor" class="text-[var(--ink-stamp)]" stroke-width="1.5" />
+                <path d="M 370 150 A 150 95 0 0 1 220 245" stroke="currentColor" class="text-[var(--board-text)] opacity-40" stroke-width="1.5" />
+                <path d="M 220 245 A 150 95 0 0 1 70 150" stroke="currentColor" class="text-[var(--board-text)] opacity-40" stroke-width="1.5" />
+                <path d="M 70 150 A 150 95 0 0 1 220 55" stroke="currentColor" class="text-[var(--board-text)] opacity-40" stroke-width="1.5" />
+
+                <!-- 循环方向开放箭头 -->
+                <polygon points="370,145 370,155 378,150" fill="currentColor" class="text-[var(--ink-stamp)]" />
+                <polygon points="225,245 215,245 220,253" fill="currentColor" class="text-[var(--board-text)] opacity-60" />
+                <polygon points="70,155 70,145 62,150" fill="currentColor" class="text-[var(--board-text)] opacity-60" />
+                <polygon points="215,55 225,55 220,47" fill="currentColor" class="text-[var(--ink-stamp)]" />
+              </svg>
+
+              <!-- 中心徽记 -->
+              <div class="absolute inset-0 flex flex-col items-center justify-center pointer-events-none">
+                <span class="font-typewriter text-[9px] uppercase tracking-widest text-[var(--board-muted)] opacity-60">PERCEPTION ENGINE</span>
+                <span class="font-editorial-serif text-lg font-medium text-[var(--board-text)]">转眼之间</span>
+                <span class="font-typewriter text-[10px] text-[var(--ink-stamp)] font-semibold mt-0.5">30 FPS CONTINUITY</span>
+              </div>
+
+              <!-- 节点 01: 生理眨眼 (顶部) -->
+              <div class="s2-node absolute top-4 left-1/2 -translate-x-1/2 bg-[var(--board-bg)] px-3 py-1.5 border border-[var(--hairline)] rounded-sm shadow-sm text-center">
+                <div class="font-typewriter text-[9px] text-[var(--ink-stamp)] font-bold">NODE 01</div>
+                <div class="font-editorial-sans text-xs font-semibold text-[var(--board-text)]">生理性眨眼契机</div>
+              </div>
+
+              <!-- 节点 02: 剪辑切点 (右侧) -->
+              <div class="s2-node absolute right-0 top-1/2 -translate-y-1/2 bg-[var(--board-bg)] px-3 py-1.5 border border-[var(--hairline)] rounded-sm shadow-sm text-center">
+                <div class="font-typewriter text-[9px] text-[var(--board-muted)] font-bold">NODE 02</div>
+                <div class="font-editorial-sans text-xs font-semibold text-[var(--board-text)]">时空切点爆发</div>
+              </div>
+
+              <!-- 节点 03: 心理重构 (底部) -->
+              <div class="s2-node absolute bottom-4 left-1/2 -translate-x-1/2 bg-[var(--board-bg)] px-3 py-1.5 border border-[var(--hairline)] rounded-sm shadow-sm text-center">
+                <div class="font-typewriter text-[9px] text-[var(--board-muted)] font-bold">NODE 03</div>
+                <div class="font-editorial-sans text-xs font-semibold text-[var(--board-text)]">情绪心智重构</div>
+              </div>
+
+              <!-- 节点 04: 因果回流 (左侧) -->
+              <div class="s2-node absolute left-0 top-1/2 -translate-y-1/2 bg-[var(--board-bg)] px-3 py-1.5 border border-[var(--hairline)] rounded-sm shadow-sm text-center">
+                <div class="font-typewriter text-[9px] text-[var(--board-muted)] font-bold">NODE 04</div>
+                <div class="font-editorial-sans text-xs font-semibold text-[var(--board-text)]">叙事因果回流</div>
+              </div>
+            </div>
+
+            <!-- 图注说明 -->
+            <div class="text-center font-typewriter text-[10px] text-[var(--board-muted)] mt-2">
+              FIG 2.1 — 视听切点在观众神经反射与心理投射中的闭环流转模型
+            </div>
+          </div>
+
+          <!-- 右侧：深入诠释 -->
+          <div class="col-span-5 border-l border-[var(--hairline)] pl-8 flex flex-col justify-center">
+            <span class="font-typewriter text-[10px] tracking-widest uppercase text-[var(--ink-stamp)] font-bold mb-2 block">
+              THE BLINKING THESIS
+            </span>
+            <h2 id="s2-h2" class="font-editorial-serif text-[28px] font-normal leading-snug text-[var(--board-text)] mb-4" data-editable="true" data-edit-id="s2-h2">
+              “眨眼不是湿润眼球，而是思维转折的标点。”
+            </h2>
+            <div class="space-y-3 font-editorial-sans text-[13px] leading-relaxed text-[var(--board-muted)]" data-editable="true" data-edit-id="s2-body">
+              <p>
+                捕捉眨眼先兆，在微秒间执行切点。<strong class="font-medium text-[var(--board-text)]">跳跃隐于无形，思维直接跃迁。</strong>
+              </p>
+            </div>
+
+            <!-- 数据指示标 -->
+            <div class="mt-6 grid grid-cols-2 gap-4 border-t border-[var(--hairline)] pt-4">
+              <div>
+                <span class="font-typewriter text-[9px] uppercase text-[var(--board-muted)] block">AVG. BLINK INTERVAL</span>
+                <span class="font-condensed-num text-2xl font-bold text-[var(--board-text)]">4.0 — 6.5s</span>
+                <span class="text-[10px] text-[var(--board-muted)] block mt-0.5">人类情绪思考周期</span>
+              </div>
+              <div>
+                <span class="font-typewriter text-[9px] uppercase text-[var(--board-muted)] block">INVISIBILITY RATIO</span>
+                <span class="font-condensed-num text-2xl font-bold text-[var(--ink-stamp)]">94.8%</span>
+                <span class="text-[10px] text-[var(--board-muted)] block mt-0.5">节律吻合下的隐形度</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 底栏元数据 -->
+        <div class="flex items-center justify-between border-t border-[var(--hairline)] pt-3 text-[10px] font-typewriter text-[var(--board-muted)]">
+          <div>SECTION 02 // COGNITIVE RECEPTION THEORY</div>
+          <div>PERCEPTION CYCLE MODEL</div>
+          <div class="font-bold text-[var(--board-text)]">02 / 06</div>
+        </div>
+      </div>
+
+
+      <!-- ====================================================================
+           SLIDE 3: NUMBER STATEMENT (巨号陈述: 51% 情感法则)
+           ==================================================================== -->
+      <div id="slide-3" class="slide-pane" data-slide="3">
+        <!-- 顶栏导引 -->
+        <div class="flex items-center justify-between border-b border-[var(--hairline)] pb-4">
+          <div class="flex items-center gap-3">
+            <span class="font-typewriter text-[10px] tracking-widest uppercase text-[var(--ink-stamp)] font-bold">[ RULE 01 // ABSOLUTE SUPREMACY ]</span>
+            <span class="text-[var(--board-muted)] text-[10px] opacity-40">/</span>
+            <span class="font-typewriter text-[10px] tracking-wider text-[var(--board-muted)] uppercase">EMOTIONAL DOMINANCE</span>
+          </div>
+          <div class="font-typewriter text-[10px] text-[var(--board-muted)] tracking-widest uppercase">
+            WEIGHT: 51% (OVER HALF OF TOTAL IMPACT)
+          </div>
+        </div>
+
+        <!-- 中部主体：极具冲击力的左侧巨号 + 右侧严谨论证 -->
+        <div class="grid grid-cols-12 gap-10 flex-1 items-center py-6">
+          <!-- 左侧：超大数字排版 -->
+          <div class="col-span-5 flex flex-col justify-center border-r border-[var(--hairline)] pr-10">
+            <div class="font-typewriter text-xs uppercase tracking-widest text-[var(--ink-stamp)] font-bold mb-1">
+              THE ULTIMATE ARBITER
+            </div>
+            <!-- 极精细巨号 51% -->
+            <div id="s3-number" class="font-editorial-serif text-[150px] leading-[0.88] font-light text-[var(--board-text)] tracking-tighter" data-editable="true" data-edit-id="s3-num">
+              51<span class="text-[72px] font-thin text-[var(--ink-stamp)]">%</span>
+            </div>
+            
+            <div class="border-t border-[var(--hairline)] pt-4 mt-4">
+              <div class="flex justify-between items-center text-xs font-typewriter text-[var(--board-muted)] mb-2">
+                <span>EMOTION</span>
+                <span>51%</span>
+              </div>
+              <!-- 极简长条比例轨 -->
+              <div class="w-full h-2 bg-neutral-300/40 rounded-full overflow-hidden flex">
+                <div class="h-full bg-[var(--ink-stamp)] w-[51%]"></div>
+                <div class="h-full bg-neutral-400 w-[49%]"></div>
+              </div>
+              <div class="flex justify-between text-[10px] font-typewriter text-[var(--board-muted)] mt-1.5">
+                <span class="text-[var(--ink-stamp)] font-bold">● 情感 (51%)</span>
+                <span>其他五项总和 (49%)</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- 右侧：深度论述与实战割舍准则 -->
+          <div class="col-span-7 pl-6 flex flex-col justify-center">
+            <h2 id="s3-headline" class="font-editorial-serif text-[34px] font-normal leading-tight text-[var(--board-text)] mb-5" data-editable="true" data-edit-id="s3-h2">
+              情感至上。<br>
+              <span class="italic font-light text-[var(--ink-stamp)]">最难言说，却最先被感知。</span>
+            </h2>
+
+            <div class="space-y-3 font-editorial-sans text-[14px] text-[var(--board-muted)] leading-relaxed" data-editable="true" data-edit-id="s3-text">
+              <p>
+                <strong class="font-semibold text-[var(--board-text)]">宁要穿帮的情感真实，不要工整的机械连贯。</strong> 只要观众为之屏息，就绝不碰它。
+              </p>
+            </div>
+
+            <!-- 三条实战判定条目 -->
+            <div class="mt-6 space-y-2 border-t border-[var(--hairline)] pt-4">
+              <div class="flex items-start gap-3 text-xs">
+                <span class="font-typewriter text-[var(--ink-stamp)] font-bold">01.</span>
+                <span class="text-[var(--board-text)]"><strong>真实胜于规整：</strong> 情绪高潮不遵从几何空间，遵从同理心脉动。</span>
+              </div>
+              <div class="flex items-start gap-3 text-xs">
+                <span class="font-typewriter text-[var(--ink-stamp)] font-bold">02.</span>
+                <span class="text-[var(--board-text)]"><strong>割舍铁律：</strong> 切勿为了修补几何跳切，削弱分毫情感张力。</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 底栏元数据 -->
+        <div class="flex items-center justify-between border-t border-[var(--hairline)] pt-3 text-[10px] font-typewriter text-[var(--board-muted)]">
+          <div>PRINCIPLE 01 // THE EMOTIONAL CONTINUITY</div>
+          <div>51 PERCENT THRESHOLD</div>
+          <div class="font-bold text-[var(--board-text)]">03 / 06</div>
+        </div>
+      </div>
+
+
+      <!-- ====================================================================
+           SLIDE 4: NESTED CONCENTRIC CIRCLES (嵌套同心圆分级图)
+           ==================================================================== -->
+      <div id="slide-4" class="slide-pane" data-slide="4">
+        <!-- 顶栏导引 -->
+        <div class="flex items-center justify-between border-b border-[var(--hairline)] pb-4">
+          <div class="flex items-center gap-3">
+            <span class="font-typewriter text-[10px] tracking-widest uppercase text-[var(--ink-stamp)] font-bold">[ HIERARCHY // THREE TIERS ]</span>
+            <span class="text-[var(--board-muted)] text-[10px] opacity-40">/</span>
+            <span class="font-typewriter text-[10px] tracking-wider text-[var(--board-muted)] uppercase">CONCENTRIC ARCHITECTURE</span>
+          </div>
+          <div class="font-typewriter text-[10px] text-[var(--board-muted)] tracking-widest uppercase">
+            FIGURE 04 — STRATIFIED PRIORITIES
+          </div>
+        </div>
+
+        <!-- 中部主体：左侧嵌套同心圆，右侧三层级卡片 -->
+        <div class="grid grid-cols-12 gap-8 flex-1 items-center py-6">
+          <!-- 左侧：嵌套同心圆 SVG -->
+          <div class="col-span-6 flex flex-col items-center justify-center">
+            <div id="s4-concentric-container" class="relative w-[370px] h-[370px] flex items-center justify-center">
+              <svg class="w-full h-full" viewBox="0 0 370 370" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <!-- 外层同心圆 (物理层 9%) -->
+                <circle cx="185" cy="185" r="170" stroke="currentColor" class="text-[var(--board-text)]" stroke-opacity="0.18" stroke-width="1.5" stroke-dasharray="4 4" />
+                
+                <!-- 中层同心圆 (感官层 17%) -->
+                <circle cx="185" cy="185" r="120" stroke="currentColor" class="text-[var(--board-text)]" stroke-opacity="0.35" stroke-width="1.5" />
+                
+                <!-- 内核同心圆 (灵魂层 74%) -->
+                <circle cx="185" cy="185" r="72" stroke="currentColor" class="text-[var(--ink-stamp)]" stroke-width="2" />
+                <!-- 浅底柔和微透填充，保证中心文字对比度 -->
+                <circle cx="185" cy="185" r="70" fill="currentColor" class="text-[var(--ink-stamp)]" fill-opacity="0.08" />
+
+                <!-- 垂直对齐刻度发丝线 -->
+                <line x1="185" y1="15" x2="185" y2="40" stroke="currentColor" class="text-[var(--board-text)]" stroke-opacity="0.25" stroke-width="1" />
+                <line x1="185" y1="65" x2="185" y2="90" stroke="currentColor" class="text-[var(--board-text)]" stroke-opacity="0.25" stroke-width="1" />
+                <line x1="185" y1="280" x2="185" y2="305" stroke="currentColor" class="text-[var(--board-text)]" stroke-opacity="0.25" stroke-width="1" />
+                <line x1="185" y1="330" x2="185" y2="355" stroke="currentColor" class="text-[var(--board-text)]" stroke-opacity="0.25" stroke-width="1" />
+              </svg>
+
+              <!-- 中心文字: 内核灵魂层 (高对比度精编) -->
+              <div class="absolute inset-0 flex flex-col items-center justify-center text-center pointer-events-none">
+                <span class="font-typewriter text-[9px] uppercase tracking-widest text-[var(--ink-stamp)] font-bold">CORE TIER</span>
+                <span class="font-editorial-serif text-[32px] font-normal leading-none text-[var(--board-text)] my-1">74%</span>
+                <span class="font-editorial-sans text-[11px] font-bold text-[var(--board-text)] tracking-wide">核心 · 灵魂层</span>
+              </div>
+
+              <!-- 中环标签: 感官层 (统一中英规范) -->
+              <div class="absolute top-[34px] left-1/2 -translate-x-1/2 bg-[var(--board-bg)] px-2.5 py-0.5 border border-[var(--hairline)] rounded text-[10px] font-typewriter flex items-center gap-1.5 shadow-sm">
+                <span class="font-semibold text-[var(--board-text)]">中环 · 感官层</span>
+                <span class="text-[var(--board-muted)] opacity-60">|</span>
+                <span class="font-bold text-[var(--board-text)]">17%</span>
+              </div>
+
+              <!-- 外环标签: 物理层 (统一中英规范) -->
+              <div class="absolute bottom-[6px] left-1/2 -translate-x-1/2 bg-[var(--board-bg)] px-2.5 py-0.5 border border-[var(--hairline)] rounded text-[10px] font-typewriter flex items-center gap-1.5 shadow-sm">
+                <span class="font-semibold text-[var(--board-text)]">外环 · 物理层</span>
+                <span class="text-[var(--board-muted)] opacity-60">|</span>
+                <span class="font-bold text-[var(--board-text)]">9%</span>
+              </div>
+            </div>
+            <div class="text-center font-typewriter text-[10px] text-[var(--board-muted)] mt-2">
+              FIG 4.1 — 六原则按心理认知深度的三层嵌套模型
+            </div>
+          </div>
+
+          <!-- 右侧：三层阶梯解析卡片 (极简发丝排版) -->
+          <div class="col-span-6 space-y-2.5">
+            <!-- Tier 1: 灵魂层 (74%) -->
+            <div class="p-3 border-l-2 border-[var(--ink-stamp)] bg-[var(--card-bg)] shadow-sm rounded-r">
+              <div class="flex items-center justify-between mb-1.5">
+                <span class="font-typewriter text-[10px] uppercase font-bold text-[var(--ink-stamp)]">TIER 01 // 灵魂内核 (74%)</span>
+                <span class="font-typewriter text-xs font-bold text-[var(--ink-stamp)]">EMOTION + STORY</span>
+              </div>
+              <h3 class="font-editorial-serif text-base font-semibold text-[var(--card-text)] mb-1">情感共振 (51%) 与 叙事逻辑推进 (23%)</h3>
+              <p class="font-editorial-sans text-xs text-[var(--card-muted)] leading-relaxed">
+                统治级核心。二者立，则电影立；一切技术失误皆可原谅。
+              </p>
+            </div>
+
+            <!-- Tier 2: 感官层 (17%) -->
+            <div class="p-3 border-l-2 border-[var(--board-text)] bg-[var(--card-bg)] shadow-sm rounded-r">
+              <div class="flex items-center justify-between mb-1.5">
+                <span class="font-typewriter text-[10px] uppercase font-bold text-[var(--board-text)]">TIER 02 // 感官生理导轨 (17%)</span>
+                <span class="font-typewriter text-xs font-semibold text-[var(--board-text)]">RHYTHM + EYE TRACE</span>
+              </div>
+              <h3 class="font-editorial-serif text-base font-semibold text-[var(--card-text)] mb-1">视听节奏 (10%) 与 视线焦点引导 (7%)</h3>
+              <p class="font-editorial-sans text-xs text-[var(--card-muted)] leading-relaxed">
+                神经生理桥梁。平滑视觉能量，避免视线无序搜寻。
+              </p>
+            </div>
+
+            <!-- Tier 3: 物理层 (9%) -->
+            <div class="p-3 border-l-2 border-neutral-300 bg-[var(--card-bg)] shadow-sm rounded-r">
+              <div class="flex items-center justify-between mb-1.5">
+                <span class="font-typewriter text-[10px] uppercase font-semibold text-[var(--card-muted)]">TIER 03 // 几何物理坐标 (9%)</span>
+                <span class="font-typewriter text-xs text-[var(--card-muted)]">2D PLANE + 3D SPACE</span>
+              </div>
+              <h3 class="font-editorial-serif text-base font-semibold text-[var(--card-text)] mb-1">二维轴线 (5%) 与 三维真实空间 (4%)</h3>
+              <p class="font-editorial-sans text-xs text-[var(--card-muted)] leading-relaxed">
+                外围机械规则。遇冲突时，永远先行割舍。
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- 底栏元数据 -->
+        <div class="flex items-center justify-between border-t border-[var(--hairline)] pt-3 text-[10px] font-typewriter text-[var(--board-muted)]">
+          <div>HIERARCHICAL WEIGHT ANALYSIS</div>
+          <div>IN THE BLINK OF AN EYE · PAGE 18</div>
+          <div class="font-bold text-[var(--board-text)]">04 / 06</div>
+        </div>
+      </div>
+
+
+      <!-- ====================================================================
+           SLIDE 5: SIDE-RULE COLUMNS (发丝细线侧栏三列导轨: 视线 7% / 平面 5% / 空间 4%)
+           ==================================================================== -->
+      <div id="slide-5" class="slide-pane" data-slide="5">
+        <!-- 顶栏导引 -->
+        <div class="flex items-center justify-between border-b border-[var(--hairline)] pb-4">
+          <div class="flex items-center gap-3">
+            <span class="font-typewriter text-[10px] tracking-widest uppercase text-[var(--ink-stamp)] font-bold">[ CRITERIA 04 - 06 // SPATIAL MATRIX ]</span>
+            <span class="text-[var(--board-muted)] text-[10px] opacity-40">/</span>
+            <span class="font-typewriter text-[10px] tracking-wider text-[var(--board-muted)] uppercase">THE PHYSICAL THREE</span>
+          </div>
+          <div class="font-typewriter text-[10px] text-[var(--board-muted)] tracking-widest uppercase">
+            SIDE-RULE COLUMNAR LAYOUT
+          </div>
+        </div>
+
+        <!-- 标题引语 -->
+        <div class="py-4 border-b border-[var(--hairline)]">
+          <div class="flex items-baseline justify-between">
+            <h2 id="s5-h2" class="font-editorial-serif text-[26px] font-normal text-[var(--board-text)]" data-editable="true" data-edit-id="s5-h2">
+              物理三维与视线矩阵：<span class="italic font-light text-[var(--board-muted)]">何时遵循，何时悍然打破</span>
+            </h2>
+            <span class="font-typewriter text-xs text-[var(--board-muted)]">CUMULATIVE WEIGHT: 16%</span>
+          </div>
+        </div>
+
+        <!-- 中部主体：发丝细线三列导轨排版 -->
+        <div class="grid grid-cols-3 gap-0 divide-x divide-[var(--hairline)] flex-1 py-4">
+          
+          <!-- 列 1: Eye Trace (视线引导 7%) -->
+          <div class="pr-8 flex flex-col justify-between">
+            <div>
+              <div class="flex items-center justify-between mb-3">
+                <span class="font-typewriter text-[10px] uppercase font-bold text-[var(--ink-stamp)]">PRINCIPLE 04</span>
+                <span class="font-typewriter text-sm font-bold text-[var(--board-text)]">7%</span>
+              </div>
+              <h3 class="font-editorial-serif text-xl font-medium text-[var(--board-text)] mb-3" data-editable="true" data-edit-id="s5-c1-h">
+                视线焦点留存<br>
+                <span class="italic font-light text-sm text-[var(--board-muted)]">Eye-Trace Guidance</span>
+              </h3>
+              <p class="font-editorial-sans text-xs text-[var(--board-muted)] leading-relaxed mb-4" data-editable="true" data-edit-id="s5-c1-p">
+                焦点平滑落位，跨切点落差不宜超过视界 15%。
+              </p>
+            </div>
+            
+            <div class="border-t border-[var(--hairline)] pt-3 text-[11px] font-editorial-sans">
+              <span class="font-typewriter text-[9px] uppercase text-[var(--board-muted)] block mb-1">PRACTICAL RULE</span>
+              <div class="text-[var(--board-text)] font-medium">落差过大将产生 250ms 搜寻延迟，导致节奏断崖。</div>
+            </div>
+          </div>
+
+          <!-- 列 2: Two-Dimensional Plane (二维轴线 5%) -->
+          <div class="px-8 flex flex-col justify-between">
+            <div>
+              <div class="flex items-center justify-between mb-3">
+                <span class="font-typewriter text-[10px] uppercase font-semibold text-[var(--board-muted)]">PRINCIPLE 05</span>
+                <span class="font-typewriter text-sm font-semibold text-[var(--board-text)]">5%</span>
+              </div>
+              <h3 class="font-editorial-serif text-xl font-medium text-[var(--board-text)] mb-3" data-editable="true" data-edit-id="s5-c2-h">
+                二维轴线矢量<br>
+                <span class="italic font-light text-sm text-[var(--board-muted)]">Two-Dimensional Plane</span>
+              </h3>
+              <p class="font-editorial-sans text-xs text-[var(--board-muted)] leading-relaxed mb-4" data-editable="true" data-edit-id="s5-c2-p">
+                二维屏幕矢量映射。决定观众大脑的空间朝向。
+              </p>
+            </div>
+
+            <div class="border-t border-[var(--hairline)] pt-3 text-[11px] font-editorial-sans">
+              <span class="font-typewriter text-[9px] uppercase text-[var(--board-muted)] block mb-1">PRACTICAL RULE</span>
+              <div class="text-[var(--board-text)] font-medium">情绪激烈反转时，主动越轴能带来惊艳震颤。</div>
+            </div>
+          </div>
+
+          <!-- 列 3: Three-Dimensional Space (三维空间 4%) -->
+          <div class="pl-8 flex flex-col justify-between">
+            <div>
+              <div class="flex items-center justify-between mb-3">
+                <span class="font-typewriter text-[10px] uppercase font-semibold text-[var(--board-muted)]">PRINCIPLE 06</span>
+                <span class="font-typewriter text-sm font-semibold text-[var(--board-text)]">4%</span>
+              </div>
+              <h3 class="font-editorial-serif text-xl font-medium text-[var(--board-text)] mb-3" data-editable="true" data-edit-id="s5-c3-h">
+                三维真实空间<br>
+                <span class="italic font-light text-sm text-[var(--board-muted)]">Three-Dimensional Space</span>
+              </h3>
+              <p class="font-editorial-sans text-xs text-[var(--board-muted)] leading-relaxed mb-4" data-editable="true" data-edit-id="s5-c3-p">
+                最低顺位项。在剪辑台上，它是最先被牺牲的法则。
+              </p>
+            </div>
+
+            <div class="border-t border-[var(--hairline)] pt-3 text-[11px] font-editorial-sans">
+              <span class="font-typewriter text-[9px] uppercase text-[var(--board-muted)] block mb-1">PRACTICAL RULE</span>
+              <div class="text-[var(--board-text)] font-medium">不因物理位移切镜头；仅在具备戏剧张力时动刀。</div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- 底栏元数据 -->
+        <div class="flex items-center justify-between border-t border-[var(--hairline)] pt-3 text-[10px] font-typewriter text-[var(--board-muted)]">
+          <div>THREE PHYSICAL ATTRIBUTES // MATRIX ANALYSIS</div>
+          <div>TOTAL WEIGHT: 16%</div>
+          <div class="font-bold text-[var(--board-text)]">05 / 06</div>
+        </div>
+      </div>
+
+
+      <!-- ====================================================================
+           SLIDE 6: UNFRAMED EPILOGUE (纯粹无框 · 静奢意犹未尽)
+           全页字数预算: ≤ 25 字 | 彻底无框，开阔非对称呼吸
+           ==================================================================== -->
+      <div id="slide-6" class="slide-pane" data-slide="6">
+        <!-- 顶栏导引 -->
+        <div class="flex items-center justify-between border-b border-[var(--hairline)] pb-4">
+          <div class="flex items-center gap-3">
+            <span class="font-typewriter text-[10px] tracking-widest uppercase text-[var(--ink-stamp)] font-bold">[ EPILOGUE // THE RESIDUAL ]</span>
+            <span class="text-[var(--board-muted)] text-[10px] opacity-40">/</span>
+            <span class="font-typewriter text-[10px] tracking-wider text-[var(--board-muted)] uppercase">DOCTRINE SUMMARY</span>
+          </div>
+          <div class="font-typewriter text-[10px] text-[var(--board-muted)] tracking-widest uppercase">
+            FIGURE 06 — OPEN CANON
+          </div>
+        </div>
+
+        <!-- 中部主体：彻底无框非对称排版 (无卡片框、无四角交叉线) -->
+        <div class="grid grid-cols-12 gap-12 flex-1 items-center py-6">
+          <div class="col-span-8 pr-6 flex flex-col justify-center">
+            <span class="font-typewriter text-[10px] uppercase tracking-widest text-[var(--ink-stamp)] font-bold mb-4 block">
+              FINAL THESIS // 终局真理
+            </span>
+
+            <h2 id="s6-h2" class="font-editorial-serif text-[48px] font-normal text-[var(--board-text)] leading-[1.16] mb-6 tracking-tight" data-editable="true" data-edit-id="s6-h2">
+              “剪辑不是拼图，<br>
+              <span class="italic font-light text-[var(--ink-stamp)]">而在流逝中寻找呼吸的切口。</span>”
+            </h2>
+
+            <p id="s6-summary" class="font-editorial-sans text-sm text-[var(--board-muted)] leading-relaxed max-w-[560px]" data-editable="true" data-edit-id="s6-p">
+              六原则不是禁锢灵感的铁锁，而是在迷雾中辨识优先级的罗盘。
+            </p>
+          </div>
+
+          <!-- 右侧轻细导引栏 -->
+          <div class="col-span-4 border-l border-[var(--hairline)] pl-8 flex flex-col justify-center space-y-4 text-xs font-editorial-sans">
+            <div class="font-typewriter text-[10px] uppercase tracking-widest text-[var(--board-muted)] border-b border-[var(--hairline)] pb-2">
+              HIERARCHY RECAP
+            </div>
+            <div class="space-y-2 font-typewriter text-[11px] text-[var(--board-muted)]">
+              <div class="flex justify-between text-[var(--board-text)] font-semibold">
+                <span>01. EMOTION</span>
+                <span class="text-[var(--ink-stamp)] font-bold">51%</span>
+              </div>
+              <div class="flex justify-between">
+                <span>02. STORY</span>
+                <span>23%</span>
+              </div>
+              <div class="flex justify-between">
+                <span>03. RHYTHM</span>
+                <span>10%</span>
+              </div>
+              <div class="flex justify-between">
+                <span>04. EYE TRACE</span>
+                <span>7%</span>
+              </div>
+              <div class="flex justify-between">
+                <span>05. 2D PLANE</span>
+                <span>5%</span>
+              </div>
+              <div class="flex justify-between">
+                <span>06. 3D SPACE</span>
+                <span>4%</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 底栏元数据 -->
+        <div class="flex items-center justify-between border-t border-[var(--hairline)] pt-3 text-[10px] font-typewriter text-[var(--board-muted)]">
+          <div>WALTER MURCH (1995)</div>
+          <div>IN THE BLINK OF AN EYE · SILMAN-JAMES PRESS</div>
+          <div class="font-bold text-[var(--board-text)]">06 / 06</div>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- 底部固定悬浮导航栏 -->
+  <footer id="deck-nav" class="h-14 border-t border-[rgba(28,25,23,0.1)] bg-[var(--board-bg)] px-8 flex items-center justify-between text-xs z-30 transition-colors">
+    <div class="flex items-center gap-3">
+      <button id="btn-prev" class="px-3 py-1.5 rounded border border-neutral-300 hover:bg-neutral-100 active:scale-95 text-neutral-800 transition font-medium flex items-center gap-1">
+        <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
+        <span>上一页</span>
+      </button>
+      <button id="btn-next" class="px-3.5 py-1.5 rounded bg-[var(--board-text)] text-[var(--board-bg)] hover:opacity-90 active:scale-95 transition font-semibold flex items-center gap-1 shadow-sm">
+        <span>下一页</span>
+        <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+      </button>
+    </div>
+
+    <!-- 幻灯片指示圆点 -->
+    <div id="deck-indicators" class="flex items-center gap-2">
+      <!-- JS 自动生成指示点 -->
+    </div>
+
+    <!-- 状态指示 -->
+    <div class="flex items-center gap-3 font-typewriter text-[11px] text-[var(--board-muted)]">
+      <span id="current-slide-label" class="font-bold text-[var(--board-text)]">01 / 06</span>
+      <span class="opacity-40">|</span>
+      <span>16:9 FIXED RATIO</span>
+    </div>
+  </footer>
+
+  <!-- 右侧色彩与版式调校抽屉 (Live Tune Drawer) -->
+  <div id="drawer" class="fixed top-0 right-0 h-full w-80 bg-white border-l border-neutral-200 shadow-2xl z-50 transform translate-x-full transition-transform duration-300 ease-in-out p-6 flex flex-col justify-between overflow-y-auto">
+    <div>
+      <div class="flex items-center justify-between pb-4 border-b border-neutral-200">
+        <div>
+          <h3 class="font-editorial-serif text-lg font-bold text-neutral-900">静奢编辑调校</h3>
+          <p class="text-[11px] text-neutral-500 font-typewriter">Minimal Editorial Master Palettes</p>
+        </div>
+        <button id="btn-close-drawer" class="p-1 rounded hover:bg-neutral-100 text-neutral-400 hover:text-neutral-700 transition">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+        </button>
+      </div>
+
+      <!-- 静奢编辑 6 大经典暖中性母色 -->
+      <div class="mt-6">
+        <label class="block text-xs font-typewriter uppercase tracking-wider text-neutral-500 font-semibold mb-3">
+          WARM NEUTRAL PALETTES (6 经典色调)
+        </label>
+        <div id="palette-selector-grid" class="grid grid-cols-1 gap-2.5">
+          <!-- JS 动态渲染 6 款静奢暖中性母色 -->
+        </div>
+      </div>
+
+      <!-- 快捷操作说明 -->
+      <div class="mt-6 pt-5 border-t border-neutral-200">
+        <label class="block text-xs font-typewriter uppercase tracking-wider text-neutral-500 font-semibold mb-2">
+          SHORTCUT CONTROLS
+        </label>
+        <div class="space-y-1.5 text-xs text-neutral-600 font-typewriter">
+          <div class="flex justify-between"><span>[ Space / → ]</span><span>下一页</span></div>
+          <div class="flex justify-between"><span>[ ← ]</span><span>上一页</span></div>
+          <div class="flex justify-between"><span>[ F ]</span><span>全屏放映模式</span></div>
+          <div class="flex justify-between"><span>[ R ]</span><span>重播当前页入场动画</span></div>
+          <div class="flex justify-between"><span>[ E ]</span><span>开启 / 退出文案直编</span></div>
+          <div class="flex justify-between"><span>[ Cmd + S ]</span><span>保存文案到本地</span></div>
+          <div class="flex justify-between"><span>[ P ]</span><span>原生 16:9 PDF 打印</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="pt-6 border-t border-neutral-200 space-y-2.5">
+      <button id="drawer-btn-export-clean" class="w-full py-2 bg-[var(--board-text)] text-[var(--board-bg)] hover:opacity-90 text-xs font-semibold rounded transition flex items-center justify-center gap-1.5 shadow-sm" title="烘焙当前所有文案修改与母色变量，导出纯净版 HTML">
+        <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
+        <span>导出纯净版 HTML (烘焙母色与文案)</span>
+      </button>
+      <button id="drawer-btn-export-pdf" class="w-full py-2 border border-neutral-300 text-neutral-800 hover:bg-neutral-100 text-xs font-semibold rounded transition flex items-center justify-center gap-1.5" title="导出全部 6 页 16:9 PDF">
+        <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z"></path></svg>
+        <span>打印 / 导出全部 6 页 16:9 PDF</span>
+      </button>
+      <button id="btn-clear-edits" class="w-full py-1.5 border border-red-200 text-red-600 hover:bg-red-50 text-[11px] font-medium rounded transition">
+        恢复默认文案与设置
+      </button>
+    </div>
+  </div>
+
+  <!-- Toast 消息浮层 -->
+  <div id="deck-toast" class="fixed bottom-16 left-1/2 -translate-x-1/2 px-4 py-2 bg-neutral-900/90 backdrop-blur-md text-white text-xs font-medium rounded-full shadow-lg pointer-events-none opacity-0 -translate-y-2 transition-all duration-300 z-50 flex items-center gap-2">
+    <span id="deck-toast-msg">提示消息</span>
+  </div>
+
+  <!-- ====================================================================
+       INTERACTIVE ENGINE SCRIPT (固定 16:9、GSAP 动效、键盘事件、本地存储)
+       ==================================================================== -->
+  <script>
+    // 6 大经典静奢中性母色表
+    const editorialPalettes = {
+      'ecru-charcoal': {
+        name: 'Ecru & Charcoal (原胚冷炭)',
+        bgStage: '#EAE6DF',
+        boardBg: '#F5F2EB',
+        boardText: '#1C1917',
+        boardMuted: '#706E6B',
+        boardBorder: 'rgba(28, 25, 23, 0.12)',
+        cardBg: '#FFFFFF',
+        cardText: '#1C1917',
+        cardMuted: '#6B6864',
+        inkStamp: '#9C4A2F',
+        borderInk: 'rgba(28, 25, 23, 0.10)',
+        hairline: 'rgba(28, 25, 23, 0.14)',
+        accent: '#9C4A2F'
+      },
+      'alabaster-olive': {
+        name: 'Alabaster & Olive (雪花深榄)',
+        bgStage: '#E8E8E4',
+        boardBg: '#F4F4F0',
+        boardText: '#232B25',
+        boardMuted: '#657367',
+        boardBorder: 'rgba(35, 43, 37, 0.12)',
+        cardBg: '#FFFFFF',
+        cardText: '#232B25',
+        cardMuted: '#58635A',
+        inkStamp: '#4A5D4E',
+        borderInk: 'rgba(35, 43, 37, 0.10)',
+        hairline: 'rgba(35, 43, 37, 0.14)',
+        accent: '#4A5D4E'
+      },
+      'sand-umber': {
+        name: 'Sand & Raw Umber (细沙生赭)',
+        bgStage: '#ECE7DF',
+        boardBg: '#F7F3EC',
+        boardText: '#2C2523',
+        boardMuted: '#7A6E6A',
+        boardBorder: 'rgba(44, 37, 35, 0.12)',
+        cardBg: '#FFFFFF',
+        cardText: '#2C2523',
+        cardMuted: '#726763',
+        inkStamp: '#8C5835',
+        borderInk: 'rgba(44, 37, 35, 0.10)',
+        hairline: 'rgba(44, 37, 35, 0.14)',
+        accent: '#8C5835'
+      },
+      'parchment-navy': {
+        name: 'Parchment & Navy (羊皮群青)',
+        bgStage: '#E5E7EB',
+        boardBg: '#F3F1ED',
+        boardText: '#152238',
+        boardMuted: '#5D6B82',
+        boardBorder: 'rgba(21, 34, 56, 0.12)',
+        cardBg: '#FFFFFF',
+        cardText: '#152238',
+        cardMuted: '#5A667A',
+        inkStamp: '#2C4263',
+        borderInk: 'rgba(21, 34, 56, 0.10)',
+        hairline: 'rgba(21, 34, 56, 0.14)',
+        accent: '#2C4263'
+      },
+      'chalk-slate': {
+        name: 'Chalk & Slate (白垩岩板)',
+        bgStage: '#E2E4E6',
+        boardBg: '#EDEDED',
+        boardText: '#202426',
+        boardMuted: '#687278',
+        boardBorder: 'rgba(32, 36, 38, 0.12)',
+        cardBg: '#FFFFFF',
+        cardText: '#202426',
+        cardMuted: '#5F686D',
+        inkStamp: '#4B5861',
+        borderInk: 'rgba(32, 36, 38, 0.10)',
+        hairline: 'rgba(32, 36, 38, 0.14)',
+        accent: '#4B5861'
+      },
+      'cream-espresso': {
+        name: 'Cream & Espresso (暖乳浓缩)',
+        bgStage: '#EDE7DE',
+        boardBg: '#F9F6F0',
+        boardText: '#211A18',
+        boardMuted: '#6F615C',
+        boardBorder: 'rgba(33, 26, 24, 0.12)',
+        cardBg: '#FFFFFF',
+        cardText: '#211A18',
+        cardMuted: '#6B5E59',
+        inkStamp: '#5E3023',
+        borderInk: 'rgba(33, 26, 24, 0.10)',
+        hairline: 'rgba(33, 26, 24, 0.14)',
+        accent: '#5E3023'
+      }
+    };
+
+    const TOTAL_SLIDES = 6;
+    let currentSlide = 1;
+    let isEditingMode = false;
+    let slideTimelines = {};
+
+    const STORAGE_KEY = 'minimal_editorial_rule_of_six_edits_v1';
+    const CONFIG_KEY = 'minimal_editorial_deck_config_v1';
+
+    let deckConfig = {
+      palette: 'ecru-charcoal'
+    };
+
+    // 16:9 画布等比 Transform 缩放适配
+    function updateStageScale() {
+      const wrap = document.getElementById('deck-viewport-wrap');
+      const stage = document.getElementById('deck-stage');
+      if (!wrap || !stage) return;
+
+      const availW = wrap.clientWidth;
+      const availH = wrap.clientHeight;
+      const padding = document.body.classList.contains('is-fullscreen') ? 0 : 32;
+
+      const maxW = Math.max(100, availW - padding);
+      const maxH = Math.max(100, availH - padding);
+
+      const scale = Math.min(maxW / 1280, maxH / 720);
+      stage.style.transform = `translate(-50%, -50%) scale(${scale})`;
+    }
+
+    window.addEventListener('resize', updateStageScale);
+
+    // 应用色调
+    function applyPalette(key, animate = true) {
+      const p = editorialPalettes[key];
+      if (!p) return;
+      deckConfig.palette = key;
+      saveDeckConfig();
+
+      const root = document.documentElement;
+      root.style.setProperty('--bg-stage', p.bgStage);
+      root.style.setProperty('--board-bg', p.boardBg);
+      root.style.setProperty('--board-text', p.boardText);
+      root.style.setProperty('--board-muted', p.boardMuted);
+      root.style.setProperty('--board-border', p.boardBorder);
+      root.style.setProperty('--card-bg', p.cardBg);
+      root.style.setProperty('--card-text', p.cardText);
+      root.style.setProperty('--card-muted', p.cardMuted);
+      root.style.setProperty('--ink-stamp', p.inkStamp);
+      root.style.setProperty('--border-ink', p.borderInk);
+      root.style.setProperty('--hairline', p.hairline);
+      root.style.setProperty('--accent', p.accent);
+
+      document.body.style.backgroundColor = p.bgStage;
+
+      // 更新调色板选中高亮
+      document.querySelectorAll('.palette-btn').forEach(btn => {
+        if (btn.dataset.palette === key) {
+          btn.classList.add('ring-2', 'ring-neutral-900', 'border-neutral-900');
+        } else {
+          btn.classList.remove('ring-2', 'ring-neutral-900', 'border-neutral-900');
+        }
+      });
+    }
+
+    function renderPaletteButtons() {
+      const container = document.getElementById('palette-selector-grid');
+      if (!container) return;
+      container.innerHTML = '';
+
+      Object.keys(editorialPalettes).forEach(key => {
+        const p = editorialPalettes[key];
+        const btn = document.createElement('button');
+        btn.className = `palette-btn w-full p-2.5 rounded border border-neutral-200 text-left flex items-center justify-between hover:bg-neutral-50 transition ${deckConfig.palette === key ? 'ring-2 ring-neutral-900 border-neutral-900' : ''}`;
+        btn.dataset.palette = key;
+        btn.innerHTML = `
+          <div class="flex items-center gap-2.5">
+            <div class="w-5 h-5 rounded border border-neutral-300 flex overflow-hidden shadow-inner">
+              <span class="w-1/2 h-full" style="background-color: ${p.boardBg};"></span>
+              <span class="w-1/2 h-full" style="background-color: ${p.inkStamp};"></span>
+            </div>
+            <span class="text-xs font-editorial-sans font-medium text-neutral-800">${p.name}</span>
+          </div>
+          <span class="text-[10px] font-typewriter text-neutral-400 uppercase">${p.inkStamp}</span>
+        `;
+        btn.addEventListener('click', () => applyPalette(key));
+        container.appendChild(btn);
+      });
+    }
+
+    // GSAP 幻灯片进场动效
+    function playSlideAnimation(slideIndex) {
+      if (slideTimelines[slideIndex]) {
+        slideTimelines[slideIndex].kill();
+      }
+
+      const slide = document.getElementById(`slide-${slideIndex}`);
+      if (!slide) return;
+
+      const tl = gsap.timeline();
+      slideTimelines[slideIndex] = tl;
+
+      if (slideIndex === 1) {
+        tl.fromTo(slide.querySelector('#s1-subtitle'), { y: 15, opacity: 0 }, { y: 0, opacity: 1, duration: 0.5, ease: 'power2.out' })
+          .fromTo(slide.querySelector('#s1-title'), { y: 25, opacity: 0 }, { y: 0, opacity: 1, duration: 0.7, ease: 'power2.out' }, '-=0.3')
+          .fromTo(slide.querySelector('#s1-lead'), { y: 15, opacity: 0 }, { y: 0, opacity: 1, duration: 0.5, ease: 'power2.out' }, '-=0.4')
+          .fromTo(slide.querySelector('#s1-quote-box'), { x: -20, opacity: 0 }, { x: 0, opacity: 1, duration: 0.6, ease: 'power2.out' }, '-=0.3')
+          .fromTo(slide.querySelectorAll('#s1-toc-list > div'), { x: 20, opacity: 0 }, { x: 0, opacity: 1, duration: 0.45, stagger: 0.08, ease: 'power2.out' }, '-=0.5');
+      } else if (slideIndex === 2) {
+        tl.fromTo(slide.querySelector('#s2-loop-svg-container ellipse'), { opacity: 0 }, { opacity: 0.15, duration: 0.4, ease: 'power2.out' })
+          .fromTo(slide.querySelectorAll('#s2-loop-svg-container path'), { opacity: 0 }, { opacity: 1, duration: 0.35, stagger: 0.05, ease: 'power2.out' }, '-=0.2')
+          .fromTo(slide.querySelectorAll('.s2-node'), { scale: 0.9, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.35, stagger: 0.06, ease: 'power2.out' }, '-=0.2')
+          .fromTo(slide.querySelector('#s2-h2'), { y: 12, opacity: 0 }, { y: 0, opacity: 1, duration: 0.4, ease: 'power2.out' }, '-=0.2')
+          .fromTo(slide.querySelector('[data-edit-id="s2-body"]'), { y: 10, opacity: 0 }, { y: 0, opacity: 1, duration: 0.35, ease: 'power2.out' }, '-=0.2');
+      } else if (slideIndex === 3) {
+        tl.fromTo(slide.querySelector('#s3-number'), { scale: 0.9, y: 30, opacity: 0 }, { scale: 1, y: 0, opacity: 1, duration: 0.8, ease: 'power3.out' })
+          .fromTo(slide.querySelector('.w-full.h-2 > div:first-child'), { width: '0%' }, { width: '51%', duration: 0.9, ease: 'power2.out' }, '-=0.5')
+          .fromTo(slide.querySelector('#s3-headline'), { y: 20, opacity: 0 }, { y: 0, opacity: 1, duration: 0.6, ease: 'power2.out' }, '-=0.6')
+          .fromTo(slide.querySelectorAll('#slide-3 .space-y-2 > div'), { x: 15, opacity: 0 }, { x: 0, opacity: 1, duration: 0.45, stagger: 0.1, ease: 'power2.out' }, '-=0.3');
+      } else if (slideIndex === 4) {
+        tl.fromTo(slide.querySelectorAll('#s4-concentric-container circle'), { scale: 0.7, transformOrigin: 'center', opacity: 0 }, { scale: 1, opacity: 1, duration: 0.8, stagger: 0.15, ease: 'back.out(1.3)' })
+          .fromTo(slide.querySelectorAll('#slide-4 .space-y-4 > div'), { x: 25, opacity: 0 }, { x: 0, opacity: 1, duration: 0.55, stagger: 0.12, ease: 'power2.out' }, '-=0.6');
+      } else if (slideIndex === 5) {
+        tl.fromTo(slide.querySelector('#s5-h2'), { y: 15, opacity: 0 }, { y: 0, opacity: 1, duration: 0.5, ease: 'power2.out' })
+          .fromTo(slide.querySelectorAll('#slide-5 .grid-cols-3 > div'), { y: 25, opacity: 0 }, { y: 0, opacity: 1, duration: 0.6, stagger: 0.12, ease: 'power2.out' }, '-=0.3');
+      } else if (slideIndex === 6) {
+        tl.fromTo(slide.querySelector('.relative.w-\\[780px\\]'), { scale: 0.95, y: 20, opacity: 0 }, { scale: 1, y: 0, opacity: 1, duration: 0.75, ease: 'power2.out' })
+          .fromTo(slide.querySelector('#s6-h2'), { y: 15, opacity: 0 }, { y: 0, opacity: 1, duration: 0.6, ease: 'power2.out' }, '-=0.4')
+          .fromTo(slide.querySelector('#s6-summary'), { y: 15, opacity: 0 }, { y: 0, opacity: 1, duration: 0.5, ease: 'power2.out' }, '-=0.3');
+      }
+    }
+
+    // 页面跳转
+    function goToSlide(index) {
+      if (index < 1 || index > TOTAL_SLIDES || index === currentSlide) return;
+
+      const prevEl = document.getElementById(`slide-${currentSlide}`);
+      const nextEl = document.getElementById(`slide-${index}`);
+
+      if (prevEl) prevEl.classList.remove('active');
+      if (nextEl) nextEl.classList.add('active');
+
+      currentSlide = index;
+      updateUI();
+      playSlideAnimation(currentSlide);
+    }
+
+    function nextSlide() {
+      if (currentSlide < TOTAL_SLIDES) goToSlide(currentSlide + 1);
+    }
+
+    function prevSlide() {
+      if (currentSlide > 1) goToSlide(currentSlide - 1);
+    }
+
+    // UI 状态更新
+    function updateUI() {
+      const label = document.getElementById('current-slide-label');
+      if (label) label.textContent = `0${currentSlide} / 0${TOTAL_SLIDES}`;
+
+      const indicators = document.getElementById('deck-indicators');
+      if (indicators) {
+        indicators.innerHTML = '';
+        for (let i = 1; i <= TOTAL_SLIDES; i++) {
+          const dot = document.createElement('button');
+          dot.className = `w-2 h-2 rounded-full transition-all duration-300 ${i === currentSlide ? 'w-6 bg-[var(--board-text)]' : 'bg-neutral-400/40 hover:bg-neutral-500'}`;
+          dot.title = `第 ${i} 页`;
+          dot.addEventListener('click', () => goToSlide(i));
+          indicators.appendChild(dot);
+        }
+      }
+
+            const btnExportClean = document.getElementById('btn-export-clean');
+      const drawerBtnExportClean = document.getElementById('drawer-btn-export-clean');
+      if (btnExportClean) btnExportClean.addEventListener('click', exportCleanDeckHTML);
+      if (drawerBtnExportClean) drawerBtnExportClean.addEventListener('click', exportCleanDeckHTML);
+
+      const btnExportPdf = document.getElementById('btn-export-pdf');
+      const drawerBtnExportPdf = document.getElementById('drawer-btn-export-pdf');
+      if (btnExportPdf) btnExportPdf.addEventListener('click', () => window.print());
+      if (drawerBtnExportPdf) drawerBtnExportPdf.addEventListener('click', () => window.print());
+
+      const btnToggleFs = document.getElementById('btn-toggle-fs');
+      if (btnToggleFs) btnToggleFs.addEventListener('click', toggleFullScreen);
+
+      const btnPrev = document.getElementById('btn-prev');
+      const btnNext = document.getElementById('btn-next');
+      if (btnPrev) btnPrev.disabled = currentSlide === 1;
+      if (btnNext) btnNext.disabled = currentSlide === TOTAL_SLIDES;
+    }
+
+    // 行内直编模式
+    
+    // 全自动全量文案可编辑扫描引擎 (Zero-Omission Automated Text Scanner)
+    function autoRegisterEditableElements() {
+      document.querySelectorAll('.slide-pane').forEach((slide, sIdx) => {
+        const slideId = slide.dataset.slide || (sIdx + 1);
+        const candidates = slide.querySelectorAll('h1, h2, h3, h4, h5, h6, p, li, span, div, strong, em, b, i, a, blockquote, [data-editable="true"], .editable-text, .deck-text');
+        let counter = 0;
+
+        candidates.forEach(el => {
+          // 排除系统UI控制台、抽屉、导航、SVG内部、显式声明不编辑的元素
+          if (el.closest('svg') || el.closest('#deck-top-bar') || el.closest('#deck-nav') || el.closest('#drawer') || el.hasAttribute('data-no-edit') || el.classList.contains('crosshair')) return;
+
+          // 避免多重嵌套外层容器变成输入框：如果有结构性块子元素，跳过
+          const hasBlockChildren = Array.from(el.children).some(child => 
+            ['DIV', 'P', 'H1', 'H2', 'H3', 'H4', 'H5', 'H6', 'UL', 'OL', 'LI', 'SECTION', 'HEADER', 'FOOTER'].includes(child.tagName)
+          );
+          if (hasBlockChildren) return;
+
+          // 检查是否有实质性直接文本
+          let hasDirectText = false;
+          for (let node of el.childNodes) {
+            if (node.nodeType === Node.TEXT_NODE && node.textContent.trim().length > 0) {
+              hasDirectText = true;
+              break;
+            }
+          }
+
+          if (hasDirectText || el.classList.contains('editable-text') || el.classList.contains('deck-text') || el.getAttribute('data-editable') === 'true') {
+            counter++;
+            el.setAttribute('data-editable', 'true');
+            if (!el.getAttribute('data-edit-id')) {
+              el.setAttribute('data-edit-id', `s${slideId}_auto_${counter}`);
+            }
+            el.classList.add('deck-editable-node');
+          }
+        });
+      });
+    }
+  
+    function toggleEditMode(forceState) {
+      isEditingMode = forceState !== undefined ? forceState : !isEditingMode;
+      document.body.classList.toggle('is-editing-mode', isEditingMode);
+
+      document.querySelectorAll('[data-editable="true"], .editable-text, .deck-text').forEach(el => {
+        el.contentEditable = isEditingMode ? 'true' : 'false';
+        el.spellcheck = false;
+      });
+
+      const btnEdit = document.getElementById('btn-toggle-edit');
+      const text = document.getElementById('edit-mode-text');
+      if (btnEdit && text) {
+        if (isEditingMode) {
+          btnEdit.className = 'px-2.5 py-1 rounded text-[11px] font-bold cursor-pointer bg-[var(--ink-stamp)] text-white border border-[var(--ink-stamp)] flex items-center gap-1 shadow-sm';
+          text.textContent = '退出编辑 (Cmd+S)';
+          showToast('✏️ 已开启文字直编，按 Cmd+S 保存修改');
+        } else {
+          btnEdit.className = 'px-2.5 py-1 rounded text-[11px] font-medium border border-neutral-300 hover:bg-neutral-100 text-neutral-700 transition flex items-center gap-1';
+          text.textContent = '编辑文案';
+          saveEditsToLocalStorage();
+        }
+      }
+    }
+
+    function saveEditsToLocalStorage(silent = false) {
+      try {
+        const edits = {};
+        document.querySelectorAll('[data-edit-id]').forEach(el => {
+          edits[el.dataset.editId] = el.innerHTML;
+        });
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(edits));
+        if (!silent) showToast('✅ 剪辑文案已保存至本地，刷新依然保留！');
+      } catch (e) {
+        console.warn('Save failed:', e);
+      }
+    }
+
+    function loadEditsFromLocalStorage() {
+      try {
+        const saved = localStorage.getItem(STORAGE_KEY);
+        if (!saved) return;
+        const edits = JSON.parse(saved);
+        Object.keys(edits).forEach(id => {
+          const el = document.querySelector(`[data-edit-id="${id}"]`);
+          if (el) el.innerHTML = edits[id];
+        });
+      } catch (e) {
+        console.warn('Load failed:', e);
+      }
+    }
+
+    function saveDeckConfig() {
+      try { localStorage.setItem(CONFIG_KEY, JSON.stringify(deckConfig)); } catch (e) {}
+    }
+
+    function loadDeckConfig() {
+      try {
+        const saved = localStorage.getItem(CONFIG_KEY);
+        if (!saved) return;
+        const cfg = JSON.parse(saved);
+        if (cfg.palette && editorialPalettes[cfg.palette]) deckConfig.palette = cfg.palette;
+      } catch (e) {}
+    }
+
+    function showToast(msg, duration = 2400) {
+      const toast = document.getElementById('deck-toast');
+      const msgEl = document.getElementById('deck-toast-msg');
+      if (!toast || !msgEl) return;
+      msgEl.textContent = msg;
+      toast.classList.remove('opacity-0', '-translate-y-2');
+      toast.classList.add('opacity-100', 'translate-y-0');
+      clearTimeout(window._toastTimer);
+      window._toastTimer = setTimeout(() => {
+        toast.classList.remove('opacity-100', 'translate-y-0');
+        toast.classList.add('opacity-0', '-translate-y-2');
+      }, duration);
+    }
+
+    // 初始化
+    
+    
+    // 原生全屏放映控制 (True Browser Fullscreen)
+    function toggleFullScreen() {
+      if (!document.fullscreenElement) {
+        document.documentElement.requestFullscreen().catch(err => {
+          console.warn('Fullscreen request rejected, using CSS fallback:', err);
+          document.body.classList.toggle('is-fullscreen');
+          updateStageScale();
+        });
+      } else {
+        if (document.exitFullscreen) {
+          document.exitFullscreen().catch(() => {});
+        }
+      }
+    }
+
+    document.addEventListener('fullscreenchange', () => {
+      if (document.fullscreenElement) {
+        document.body.classList.add('is-fullscreen');
+      } else {
+        document.body.classList.remove('is-fullscreen');
+      }
+      updateStageScale();
+    });
+
+    // 导出纯净版演示文稿 HTML (完全独立烘焙，无配置栏，任意设备离线可用)
+    function exportCleanDeckHTML() {
+      // 1. 采集当前所有编辑后的文本
+      const currentEdits = {};
+      document.querySelectorAll('[data-edit-id]').forEach(el => {
+        const id = el.getAttribute('data-edit-id');
+        currentEdits[id] = el.innerHTML;
+      });
+
+      // 2. 深度克隆舞台 DOM
+      const stageClone = document.getElementById('deck-stage').cloneNode(true);
+
+      // 将编辑后的文案直接改写进克隆节点的静态 innerHTML 中，并彻底剔除可编辑属性
+      stageClone.querySelectorAll('[data-edit-id]').forEach(el => {
+        const id = el.getAttribute('data-edit-id');
+        if (currentEdits[id] !== undefined) {
+          el.innerHTML = currentEdits[id];
+        }
+        el.removeAttribute('contenteditable');
+        el.removeAttribute('data-editable');
+        el.removeAttribute('spellcheck');
+        el.classList.remove('editable-text', 'deck-text');
+      });
+
+      // 重置幻灯片状态，确保第 1 页激活，其余隐藏
+      stageClone.querySelectorAll('.slide-pane').forEach((slide, idx) => {
+        if (idx === 0) {
+          slide.classList.add('active');
+        } else {
+          slide.classList.remove('active');
+        }
+      });
+
+      // 当前激活母色
+      const curPaletteKey = deckConfig.palette;
+      const paletteDict = editorialPalettes;
+      const curPal = paletteDict[curPaletteKey] || paletteDict[Object.keys(paletteDict)[0]];
+
+      // 获取演示标题
+      const pageTitle = document.querySelector('#s1-title')?.innerText?.replace(/\s+/g, ' ').trim() || '演示文稿';
+
+      // 提取入场动效函数源码
+      const animFuncStr = playSlideAnimation.toString();
+
+      // 构建完全自包含、纯净优雅的演示 HTML
+      const cleanHTML = `<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>` + pageTitle + ` · 静谧演示版</title>
+  <script src="https://cdn.tailwindcss.com"><\/script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"><\/script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Courier+Prime:ital,wght@0,400;0,700;1,400&family=Jost:wght@300;400;500;600&family=Noto+Serif+SC:wght@300;400;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=JetBrains+Mono:wght@400;500;700&family=Cinzel:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --board-bg: ` + curPal.boardBg + `;
+      --board-text: ` + curPal.boardText + `;
+      --board-muted: ` + curPal.boardMuted + `;
+      --border-ink: ` + curPal.borderInk + `;
+      --hairline: ` + curPal.hairline + `;
+      --accent-coral: ` + curPal.accentCoral + `;
+      --ink-stamp: ` + curPal.inkStamp + `;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      font-family: 'Jost', -apple-system, sans-serif;
+      background-color: var(--board-bg);
+      color: var(--board-text);
+      margin: 0;
+      padding: 0;
+      width: 100vw;
+      height: 100vh;
+      overflow: hidden;
+      user-select: none;
+      -webkit-font-smoothing: antialiased;
+      transition: background-color 0.4s ease;
+    }
+
+    .font-editorial-serif { font-family: 'Playfair Display', 'Noto Serif SC', serif; }
+    .font-typewriter { font-family: 'Courier Prime', monospace; }
+    .font-mono-data { font-family: 'JetBrains Mono', monospace; }
+    .font-cinzel { font-family: 'Cinzel', serif; }
+    .font-modern-sub { font-family: 'Jost', sans-serif; }
+
+    #deck-viewport-wrap {
+      position: fixed;
+      inset: 0;
+      width: 100vw;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      background-color: var(--board-bg);
+    }
+
+    #deck-stage {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      width: 1280px;
+      height: 720px;
+      transform-origin: center center;
+      transform: translate(-50%, -50%) scale(1);
+      background-color: var(--board-bg);
+      color: var(--board-text);
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+      border-radius: 3px;
+      overflow: hidden;
+    }
+
+    :fullscreen #deck-stage {
+      box-shadow: none !important;
+      border-radius: 0 !important;
+    }
+
+    .slide-pane {
+      position: absolute;
+      inset: 0;
+      width: 1280px;
+      height: 720px;
+      padding: 52px 64px 48px 64px;
+      box-sizing: border-box;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      opacity: 0;
+      pointer-events: none;
+      z-index: 5;
+    }
+    .slide-pane.active {
+      opacity: 1;
+      pointer-events: auto;
+      z-index: 10;
+    }
+
+    /* 底部悬浮指示胶囊 */
+    #deck-indicators-bar {
+      position: fixed;
+      bottom: 24px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 7px 18px;
+      border-radius: 9999px;
+      background: rgba(0, 0, 0, 0.22);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.3);
+      z-index: 50;
+      transition: opacity 0.4s ease, transform 0.3s ease;
+    }
+    #deck-indicators-bar.nav-idle {
+      opacity: 0.15;
+    }
+    #deck-indicators-bar:hover {
+      opacity: 1;
+    }
+    .deck-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 9999px;
+      background-color: var(--board-text);
+      opacity: 0.25;
+      cursor: pointer;
+      transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .deck-dot.active {
+      opacity: 1;
+      width: 22px;
+      background-color: var(--ink-stamp);
+    }
+    .deck-dot:hover {
+      opacity: 0.85;
+    }
+
+    /* 打印与导出 PDF 严格 16:9 规则 */
+    @media print {
+      @page {
+        size: 16in 9in;
+        margin: 0;
+      }
+      *, *::before, *::after {
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+      }
+      html, body {
+        background-color: var(--board-bg) !important;
+        width: 100% !important;
+        height: auto !important;
+        min-height: 100% !important;
+        overflow: visible !important;
+        margin: 0 !important;
+        padding: 0 !important;
+      }
+      #deck-indicators-bar {
+        display: none !important;
+      }
+      #deck-viewport-wrap {
+        display: block !important;
+        position: static !important;
+        width: 100% !important;
+        height: auto !important;
+        overflow: visible !important;
+        padding: 0 !important;
+        margin: 0 !important;
+      }
+      #deck-stage {
+        display: block !important;
+        position: static !important;
+        transform: none !important;
+        box-shadow: none !important;
+        border-radius: 0 !important;
+        width: 100% !important;
+        height: auto !important;
+        overflow: visible !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        background-color: transparent !important;
+      }
+      .slide-pane {
+        display: flex !important;
+        flex-direction: column !important;
+        justify-content: space-between !important;
+        position: relative !important;
+        inset: auto !important;
+        top: auto !important;
+        left: auto !important;
+        transform: none !important;
+        opacity: 1 !important;
+        visibility: visible !important;
+        pointer-events: auto !important;
+        width: 100vw !important;
+        height: 100vh !important;
+        min-height: 100vh !important;
+        max-height: 100vh !important;
+        box-sizing: border-box !important;
+        page-break-inside: avoid !important;
+        break-inside: avoid !important;
+        page-break-after: always !important;
+        break-after: page !important;
+        background-color: var(--board-bg) !important;
+      }
+      .slide-pane:last-child {
+        page-break-after: auto !important;
+        break-after: auto !important;
+      }
+      .slide-pane * {
+        opacity: 1 !important;
+        visibility: visible !important;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main id="deck-viewport-wrap">
+    ` + stageClone.outerHTML + `
+  </main>
+
+  <nav id="deck-indicators-bar" title="左右方向键翻页 / F 键全屏">
+    <div id="deck-indicators" class="flex items-center gap-2"></div>
+    <span id="deck-counter" class="font-typewriter text-[10px] opacity-60 ml-2"></span>
+  </nav>
+
+  <script>
+    let currentSlide = 1;
+    const TOTAL_SLIDES = document.querySelectorAll('.slide-pane').length;
+    const STAGE_W = 1280;
+    const STAGE_H = 720;
+    const slideTimelines = {};
+
+    function updateStageScale() {
+      const stage = document.getElementById('deck-stage');
+      if (!stage) return;
+      const vw = window.innerWidth;
+      const vh = window.innerHeight;
+      const scale = Math.min(vw / STAGE_W, vh / STAGE_H);
+      stage.style.transform = "translate(-50%, -50%) scale(" + scale + ")";
+    }
+
+    function renderIndicators() {
+      const bar = document.getElementById('deck-indicators');
+      const counter = document.getElementById('deck-counter');
+      if (!bar) return;
+      bar.innerHTML = '';
+      for (let i = 1; i <= TOTAL_SLIDES; i++) {
+        const dot = document.createElement('div');
+        dot.className = "deck-dot " + (i === currentSlide ? "active" : "");
+        dot.title = "Slide " + i;
+        dot.addEventListener('click', (e) => {
+          e.stopPropagation();
+          goToSlide(i);
+        });
+        bar.appendChild(dot);
+      }
+      if (counter) counter.textContent = String(currentSlide).padStart(2, '0') + " / " + String(TOTAL_SLIDES).padStart(2, '0');
+    }
+
+    ` + animFuncStr + `
+
+    function goToSlide(index) {
+      if (index < 1 || index > TOTAL_SLIDES || index === currentSlide) return;
+      const prevEl = document.getElementById("slide-" + currentSlide);
+      const nextEl = document.getElementById("slide-" + index);
+      if (prevEl) prevEl.classList.remove('active');
+      if (nextEl) nextEl.classList.add('active');
+      currentSlide = index;
+      renderIndicators();
+      playSlideAnimation(currentSlide);
+    }
+
+    function nextSlide() { if (currentSlide < TOTAL_SLIDES) goToSlide(currentSlide + 1); }
+    function prevSlide() { if (currentSlide > 1) goToSlide(currentSlide - 1); }
+
+    function toggleFullScreen() {
+      if (!document.fullscreenElement) {
+        document.documentElement.requestFullscreen().catch(() => {});
+      } else {
+        if (document.exitFullscreen) document.exitFullscreen().catch(() => {});
+      }
+    }
+
+    window.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowRight' || e.key === ' ' || e.key === 'PageDown') {
+        e.preventDefault(); nextSlide();
+      } else if (e.key === 'ArrowLeft' || e.key === 'PageUp') {
+        e.preventDefault(); prevSlide();
+      } else if (e.key === 'f' || e.key === 'F') {
+        e.preventDefault(); toggleFullScreen();
+      } else if (e.key === 'r' || e.key === 'R') {
+        e.preventDefault(); playSlideAnimation(currentSlide);
+      } else if (e.key === 'p' || e.key === 'P') {
+        e.preventDefault(); window.print();
+      }
+    });
+
+    document.getElementById('deck-stage').addEventListener('click', (e) => {
+      const rect = e.currentTarget.getBoundingClientRect();
+      const clickX = e.clientX - rect.left;
+      if (clickX < rect.width * 0.35) prevSlide();
+      else nextSlide();
+    });
+
+    let idleTimer = null;
+    const bar = document.getElementById('deck-indicators-bar');
+    window.addEventListener('mousemove', () => {
+      if (bar) bar.classList.remove('nav-idle');
+      clearTimeout(idleTimer);
+      idleTimer = setTimeout(() => {
+        if (bar) bar.classList.add('nav-idle');
+      }, 3500);
+    });
+
+    window.addEventListener('resize', updateStageScale);
+    window.addEventListener('DOMContentLoaded', () => {
+      updateStageScale();
+      renderIndicators();
+      setTimeout(() => playSlideAnimation(1), 150);
+    });
+  <\/script>
+</body>
+</html>`;
+
+      const filename = "quiet_slides_" + curPaletteKey + "_presentation.html";
+      const blob = new Blob([cleanHTML], { type: 'text/html;charset=utf-8' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = filename;
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      URL.revokeObjectURL(url);
+      showToast('已导出纯净版演示 HTML！文案与母色已直接烘焙，任意设备双击即可放映。');
+    }
+
+    function init() {
+      autoRegisterEditableElements();
+      loadDeckConfig();
+      applyPalette(deckConfig.palette, false);
+      renderPaletteButtons();
+      updateStageScale();
+      updateUI();
+      loadEditsFromLocalStorage();
+
+            const btnExportClean = document.getElementById('btn-export-clean');
+      const drawerBtnExportClean = document.getElementById('drawer-btn-export-clean');
+      if (btnExportClean) btnExportClean.addEventListener('click', exportCleanDeckHTML);
+      if (drawerBtnExportClean) drawerBtnExportClean.addEventListener('click', exportCleanDeckHTML);
+
+      const btnExportPdf = document.getElementById('btn-export-pdf');
+      const drawerBtnExportPdf = document.getElementById('drawer-btn-export-pdf');
+      if (btnExportPdf) btnExportPdf.addEventListener('click', () => window.print());
+      if (drawerBtnExportPdf) drawerBtnExportPdf.addEventListener('click', () => window.print());
+
+      const btnToggleFs = document.getElementById('btn-toggle-fs');
+      if (btnToggleFs) btnToggleFs.addEventListener('click', toggleFullScreen);
+
+      const btnPrev = document.getElementById('btn-prev');
+      const btnNext = document.getElementById('btn-next');
+      if (btnPrev) btnPrev.addEventListener('click', prevSlide);
+      if (btnNext) btnNext.addEventListener('click', nextSlide);
+
+      const btnToggleTune = document.getElementById('btn-toggle-tune');
+      const btnCloseDrawer = document.getElementById('btn-close-drawer');
+      const drawer = document.getElementById('drawer');
+      if (btnToggleTune && drawer) {
+        btnToggleTune.addEventListener('click', () => drawer.classList.toggle('translate-x-full'));
+      }
+      if (btnCloseDrawer && drawer) {
+        btnCloseDrawer.addEventListener('click', () => drawer.classList.add('translate-x-full'));
+      }
+
+      const btnEdit = document.getElementById('btn-toggle-edit');
+      if (btnEdit) btnEdit.addEventListener('click', () => toggleEditMode());
+
+      const btnClear = document.getElementById('btn-clear-edits');
+      if (btnClear) {
+        btnClear.addEventListener('click', () => {
+          if (confirm('确定恢复出厂默认文案吗？')) {
+            localStorage.removeItem(STORAGE_KEY);
+            localStorage.removeItem(CONFIG_KEY);
+            location.reload();
+          }
+        });
+      }
+
+      // 全局按键绑定
+      window.addEventListener('keydown', (e) => {
+        if ((e.ctrlKey || e.metaKey) && (e.key === 's' || e.key === 'S')) {
+          e.preventDefault();
+          saveEditsToLocalStorage();
+          return;
+        }
+
+        const isTyping = (e.target && ['INPUT', 'TEXTAREA'].includes(e.target.tagName)) || 
+                         (document.activeElement && document.activeElement.isContentEditable);
+        if (isTyping) {
+          if (e.key === 'Escape') {
+            if (document.activeElement) document.activeElement.blur();
+            if (isEditingMode) toggleEditMode(false);
+          }
+          return;
+        }
+
+        if (isEditingMode) {
+          if (e.key === 'e' || e.key === 'E' || e.key === 'Escape') toggleEditMode(false);
+          return;
+        }
+
+        if (e.key === 'ArrowRight' || e.key === ' ' || e.key === 'PageDown') {
+          e.preventDefault(); nextSlide();
+        } else if (e.key === 'ArrowLeft' || e.key === 'PageUp') {
+          e.preventDefault(); prevSlide();
+        } else if (e.key === 'f' || e.key === 'F') {
+          e.preventDefault();
+          toggleFullScreen();
+        } else if (e.key === 'r' || e.key === 'R') {
+          e.preventDefault();
+          playSlideAnimation(currentSlide);
+        } else if (e.key === 'p' || e.key === 'P') {
+          e.preventDefault();
+          window.print();
+        } else if (e.key === 'e' || e.key === 'E') {
+          e.preventDefault();
+          toggleEditMode(true);
+        }
+      });
+
+      // 画布点击翻页
+      document.getElementById('deck-stage').addEventListener('click', (e) => {
+        if (isEditingMode) return;
+        const rect = e.currentTarget.getBoundingClientRect();
+        const clickX = e.clientX - rect.left;
+        if (clickX < rect.width * 0.35) {
+          prevSlide();
+        } else {
+          nextSlide();
+        }
+      });
+
+      setTimeout(() => {
+        playSlideAnimation(1);
+      }, 200);
+    }
+
+    window.addEventListener('DOMContentLoaded', init);
+  </script>
+</body>
+</html>
