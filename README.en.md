@@ -2,7 +2,7 @@
 
 <div align="center">
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-black.svg)](LICENSE)
+[![License: CC BY-NC-SA 4.0](https://img.shields.io/badge/License-CC_BY--NC--SA_4.0-lightgrey.svg)](LICENSE)
 [![Format: 16:9](https://img.shields.io/badge/Ratio-16%3A9%20Fixed-emerald.svg)]()
 [![Engine: GSAP + Tailwind](https://img.shields.io/badge/Engine-GSAP%20%2B%20Tailwind-blue.svg)]()
 [![Export: Clean HTML & PDF](https://img.shields.io/badge/Export-Clean%20HTML%20%7C%20PDF-amber.svg)]()
@@ -121,7 +121,7 @@ quiet-slides/
 ├── SKILL.md                          # Antigravity Agent Core Skill Specification
 ├── README.md                         # Chinese Documentation (Visual Gallery)
 ├── README.en.md                      # English Documentation (Visual Gallery)
-├── LICENSE                           # MIT License
+├── LICENSE                           # License (Free Non-Commercial / Commercial Inquiry)
 ├── assets/
 │   └── screenshots/                  # 2x Retina High-DPI Showcase Captures
 ├── showcases/
@@ -166,6 +166,10 @@ node scripts/export_pdf.js showcases/editing_principles/editing_principles_artis
 
 ---
 
-## License
+## 📜 License & Usage Terms
 
-Released under the [MIT License](LICENSE).
+This project is licensed under the **[CC BY-NC-SA 4.0](LICENSE) (Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License)**.
+
+- **Free for Non-Commercial Use**: Free for personal study, academic research, non-profit talks, and educational presentations (attribution required, share-alike).
+- **Commercial Use Requires Permission**: Any commercial use—including corporate keynotes, commercial client deliverables, paid workshops/courses, or commercial product integration—**strictly requires prior authorization and a commercial license**.
+- **Commercial Licensing Inquiries**: For commercial licenses, enterprise branding, or sponsorship collaborations, please reach out via [GitHub Issues / Discussions](https://github.com/qgpuerr/quiet-slides/issues).

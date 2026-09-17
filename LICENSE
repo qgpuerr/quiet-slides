@@ -1,21 +1,41 @@
-MIT License
+Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0)
 
-Copyright (c) 2026 Quiet Slides Contributors
+Copyright (c) 2026 Quiet Slides Authors & Contributors. All rights reserved.
 
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
+================================================================================
+1. NON-COMMERCIAL USE (非商业自由使用)
+================================================================================
+You are free to:
+- Share — copy and redistribute the material in any medium or format
+- Adapt — remix, transform, and build upon the material
 
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
+Under the following terms:
+- Attribution (署名) — You must give appropriate credit, provide a link to the
+  license, and indicate if changes were made.
+- NonCommercial (非商业使用) — You may NOT use the material for commercial purposes.
+  This includes, but is not limited to:
+  * Commercial client presentations, commercial keynote speeches, or commercial product launches
+  * Incorporating these templates into paid commercial products, themes, or SaaS platforms
+  * Reselling, sublicensing, or charging fees for exports, slides, or derivatives
+  * Using for monetized courses, paid workshops, or commercial training
+- ShareAlike (相同方式共享) — If you remix, transform, or build upon the material,
+  you must distribute your contributions under the same license as the original.
 
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
+================================================================================
+2. COMMERCIAL USE & LICENSING (商业使用与授权合作)
+================================================================================
+Commercial use is strictly prohibited without prior written authorization.
+
+If you or your organization wish to use Quiet Slides for commercial purposes,
+including commercial keynotes, corporate presentations, client deliverables,
+or product integrations, please contact the author to acquire a commercial license:
+
+- Repository: https://github.com/qgpuerr/quiet-slides
+- Issues / Discussions: https://github.com/qgpuerr/quiet-slides/issues
+
+================================================================================
+3. DISCLAIMER OF WARRANTIES
+================================================================================
+Unless required by applicable law or agreed to in writing, Licensor provides the
+Work on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either
+express or implied.

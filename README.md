@@ -2,7 +2,7 @@
 
 <div align="center">
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-black.svg)](LICENSE)
+[![License: CC BY-NC-SA 4.0](https://img.shields.io/badge/License-CC_BY--NC--SA_4.0-lightgrey.svg)](LICENSE)
 [![Format: 16:9](https://img.shields.io/badge/Ratio-16%3A9%20Fixed-emerald.svg)]()
 [![Engine: GSAP + Tailwind](https://img.shields.io/badge/Engine-GSAP%20%2B%20Tailwind-blue.svg)]()
 [![Export: Clean HTML & PDF](https://img.shields.io/badge/Export-Clean%20HTML%20%7C%20PDF-amber.svg)]()
@@ -122,7 +122,7 @@ quiet-slides/
 ├── SKILL.md                          # Antigravity Agent 核心技能规范
 ├── README.md                         # 中文说明文档（图文画廊版）
 ├── README.en.md                      # 英文说明文档（Visual Gallery）
-├── LICENSE                           # MIT 开源协议
+├── LICENSE                           # 授权协议 (非商用免费 / 商用须授权)
 ├── assets/
 │   └── screenshots/                  # 2x Retina 高清展示截图
 ├── showcases/
@@ -167,6 +167,10 @@ node scripts/export_pdf.js showcases/editing_principles/editing_principles_artis
 
 ---
 
-## 开源协议
+## 📜 授权与许可协议 (License)
 
-本项目基于 [MIT 协议](LICENSE) 开源。
+本项目采用 **[CC BY-NC-SA 4.0](LICENSE)（知识共享 署名-非商业性使用-相同方式共享 4.0 国际许可协议）**。
+
+- **非商业自由使用（Free for Non-Commercial Use）**：个人研习、学术讲座、非营利演讲与非商业知识分享均可**免费自由使用、修改与衍生创作**（需保留原作者署名，修改版本以相同协议开源）。
+- **商业使用须沟通授权（Commercial Use Requires License）**：任何商业性使用（包括但不限于商业演讲/付费论坛、企业对外商业路演与发布会、面向客户交付的商业设计项目、付费课程/工作坊、模板转售或闭源/商业 SaaS 产品集成等）**均严格禁止直接使用**。
+- **商业授权咨询与合作**：如需商用授权、企业品牌定制或商务合作，请通过 [GitHub Issues / Discussions](https://github.com/qgpuerr/quiet-slides/issues) 提交或联系作者沟通授权事宜。
