@@ -32,6 +32,14 @@ description: "Design and build aesthetic, distraction-free 16:9 presentation sli
 - 徽章、微标一律平直锚定在角落或发丝基线上，禁止斜置 45° 的虚线徽章。
 - 线条统一使用 `0.5px - 1px` 实线（`opacity: 0.25 - 0.4`），杜绝杂乱大点虚线。
 
+### 5. 严格负向约束与反模式 (Negative Constraints & Anti-Patterns)
+- **严禁双斜杠 `//` 与方括号 `[ ... ]` 伪工业符号**：禁止使用形如 `RHYTHM // 视听节律节奏`、`[ WALTER MURCH // EDITING AXIOMS ]`、`[ CRITERIA 00 // PREFACE ]` 等工程师/蓝图伪代码符号，避免视觉污染与造作感。
+- **严禁中英文双语重复堆叠**：文字必须自然、凝练、真实，不可中英双语平行罗列强行增重。
+- **严禁伪文档编号与工程代号**：禁止出现 `DOCUMENT ID: MC-1995`、`FIGURE 04`、`SECTION 02` 等无意义装饰编码。
+- **四角与边缘装饰字数硬约束**：眉标、角注、说明性微标文字**严格限制在 3–4 个汉字以内**（或 2–3 个英文单词），绝不能喧宾夺主。
+- **抽屉职责单一原则**：色彩抽屉专注于配色选择与重置默认；导出 HTML / PDF 等动作统一留在顶栏，抽屉内不放置重复的导出按钮。
+- **快捷键指南收纳原则**：顶栏右侧提供圆形 `?` 按钮，点击展开轻量毛玻璃浮层卡片，支持 `Esc` 或点击遮罩即刻关闭，主界面保持绝对克制清爽。
+
 ---
 
 ## 双生美学风格规范 (Dual Aesthetics)
@@ -86,7 +94,7 @@ description: "Design and build aesthetic, distraction-free 16:9 presentation sli
     @page { size: 16in 9in; margin: 0; }
     *, *::before, *::after { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
     html, body { background-color: var(--board-bg) !important; width: 100% !important; height: auto !important; min-height: 100% !important; overflow: visible !important; margin: 0 !important; }
-    #deck-top-bar, #drawer, #deck-nav, #paper-fiber-overlay, #editorial-grid-overlay { display: none !important; }
+    #deck-top-bar, #drawer, #deck-nav, #shortcuts-modal, #paper-fiber-overlay, #editorial-grid-overlay { display: none !important; }
     #deck-viewport-wrap { display: block !important; position: static !important; width: 100% !important; height: auto !important; overflow: visible !important; }
     #deck-stage { display: block !important; position: static !important; transform: none !important; box-shadow: none !important; border-radius: 0 !important; width: 100% !important; height: auto !important; overflow: visible !important; }
     .slide-pane { display: flex !important; flex-direction: column !important; justify-content: space-between !important; position: relative !important; width: 100vw !important; height: 100vh !important; box-sizing: border-box !important; break-after: page !important; page-break-after: always !important; }
@@ -107,3 +115,5 @@ description: "Design and build aesthetic, distraction-free 16:9 presentation sli
 | `Cmd + S` / `Ctrl + S` | 保存文案到本地缓存 |
 | `P` | 导出完整 16:9 PDF |
 | `R` | 重播当前页入场动画 |
+| `?` / `/` | 展开 / 关闭快捷键帮助卡片 |
+| `Esc` | 退出全屏 / 关闭浮层窗口 / 退出编辑 |

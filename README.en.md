@@ -47,24 +47,24 @@ Each aesthetic system is paired with curated traditional paper base colors. Each
 
 #### Style A · Artisan Paper Palette Matrix (9 Chinese Traditional Colors)
 
-| 01. Celadon (艾绿) | 02. Terracotta (赭石) | 03. Butter (秋香) |
+| 01. 竹月青 (Celadon) | 02. 赭石褐 (Terracotta) | 03. 秋香黄 (Butter) |
 | :---: | :---: | :---: |
 | [![Celadon - Slide 1](assets/screenshots/palette_artisan_1_celadon_s1.png)](assets/screenshots/palette_artisan_1_celadon_s1.png) | [![Terracotta - Slide 2](assets/screenshots/palette_artisan_2_terracotta_s2.png)](assets/screenshots/palette_artisan_2_terracotta_s2.png) | [![Butter - Slide 3](assets/screenshots/palette_artisan_3_butter_s3.png)](assets/screenshots/palette_artisan_3_butter_s3.png) |
 | `Slide 1` · Asymmetrical Cover & Workshop Seal | `Slide 2` · 51% Weight Contrast Field | `Slide 3` · Blink & Cognitive Waveforms |
-| **04. Olive (松柏)** | **05. Blush (灰粉)** | **06. Beige (素绢)** |
+| **04. 松针绿 (Olive)** | **05. 晚山粉 (Blush)** | **06. 素绢白 (Beige)** |
 | [![Olive - Slide 4](assets/screenshots/palette_artisan_4_olive_s4.png)](assets/screenshots/palette_artisan_4_olive_s4.png) | [![Blush - Slide 5](assets/screenshots/palette_artisan_5_blush_s5.png)](assets/screenshots/palette_artisan_5_blush_s5.png) | [![Beige - Slide 6](assets/screenshots/palette_artisan_6_beige_s6.png)](assets/screenshots/palette_artisan_6_beige_s6.png) |
 | `Slide 4` · 6-Step Priority Staircase | `Slide 5` · 2D Screen & 180° Spatial Axis | `Slide 6` · Intentional Whitespace Conclusion |
-| **07. Pistachio (竹青)** | **08. Oyster (苍灰)** | **09. Laid Antique (玄墨)** |
+| **07. 初生翠 (Pistachio)** | **08. 苍烟灰 (Oyster)** | **09. 玄墨金 (Laid)** |
 | [![Pistachio - Slide 2](assets/screenshots/palette_artisan_7_pistachio_s2.png)](assets/screenshots/palette_artisan_7_pistachio_s2.png) | [![Oyster - Slide 4](assets/screenshots/palette_artisan_8_oyster_s4.png)](assets/screenshots/palette_artisan_8_oyster_s4.png) | [![Laid - Slide 1](assets/screenshots/palette_artisan_9_laid_s1.png)](assets/screenshots/palette_artisan_9_laid_s1.png) |
 | `Slide 2` · High Contrast on Light Green | `Slide 4` · Concrete Gray Staircase | `Slide 1` · Dark Paper with Gold Highlights |
 
 #### Style B · Minimal Editorial Palette Matrix (6 Chinese Traditional Colors)
 
-| 01. Ecru & Charcoal (素白与墨黑) | 02. Alabaster & Olive (霜白与松青) | 03. Sand & Raw Umber (牙白与茶褐) |
+| 01. 墨染宣 (Ecru & Charcoal) | 02. 松霜绿 (Alabaster & Olive) | 03. 秋茶褐 (Sand & Umber) |
 | :---: | :---: | :---: |
 | [![Ecru - Slide 1](assets/screenshots/palette_editorial_1_ecru_s1.png)](assets/screenshots/palette_editorial_1_ecru_s1.png) | [![Alabaster - Slide 2](assets/screenshots/palette_editorial_2_alabaster_s2.png)](assets/screenshots/palette_editorial_2_alabaster_s2.png) | [![Sand - Slide 3](assets/screenshots/palette_editorial_3_sand_s3.png)](assets/screenshots/palette_editorial_3_sand_s3.png) |
 | `Slide 1` · Hairline Grid Cover & TOC | `Slide 2` · Focus & Perceptual Loop | `Slide 3` · Clear Statement & Definition |
-| **04. Parchment & Navy (宣白与黛蓝)** | **05. Chalk & Slate (铅白与岩灰)** | **06. Cream & Espresso (米白与深咖)** |
+| **04. 黛蓝笺 (Parchment & Navy)** | **05. 岩石灰 (Chalk & Slate)** | **06. 浓萃咖 (Cream & Espresso)** |
 | [![Navy - Slide 4](assets/screenshots/palette_editorial_4_navy_s4.png)](assets/screenshots/palette_editorial_4_navy_s4.png) | [![Slate - Slide 5](assets/screenshots/palette_editorial_5_slate_s5.png)](assets/screenshots/palette_editorial_5_slate_s5.png) | [![Espresso - Slide 6](assets/screenshots/palette_editorial_6_espresso_s6.png)](assets/screenshots/palette_editorial_6_espresso_s6.png) |
 | `Slide 4` · 3-Tier Concentric Model | `Slide 5` · Spatial Matrix & Guidance | `Slide 6` · Calm Editorial Conclusion |
 
@@ -72,10 +72,10 @@ Each aesthetic system is paired with curated traditional paper base colors. Each
 
 ### 4. Interactive Deck Engine
 
-| True Fullscreen Presentation | Inline Copy Editing | Color Palette Drawer |
+| True Fullscreen Presentation | Inline Copy Editing | Palettes & Shortcuts Guide |
 | :---: | :---: | :---: |
 | [![True Fullscreen](assets/screenshots/feature_fullscreen.png)](assets/screenshots/feature_fullscreen.png) | [![Inline Editing](assets/screenshots/feature_inline_edit.png)](assets/screenshots/feature_inline_edit.png) | [![Mother Color Drawer](assets/screenshots/feature_drawer.png)](assets/screenshots/feature_drawer.png) |
-| Press `F` for fullscreen. Controls hide automatically while a minimalist bottom indicator pill floats into view. | Press `E` to edit copy directly on screen. Save instantly with `Cmd+S`. | Click top right to open the drawer. Switch palettes in real time and export standalone HTML. |
+| Press `F` for fullscreen. Controls hide automatically while a minimalist bottom indicator pill floats into view. | Press `E` to edit copy directly on screen. Save instantly with `Cmd+S`. | Click top right to switch paper palettes in real time. Click `?` or press `?` to toggle the shortcuts guide modal. |
 
 ---
 
@@ -106,11 +106,12 @@ Each aesthetic system is paired with curated traditional paper base colors. Each
 | **`→` / `Space` / `PageDown`** | Next Slide | Transitions forward and triggers GSAP timeline |
 | **`←` / `PageUp`** | Previous Slide | Transitions backward |
 | **`F`** | **True Fullscreen** | Native browser fullscreen with floating bottom pill |
+| **`Esc`** | Exit / Close Modal | Exit fullscreen presentation, close shortcuts modal, or drop editing focus |
+| **`?` / `/`** | **Shortcuts Guide** | Toggle frosted glass keyboard shortcuts guide card |
 | **`E`** | **Edit Copy** | Toggle WYSIWYG inline text editing |
 | **`Cmd + S` / `Ctrl + S`** | Save Copy | Persist edits to local browser storage |
 | **`P`** | **Export PDF** | Print/export all 6 slides in strict 16:9 ratio |
 | **`R`** | Replay Animations | Re-run GSAP entrance choreography |
-| **`Esc`** | Exit | Exit fullscreen or drop editing focus |
 
 ---
 
@@ -152,7 +153,7 @@ Open any of the showcase decks directly in any modern browser—no build step or
 
 ### 2. Export Clean Offline HTML
 1. Open any deck in your browser, press `E` to customize the copy, and choose your preferred paper palette from the drawer.
-2. Click **"Export Clean HTML"** in the top-right corner or inside the drawer.
+2. Click **"Export Clean HTML"** in the top navigation bar.
 3. Download a standalone, zero-dependency HTML file ready for keynote presentations on any computer!
 
 ### 3. Automated PDF Export via CLI
