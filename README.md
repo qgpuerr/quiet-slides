@@ -35,9 +35,10 @@ Quiet Slides 摒弃千篇一律的扁平卡片模版，提供两套排印考究�
 
 | 核心主题 | Style A · 档案版呈现 | Style B · 简洁版呈现 |
 | :--- | :---: | :---: |
-| **51% 核心原则**<br>权重顺位与视觉对比 | [![Artisan S2 Tension](assets/screenshots/artisan_s2_tension.png)](assets/screenshots/artisan_s2_tension.png)<br>*51% vs 49% 醒目数字对比排版* | [![Editorial S3 Statement](assets/screenshots/editorial_s3_statement.png)](assets/screenshots/editorial_s3_statement.png)<br>*跨栏大字陈述与简洁定义* |
-| **生理机制与节律**<br>眨眼机制与视听节奏 | [![Artisan S3 Waveform](assets/screenshots/artisan_s3_waveform.png)](assets/screenshots/artisan_s3_waveform.png)<br>*眨眼间歇与思维节奏生理波形* | [![Editorial S2 Loop](assets/screenshots/editorial_s2_loop.png)](assets/screenshots/editorial_s2_loop.png)<br>*视线焦点与切点转换闭环图解* |
-| **层级递进与取舍**<br>优先级结构与模型 | [![Artisan S4 Staircase](assets/screenshots/artisan_s4_staircase.png)](assets/screenshots/artisan_s4_staircase.png)<br>*自底向上 6 级层级阶梯模型* | [![Editorial S4 Concentric](assets/screenshots/editorial_s4_concentric.png)](assets/screenshots/editorial_s4_concentric.png)<br>*3 层嵌套同心圆核心辐射结构* |
+| **大纲导读与不可逆顺位**<br>左侧著作导言，右侧 6 原则结构化大纲 | [![Artisan S1 Cover](assets/screenshots/artisan_s1_cover_toc.png)](assets/screenshots/artisan_s1_cover_toc.png)<br>*大字书名与 6 顺位结构化卡片清单* | [![Editorial S1 Cover](assets/screenshots/editorial_s1_cover_toc.png)](assets/screenshots/editorial_s1_cover_toc.png)<br>*发丝网格大字与高精度顺位导引* |
+| **原则一 · 真实情感 (51%)**<br>一票否决权与情绪共鸣波形 | [![Artisan S2 Tension](assets/screenshots/artisan_s2_tension.png)](assets/screenshots/artisan_s2_tension.png)<br>*情绪张力峰值波形与实战自问* | [![Editorial S2 Tension](assets/screenshots/editorial_s2_loop.png)](assets/screenshots/editorial_s2_loop.png)<br>*情感一票否决权与张力波形分析* |
+| **原则五 · 二维平面 (5%)**<br>180° 轴线守恒与运动矢量 | [![Artisan S6 2D](assets/screenshots/artisan_s6_2d.png)](assets/screenshots/artisan_s6_2d.png)<br>*180° 轴线半圆机位示意图与破轴铁律* | [![Editorial S6 2D](assets/screenshots/editorial_s6_2d.png)](assets/screenshots/editorial_s6_2d.png)<br>*180° 视线守恒与动作矢量图解* |
+| **终章 · 取舍金字塔**<br>自底向上 6 级不可逆牺牲阶梯 | [![Artisan S8 Pyramid](assets/screenshots/artisan_s8_pyramid.png)](assets/screenshots/artisan_s8_pyramid.png)<br>*自底向上 6 级取舍金字塔与默奇铁律* | [![Editorial S8 Pyramid](assets/screenshots/editorial_s8_pyramid.png)](assets/screenshots/editorial_s8_pyramid.png)<br>*74% 核心权重大字引语与金字塔模型* |
 
 ---
 
@@ -50,23 +51,23 @@ Quiet Slides 摒弃千篇一律的扁平卡片模版，提供两套排印考究�
 | 01. 竹月青 (Celadon) | 02. 赭石褐 (Terracotta) | 03. 秋香黄 (Butter) |
 | :---: | :---: | :---: |
 | [![Celadon - Slide 1](assets/screenshots/palette_artisan_1_celadon_s1.png)](assets/screenshots/palette_artisan_1_celadon_s1.png) | [![Terracotta - Slide 2](assets/screenshots/palette_artisan_2_terracotta_s2.png)](assets/screenshots/palette_artisan_2_terracotta_s2.png) | [![Butter - Slide 3](assets/screenshots/palette_artisan_3_butter_s3.png)](assets/screenshots/palette_artisan_3_butter_s3.png) |
-| `Slide 1` · 不对称封面与标记 | `Slide 2` · 51% 权重对比排版 | `Slide 3` · 眨眼生理节律波形 |
+| `Slide 1` · 封面与大纲导读 | `Slide 2` · 原则一 51% 真实情感 | `Slide 3` · 原则二 23% 推进故事 |
 | **04. 松针绿 (Olive)** | **05. 晚山粉 (Blush)** | **06. 素绢白 (Beige)** |
 | [![Olive - Slide 4](assets/screenshots/palette_artisan_4_olive_s4.png)](assets/screenshots/palette_artisan_4_olive_s4.png) | [![Blush - Slide 5](assets/screenshots/palette_artisan_5_blush_s5.png)](assets/screenshots/palette_artisan_5_blush_s5.png) | [![Beige - Slide 6](assets/screenshots/palette_artisan_6_beige_s6.png)](assets/screenshots/palette_artisan_6_beige_s6.png) |
-| `Slide 4` · 6 级优先级阶梯 | `Slide 5` · 二维轴线与三维空间辩证 | `Slide 6` · 留白尾页排版 |
+| `Slide 4` · 原则三 10% 视听节奏 | `Slide 5` · 原则四 7% 视线落点 | `Slide 6` · 原则五 5% 二维平面 |
 | **07. 初生翠 (Pistachio)** | **08. 苍烟灰 (Oyster)** | **09. 玄墨金 (Laid)** |
-| [![Pistachio - Slide 2](assets/screenshots/palette_artisan_7_pistachio_s2.png)](assets/screenshots/palette_artisan_7_pistachio_s2.png) | [![Oyster - Slide 4](assets/screenshots/palette_artisan_8_oyster_s4.png)](assets/screenshots/palette_artisan_8_oyster_s4.png) | [![Laid - Slide 1](assets/screenshots/palette_artisan_9_laid_s1.png)](assets/screenshots/palette_artisan_9_laid_s1.png) |
-| `Slide 2` · 浅色背景对比演色 | `Slide 4` · 苍灰质感阶梯层级 | `Slide 1` · 深色纸底配烫金效果封面 |
+| [![Pistachio - Slide 7](assets/screenshots/palette_artisan_7_pistachio_s2.png)](assets/screenshots/palette_artisan_7_pistachio_s2.png) | [![Oyster - Slide 8](assets/screenshots/palette_artisan_8_oyster_s4.png)](assets/screenshots/palette_artisan_8_oyster_s4.png) | [![Laid - Slide 1](assets/screenshots/palette_artisan_9_laid_s1.png)](assets/screenshots/palette_artisan_9_laid_s1.png) |
+| `Slide 7` · 原则六 4% 三维空间 | `Slide 8` · 取舍金字塔与终章 | `Slide 1` · 深色纸底烫金封面 |
 
 #### Style B · 简洁版配色矩阵 (6 种中国传统色)
 
 | 01. 墨染宣 (Ecru & Charcoal) | 02. 松霜绿 (Alabaster & Olive) | 03. 秋茶褐 (Sand & Umber) |
 | :---: | :---: | :---: |
 | [![Ecru - Slide 1](assets/screenshots/palette_editorial_1_ecru_s1.png)](assets/screenshots/palette_editorial_1_ecru_s1.png) | [![Alabaster - Slide 2](assets/screenshots/palette_editorial_2_alabaster_s2.png)](assets/screenshots/palette_editorial_2_alabaster_s2.png) | [![Sand - Slide 3](assets/screenshots/palette_editorial_3_sand_s3.png)](assets/screenshots/palette_editorial_3_sand_s3.png) |
-| `Slide 1` · 细线网格封面与目录 | `Slide 2` · 视线聚焦与感知闭环 | `Slide 3` · 跨栏大字陈述与定义 |
+| `Slide 1` · 发丝网格封面与目录 | `Slide 2` · 原则一 51% 真实情感 | `Slide 3` · 原则二 23% 推进故事 |
 | **04. 黛蓝笺 (Parchment & Navy)** | **05. 岩石灰 (Chalk & Slate)** | **06. 浓萃咖 (Cream & Espresso)** |
-| [![Navy - Slide 4](assets/screenshots/palette_editorial_4_navy_s4.png)](assets/screenshots/palette_editorial_4_navy_s4.png) | [![Slate - Slide 5](assets/screenshots/palette_editorial_5_slate_s5.png)](assets/screenshots/palette_editorial_5_slate_s5.png) | [![Espresso - Slide 6](assets/screenshots/palette_editorial_6_espresso_s6.png)](assets/screenshots/palette_editorial_6_espresso_s6.png) |
-| `Slide 4` · 3 阶同心圆核心辐射 | `Slide 5` · 三维空间与视线矩阵 | `Slide 6` · 沉静尾页排版 |
+| [![Navy - Slide 4](assets/screenshots/palette_editorial_4_navy_s4.png)](assets/screenshots/palette_editorial_4_navy_s4.png) | [![Slate - Slide 6](assets/screenshots/palette_editorial_5_slate_s5.png)](assets/screenshots/palette_editorial_5_slate_s5.png) | [![Espresso - Slide 8](assets/screenshots/palette_editorial_6_espresso_s6.png)](assets/screenshots/palette_editorial_6_espresso_s6.png) |
+| `Slide 4` · 原则三 10% 视听节奏 | `Slide 6` · 原则五 5% 二维平面 | `Slide 8` · 取舍金字塔与终章 |
 
 ---
 

@@ -35,9 +35,10 @@ We adhere to the **Zero-Template Doctrine** — every slide layout is derived di
 
 | Core Concept | Style A · Artisan Material Expression | Style B · Minimal Editorial Expression |
 | :--- | :---: | :---: |
-| **51% Rule of Emotion**<br>Weight & Polarizing Tension | [![Artisan S2 Tension](assets/screenshots/artisan_s2_tension.png)](assets/screenshots/artisan_s2_tension.png)<br>*51% vs 49% Asymmetrical Tension Field* | [![Editorial S3 Statement](assets/screenshots/editorial_s3_statement.png)](assets/screenshots/editorial_s3_statement.png)<br>*Giant Typography Statement & 2-Line Definition* |
-| **Blink & Neural Rhythm**<br>Physiological Flow & Causality | [![Artisan S3 Waveform](assets/screenshots/artisan_s3_waveform.png)](assets/screenshots/artisan_s3_waveform.png)<br>*Blink Impulse & Neural Rhythm Dual Waveforms* | [![Editorial S2 Loop](assets/screenshots/editorial_s2_loop.png)](assets/screenshots/editorial_s2_loop.png)<br>*Attention Focus & Cutpoint Perceptual Loop* |
-| **Hierarchy & Sacrifice**<br>Structural Layers & Concentrics | [![Artisan S4 Staircase](assets/screenshots/artisan_s4_staircase.png)](assets/screenshots/artisan_s4_staircase.png)<br>*Bottom-Up 6-Step Sacrifice Pyramid Staircase* | [![Editorial S4 Concentric](assets/screenshots/editorial_s4_concentric.png)](assets/screenshots/editorial_s4_concentric.png)<br>*Hairline 3-Tier Core Radiation Concentric Rings* |
+| **Cover & Systematic TOC**<br>Lead statement on left, 6-principle outline on right | [![Artisan S1 Cover](assets/screenshots/artisan_s1_cover_toc.png)](assets/screenshots/artisan_s1_cover_toc.png)<br>*Big Serif Book Title & 6-Rule Structured Cards* | [![Editorial S1 Cover](assets/screenshots/editorial_s1_cover_toc.png)](assets/screenshots/editorial_s1_cover_toc.png)<br>*Hairline Grid Typography & High-Precision Overview* |
+| **Principle 01 · Emotion (51%)**<br>Veto power & emotional resonance wave | [![Artisan S2 Tension](assets/screenshots/artisan_s2_tension.png)](assets/screenshots/artisan_s2_tension.png)<br>*Emotional Peak Tension Curve & Practical Self-Inquiry* | [![Editorial S2 Tension](assets/screenshots/editorial_s2_loop.png)](assets/screenshots/editorial_s2_loop.png)<br>*51% Veto Power & Emotional Resonance Analysis* |
+| **Principle 05 · 2D Plane (5%)**<br>180° axis rule & motion vectors | [![Artisan S6 2D](assets/screenshots/artisan_s6_2d.png)](assets/screenshots/artisan_s6_2d.png)<br>*180° Semi-circle Axis Setup & Axis-Break Inviolable Law* | [![Editorial S6 2D](assets/screenshots/editorial_s6_2d.png)](assets/screenshots/editorial_s6_2d.png)<br>*180° Screen Vector & Directional Gaze Diagram* |
+| **Epilogue · The Sacrifice Pyramid**<br>Bottom-up 6-step irreversible sacrifice hierarchy | [![Artisan S8 Pyramid](assets/screenshots/artisan_s8_pyramid.png)](assets/screenshots/artisan_s8_pyramid.png)<br>*Bottom-Up 6-Step Hierarchy Pyramid & Murch Maxim* | [![Editorial S8 Pyramid](assets/screenshots/editorial_s8_pyramid.png)](assets/screenshots/editorial_s8_pyramid.png)<br>*74% Critical Mass Quote & Structural Pyramid Model* |
 
 ---
 
@@ -50,23 +51,23 @@ Each aesthetic system is paired with curated traditional paper base colors. Each
 | 01. 竹月青 (Celadon) | 02. 赭石褐 (Terracotta) | 03. 秋香黄 (Butter) |
 | :---: | :---: | :---: |
 | [![Celadon - Slide 1](assets/screenshots/palette_artisan_1_celadon_s1.png)](assets/screenshots/palette_artisan_1_celadon_s1.png) | [![Terracotta - Slide 2](assets/screenshots/palette_artisan_2_terracotta_s2.png)](assets/screenshots/palette_artisan_2_terracotta_s2.png) | [![Butter - Slide 3](assets/screenshots/palette_artisan_3_butter_s3.png)](assets/screenshots/palette_artisan_3_butter_s3.png) |
-| `Slide 1` · Asymmetrical Cover & Workshop Seal | `Slide 2` · 51% Weight Contrast Field | `Slide 3` · Blink & Cognitive Waveforms |
+| `Slide 1` · Cover & Systematic TOC | `Slide 2` · Principle 01: Emotion 51% | `Slide 3` · Principle 02: Story 23% |
 | **04. 松针绿 (Olive)** | **05. 晚山粉 (Blush)** | **06. 素绢白 (Beige)** |
 | [![Olive - Slide 4](assets/screenshots/palette_artisan_4_olive_s4.png)](assets/screenshots/palette_artisan_4_olive_s4.png) | [![Blush - Slide 5](assets/screenshots/palette_artisan_5_blush_s5.png)](assets/screenshots/palette_artisan_5_blush_s5.png) | [![Beige - Slide 6](assets/screenshots/palette_artisan_6_beige_s6.png)](assets/screenshots/palette_artisan_6_beige_s6.png) |
-| `Slide 4` · 6-Step Priority Staircase | `Slide 5` · 2D Screen & 180° Spatial Axis | `Slide 6` · Intentional Whitespace Conclusion |
+| `Slide 4` · Principle 03: Rhythm 10% | `Slide 5` · Principle 04: Eye-trace 7% | `Slide 6` · Principle 05: 2D Plane 5% |
 | **07. 初生翠 (Pistachio)** | **08. 苍烟灰 (Oyster)** | **09. 玄墨金 (Laid)** |
-| [![Pistachio - Slide 2](assets/screenshots/palette_artisan_7_pistachio_s2.png)](assets/screenshots/palette_artisan_7_pistachio_s2.png) | [![Oyster - Slide 4](assets/screenshots/palette_artisan_8_oyster_s4.png)](assets/screenshots/palette_artisan_8_oyster_s4.png) | [![Laid - Slide 1](assets/screenshots/palette_artisan_9_laid_s1.png)](assets/screenshots/palette_artisan_9_laid_s1.png) |
-| `Slide 2` · High Contrast on Light Green | `Slide 4` · Concrete Gray Staircase | `Slide 1` · Dark Paper with Gold Highlights |
+| [![Pistachio - Slide 7](assets/screenshots/palette_artisan_7_pistachio_s2.png)](assets/screenshots/palette_artisan_7_pistachio_s2.png) | [![Oyster - Slide 8](assets/screenshots/palette_artisan_8_oyster_s4.png)](assets/screenshots/palette_artisan_8_oyster_s4.png) | [![Laid - Slide 1](assets/screenshots/palette_artisan_9_laid_s1.png)](assets/screenshots/palette_artisan_9_laid_s1.png) |
+| `Slide 7` · Principle 06: 3D Space 4% | `Slide 8` · The Hierarchy of Sacrifice | `Slide 1` · Dark Paper with Gold Foil |
 
 #### Style B · Minimal Editorial Palette Matrix (6 Chinese Traditional Colors)
 
 | 01. 墨染宣 (Ecru & Charcoal) | 02. 松霜绿 (Alabaster & Olive) | 03. 秋茶褐 (Sand & Umber) |
 | :---: | :---: | :---: |
 | [![Ecru - Slide 1](assets/screenshots/palette_editorial_1_ecru_s1.png)](assets/screenshots/palette_editorial_1_ecru_s1.png) | [![Alabaster - Slide 2](assets/screenshots/palette_editorial_2_alabaster_s2.png)](assets/screenshots/palette_editorial_2_alabaster_s2.png) | [![Sand - Slide 3](assets/screenshots/palette_editorial_3_sand_s3.png)](assets/screenshots/palette_editorial_3_sand_s3.png) |
-| `Slide 1` · Hairline Grid Cover & TOC | `Slide 2` · Focus & Perceptual Loop | `Slide 3` · Clear Statement & Definition |
+| `Slide 1` · Hairline Grid Cover & TOC | `Slide 2` · Principle 01: Emotion 51% | `Slide 3` · Principle 02: Story 23% |
 | **04. 黛蓝笺 (Parchment & Navy)** | **05. 岩石灰 (Chalk & Slate)** | **06. 浓萃咖 (Cream & Espresso)** |
-| [![Navy - Slide 4](assets/screenshots/palette_editorial_4_navy_s4.png)](assets/screenshots/palette_editorial_4_navy_s4.png) | [![Slate - Slide 5](assets/screenshots/palette_editorial_5_slate_s5.png)](assets/screenshots/palette_editorial_5_slate_s5.png) | [![Espresso - Slide 6](assets/screenshots/palette_editorial_6_espresso_s6.png)](assets/screenshots/palette_editorial_6_espresso_s6.png) |
-| `Slide 4` · 3-Tier Concentric Model | `Slide 5` · Spatial Matrix & Guidance | `Slide 6` · Calm Editorial Conclusion |
+| [![Navy - Slide 4](assets/screenshots/palette_editorial_4_navy_s4.png)](assets/screenshots/palette_editorial_4_navy_s4.png) | [![Slate - Slide 6](assets/screenshots/palette_editorial_5_slate_s5.png)](assets/screenshots/palette_editorial_5_slate_s5.png) | [![Espresso - Slide 8](assets/screenshots/palette_editorial_6_espresso_s6.png)](assets/screenshots/palette_editorial_6_espresso_s6.png) |
+| `Slide 4` · Principle 03: Rhythm 10% | `Slide 6` · Principle 05: 2D Plane 5% | `Slide 8` · The Hierarchy of Sacrifice |
 
 ---
 
