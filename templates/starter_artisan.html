@@ -350,6 +350,10 @@
       <!-- ====================================================================
            SLIDE 1: COVER & SYSTEMATIC TOC (大纲导读与不可逆顺位)
            ==================================================================== -->
+      <!-- ====================================================================
+           SLIDE 1: ASYMMETRIC COVER & SYSTEMATIC TOC (大纲导读与不可逆顺位)
+           版式原型：非对称书卷双栏布局
+           ==================================================================== -->
       <div id="slide-1" class="slide-pane active" data-slide="1">
         <div class="flex items-center justify-between border-b border-[var(--hairline)] pb-3 text-[10px] font-typewriter text-[var(--board-muted)]">
           <div class="tracking-widest">电影剪辑论</div>
@@ -466,7 +470,8 @@
       </div>
 
       <!-- ====================================================================
-           SLIDE 2: PRINCIPLE 01 - EMOTION (真实情感 · 51%)
+           SLIDE 2: MASSIVE STAT TENSION FIELD (原则一 · 真实情感 51%)
+           版式原型：超大字体数值张力场与高对比冲击版
            ==================================================================== -->
       <div id="slide-2" class="slide-pane" data-slide="2">
         <div class="flex items-center justify-between border-b border-[var(--hairline)] pb-3 text-[10px] font-typewriter text-[var(--board-muted)]">
@@ -474,83 +479,72 @@
           <div class="tracking-widest">权重 51%</div>
         </div>
 
-        <!-- 顶部标题区 -->
-        <div class="pt-3 pb-2 flex items-baseline justify-between border-b border-[var(--hairline)]">
-          <div>
-            <span class="font-typewriter text-[10px] uppercase tracking-widest text-[var(--ink-stamp)] font-bold block mb-1">
-              PRINCIPLE 01
+        <div class="grid grid-cols-12 gap-8 flex-1 items-center py-4">
+          <!-- 左侧：超大 51% 视觉锚点与一票否决权论述 -->
+          <div class="col-span-5 flex flex-col justify-center pr-4">
+            <span class="font-typewriter text-[10px] uppercase tracking-widest text-[var(--ink-stamp)] font-bold mb-1 block">
+              PRINCIPLE 01 · 核心权重
             </span>
-            <h2 class="font-editorial-serif text-3xl font-normal text-[var(--board-text)]" data-editable="true" data-edit-id="s2-h2">
+            <div class="font-editorial-serif text-[120px] font-light leading-[0.88] text-[var(--board-text)] tracking-tighter" data-edit-id="s2-big-num">
+              51<span class="text-[54px] font-thin text-[var(--ink-stamp)]">%</span>
+            </div>
+            <h2 class="font-editorial-serif text-3xl font-normal mt-5 mb-3 text-[var(--board-text)]" data-editable="true" data-edit-id="s2-h2">
               真实情感 · <span class="italic font-light text-[var(--ink-stamp)]">Emotion</span>
             </h2>
-          </div>
-          <div class="text-right">
-            <span class="font-editorial-serif text-3xl font-light text-[var(--ink-stamp)]">51%</span>
-            <span class="block font-typewriter text-[10px] text-[var(--board-muted)]">一票否决权</span>
-          </div>
-        </div>
-
-        <!-- 中部：核心阐述 + 几何图示 -->
-        <div class="grid grid-cols-12 gap-8 flex-1 items-center py-4">
-          <div class="col-span-7 pr-4 space-y-3 font-modern-sub text-xs">
-            <p class="text-sm leading-relaxed text-[var(--board-text)]" data-editable="true" data-edit-id="s2-p">
-              如果切点破坏了情绪的真实与张力，哪怕技术上天衣无缝，也是一次失败的剪接。情感独占 51% 权重，拥有决定剪辑成败的一票否决权。
-            </p>
-            <div class="space-y-2 pt-1 border-t border-[var(--hairline)] text-[var(--board-muted)]">
-              <div class="flex items-start gap-2">
-                <span class="w-1.5 h-1.5 rounded-full bg-[var(--ink-stamp)] mt-1.5 shrink-0"></span>
-                <span><strong class="text-[var(--board-text)]">微表情与呼吸：</strong>寻找演员情绪饱满或转换的瞬间落刀，保留最真实的眼神流转。</span>
-              </div>
-              <div class="flex items-start gap-2">
-                <span class="w-1.5 h-1.5 rounded-full bg-[var(--ink-stamp)] mt-1.5 shrink-0"></span>
-                <span><strong class="text-[var(--board-text)]">共情优先于规整：</strong>打动人心的表演瑕疵，远胜过冰冷精准却索然无味的规整剪辑。</span>
-              </div>
-              <div class="flex items-start gap-2">
-                <span class="w-1.5 h-1.5 rounded-full bg-[var(--ink-stamp)] mt-1.5 shrink-0"></span>
-                <span><strong class="text-[var(--board-text)]">心理真实胜于物理：</strong>当心理情绪高度连贯时，视觉跳轴与穿帮均被观众潜意识接纳。</span>
-              </div>
+            <div class="inline-block px-2.5 py-1 rounded bg-[var(--ink-stamp)]/10 text-[var(--ink-stamp)] font-typewriter text-xs font-bold w-fit mb-3">
+              一票否决权 · 首要原则
             </div>
+            <p class="font-modern-sub text-xs text-[var(--board-muted)] leading-relaxed" data-editable="true" data-edit-id="s2-p">
+              单一项权重超越其余五项之和。如果切点破坏了情绪真实，哪怕技术上天衣无缝，也是彻底失败的剪接。
+            </p>
           </div>
 
-          <!-- 右侧几何图示：情绪共鸣张力波形 -->
-          <div class="col-span-5 border-l border-[var(--hairline)] pl-6 flex flex-col justify-center">
-            <div class="p-4 rounded border border-[var(--hairline)] bg-[var(--card-bg)]">
-              <div class="font-typewriter text-[10px] text-[var(--card-muted)] mb-2 flex justify-between">
-                <span>EMOTIONAL RESONANCE</span>
-                <span class="text-[var(--ink-stamp)] font-bold">51% PEAK</span>
+          <!-- 右侧：情绪共鸣张力曲线与 3 级法则剖析 -->
+          <div class="col-span-7 border-l border-[var(--hairline)] pl-8 flex flex-col justify-center space-y-4 font-modern-sub">
+            <!-- 情绪共鸣波形图 -->
+            <div class="p-3.5 rounded border border-[var(--hairline)] bg-[var(--card-bg)]">
+              <div class="font-typewriter text-[10px] text-[var(--card-muted)] mb-1 flex justify-between">
+                <span>EMOTIONAL RESONANCE CURVE</span>
+                <span class="text-[var(--ink-stamp)] font-bold">PEAK INTENSITY</span>
               </div>
-              <div class="h-28 flex items-center justify-center">
-                <svg class="w-full h-full" viewBox="0 0 300 100" fill="none">
-                  <line x1="10" y1="50" x2="290" y2="50" stroke="currentColor" class="text-[var(--card-muted)] opacity-20" stroke-width="1" stroke-dasharray="3 3" />
-                  <!-- 平庸规整波 -->
-                  <path d="M 10 50 Q 80 48, 150 50 T 290 50" stroke="currentColor" class="text-[var(--card-muted)] opacity-40" stroke-width="1.5" stroke-dasharray="2 2" />
-                  <!-- 情感共振波 -->
-                  <path d="M 10 50 C 60 50, 100 85, 140 18 C 170 -12, 190 75, 230 50 T 290 50" stroke="currentColor" class="text-[var(--ink-stamp)]" stroke-width="2.5" />
-                  <circle cx="140" cy="18" r="4.5" fill="currentColor" class="text-[var(--ink-stamp)]" />
-                  <text x="140" y="38" font-family="var(--font-mono)" font-size="9" font-weight="bold" fill="currentColor" class="text-[var(--ink-stamp)]" text-anchor="middle">情绪顶点落刀</text>
-                  <text x="35" y="68" font-family="var(--font-mono)" font-size="8" fill="currentColor" class="text-[var(--card-muted)]">平庸顺畅</text>
-                  <text x="260" y="68" font-family="var(--font-mono)" font-size="8" fill="currentColor" class="text-[var(--ink-stamp)]">情感共振</text>
+              <div class="h-24 flex items-center justify-center">
+                <svg class="w-full h-full" viewBox="0 0 320 80" fill="none">
+                  <line x1="10" y1="45" x2="310" y2="45" stroke="currentColor" class="text-[var(--card-muted)] opacity-20" stroke-dasharray="3 3" />
+                  <path d="M 10 45 Q 90 44, 160 45 T 310 45" stroke="currentColor" class="text-[var(--card-muted)] opacity-40" stroke-width="1.5" stroke-dasharray="2 2" />
+                  <path d="M 10 45 C 70 45, 110 75, 160 14 C 200 -8, 220 65, 260 45 T 310 45" stroke="currentColor" class="text-[var(--ink-stamp)]" stroke-width="2.5" />
+                  <circle cx="160" cy="14" r="4.5" fill="currentColor" class="text-[var(--ink-stamp)]" />
+                  <text x="160" y="32" font-family="var(--font-mono)" font-size="8" font-weight="bold" fill="currentColor" class="text-[var(--ink-stamp)]" text-anchor="middle">情绪顶点切接</text>
+                  <text x="40" y="62" font-family="var(--font-mono)" font-size="7" fill="currentColor" class="text-[var(--card-muted)]">平庸顺畅</text>
+                  <text x="280" y="62" font-family="var(--font-mono)" font-size="7" fill="currentColor" class="text-[var(--ink-stamp)]">情感共振</text>
                 </svg>
               </div>
-              <div class="text-[10px] font-typewriter text-[var(--card-muted)] text-center pt-2 border-t border-[var(--hairline)]">
-                当情感达到峰值时，观众注意力被完全捕获
+            </div>
+
+            <!-- 核心行动清单 -->
+            <div class="grid grid-cols-3 gap-3 text-xs">
+              <div class="p-2.5 rounded border border-[var(--hairline)]/70 bg-[var(--card-bg)]/60">
+                <div class="font-typewriter text-[10px] text-[var(--ink-stamp)] font-bold mb-1">01. 微表情</div>
+                <p class="text-[11px] text-[var(--card-muted)] leading-relaxed">捕捉演员眼神与呼吸转换瞬间落刀，保留真实流转。</p>
               </div>
+              <div class="p-2.5 rounded border border-[var(--hairline)]/70 bg-[var(--card-bg)]/60">
+                <div class="font-typewriter text-[10px] text-[var(--ink-stamp)] font-bold mb-1">02. 共情优先</div>
+                <p class="text-[11px] text-[var(--card-muted)] leading-relaxed">打动人心的微小表演瑕疵，远胜冰冷的技术顺畅。</p>
+              </div>
+              <div class="p-2.5 rounded border border-[var(--hairline)]/70 bg-[var(--card-bg)]/60">
+                <div class="font-typewriter text-[10px] text-[var(--ink-stamp)] font-bold mb-1">03. 心理真实</div>
+                <p class="text-[11px] text-[var(--card-muted)] leading-relaxed">当心理情绪高度连贯，空间跳轴会被观众潜意识原谅。</p>
+              </div>
+            </div>
+
+            <!-- 实战自问条 -->
+            <div class="p-2.5 rounded border border-[var(--hairline)] bg-[var(--card-bg)] flex items-center justify-between text-xs">
+              <span class="text-[var(--card-text)]"><strong class="text-[var(--ink-stamp)]">实战自问：</strong>这个切点让情绪更饱满了，还是因技术规整打断了观众？</span>
+              <span class="font-typewriter text-[10px] font-bold text-[var(--ink-stamp)] shrink-0 ml-3">宁要跳轴，不要冷血</span>
             </div>
           </div>
         </div>
 
-        <!-- 底部：剪辑实战自问与铁律 -->
-        <div class="p-3 rounded border border-[var(--hairline)] bg-[var(--card-bg)]/80 flex items-center justify-between font-modern-sub text-xs">
-          <div class="flex items-center gap-2">
-            <span class="font-typewriter text-[10px] font-bold text-[var(--ink-stamp)] uppercase">实战自问</span>
-            <span class="text-[var(--card-text)]">这个切点是让情绪更饱满了，还是因技术规整打断了观众沉浸？</span>
-          </div>
-          <div class="font-typewriter text-[11px] font-bold text-[var(--ink-stamp)] shrink-0 ml-4">
-            铁律：宁要情绪饱满的跳轴，绝不要死板冰冷的顺畅
-          </div>
-        </div>
-
-        <div class="flex items-center justify-between border-t border-[var(--hairline)] pt-3 text-[10px] font-typewriter text-[var(--board-muted)] mt-2">
+        <div class="flex items-center justify-between border-t border-[var(--hairline)] pt-3 text-[10px] font-typewriter text-[var(--board-muted)]">
           <div>电影剪辑论</div>
           <div>原则一 · 情感</div>
           <div class="font-bold text-[var(--board-text)]">02 / 08</div>
@@ -558,7 +552,8 @@
       </div>
 
       <!-- ====================================================================
-           SLIDE 3: PRINCIPLE 02 - STORY (推进故事 · 23%)
+           SLIDE 3: HORIZONTAL CAUSAL FLOW (原则二 · 推进故事 23%)
+           版式原型：全宽横向三阶段因果连环画流动带
            ==================================================================== -->
       <div id="slide-3" class="slide-pane" data-slide="3">
         <div class="flex items-center justify-between border-b border-[var(--hairline)] pb-3 text-[10px] font-typewriter text-[var(--board-muted)]">
@@ -568,8 +563,8 @@
 
         <div class="pt-3 pb-2 flex items-baseline justify-between border-b border-[var(--hairline)]">
           <div>
-            <span class="font-typewriter text-[10px] uppercase tracking-widest text-[var(--ink-stamp)] font-bold block mb-1">
-              PRINCIPLE 02
+            <span class="font-typewriter text-[10px] uppercase tracking-widest text-[var(--ink-stamp)] font-bold block mb-0.5">
+              PRINCIPLE 02 · 叙事引擎
             </span>
             <h2 class="font-editorial-serif text-3xl font-normal text-[var(--board-text)]" data-editable="true" data-edit-id="s3-h2">
               推进故事 · <span class="italic font-light text-[var(--ink-stamp)]">Story</span>
@@ -577,77 +572,76 @@
           </div>
           <div class="text-right">
             <span class="font-editorial-serif text-3xl font-light text-[var(--board-text)]">23%</span>
-            <span class="block font-typewriter text-[10px] text-[var(--board-muted)]">叙事推动力</span>
+            <span class="block font-typewriter text-[10px] text-[var(--board-muted)]">因果链推进</span>
           </div>
         </div>
 
-        <div class="grid grid-cols-12 gap-8 flex-1 items-center py-4">
-          <div class="col-span-7 pr-4 space-y-3 font-modern-sub text-xs">
-            <p class="text-sm leading-relaxed text-[var(--board-text)]" data-editable="true" data-edit-id="s3-p">
-              每一个镜头切换，都必须为观众提供全新的信息增量或推进情节因果。剪辑绝不是冗余画面的拼接，而是故事向前发展的核心引擎。
-            </p>
-            <div class="space-y-2 pt-1 border-t border-[var(--hairline)] text-[var(--board-muted)]">
-              <div class="flex items-start gap-2">
-                <span class="w-1.5 h-1.5 rounded-full bg-[var(--board-text)] mt-1.5 shrink-0"></span>
-                <span><strong class="text-[var(--board-text)]">信息增量法则：</strong>下一镜头必须揭示新信息、新视角或人物新动机。</span>
+        <!-- 核心阐述引语 -->
+        <div class="py-2">
+          <p class="font-modern-sub text-xs text-[var(--board-muted)] max-w-[820px] leading-relaxed" data-editable="true" data-edit-id="s3-p">
+            每一个镜头切换，都必须为观众提供全新的信息增量或推进情节因果。剪辑绝不是冗余画面的拼接，而是故事向前发展的核心引擎。
+          </p>
+        </div>
+
+        <!-- 全宽横向 3 阶段因果连环带 -->
+        <div class="grid grid-cols-3 gap-5 flex-1 items-center py-2 font-modern-sub">
+          <!-- 阶段 A -->
+          <div class="p-4 rounded border border-[var(--hairline)] bg-[var(--card-bg)] flex flex-col justify-between h-[210px] relative">
+            <div>
+              <div class="flex justify-between items-center mb-2">
+                <span class="font-typewriter text-xs font-bold text-[var(--card-text)]">SHOT A · 镜头 A</span>
+                <span class="text-[9px] font-typewriter px-1.5 py-0.5 rounded bg-black/5 text-[var(--card-muted)]">前置因果</span>
               </div>
-              <div class="flex items-start gap-2">
-                <span class="w-1.5 h-1.5 rounded-full bg-[var(--board-text)] mt-1.5 shrink-0"></span>
-                <span><strong class="text-[var(--board-text)]">拒绝流水账动作：</strong>坚决剪掉人物进门、坐下、开门等无关叙事的过渡动作。</span>
-              </div>
-              <div class="flex items-start gap-2">
-                <span class="w-1.5 h-1.5 rounded-full bg-[var(--board-text)] mt-1.5 shrink-0"></span>
-                <span><strong class="text-[var(--board-text)]">因果紧密咬合：</strong>镜头 A 是因，镜头 B 即是不可或缺的果，环环相扣。</span>
-              </div>
+              <h4 class="font-editorial-serif text-lg font-medium text-[var(--card-text)] mb-2">动机与起因</h4>
+              <p class="text-xs text-[var(--card-muted)] leading-relaxed">建立角色核心欲望或面临的即时困境，引发观众对后续行动的心理预期。</p>
+            </div>
+            <div class="pt-2 border-t border-[var(--hairline)] font-typewriter text-[10px] text-[var(--card-muted)]">
+              核心动作：建立悬念与动因
+            </div>
+            <!-- 右侧连接箭头 -->
+            <div class="absolute -right-3 top-1/2 -translate-y-1/2 w-6 h-6 rounded-full bg-[var(--board-bg)] border border-[var(--hairline)] flex items-center justify-center text-[var(--ink-stamp)] text-xs font-bold z-10">
+              →
             </div>
           </div>
 
-          <!-- 右侧几何图示：因果链条与信息增量 -->
-          <div class="col-span-5 border-l border-[var(--hairline)] pl-6 flex flex-col justify-center">
-            <div class="p-4 rounded border border-[var(--hairline)] bg-[var(--card-bg)]">
-              <div class="font-typewriter text-[10px] text-[var(--card-muted)] mb-2 flex justify-between">
-                <span>CAUSAL PROGRESSION</span>
-                <span class="font-bold text-[var(--board-text)]">23% DRIVE</span>
+          <!-- 阶段 B: 高亮信息增量 -->
+          <div class="p-4 rounded border-2 border-[var(--ink-stamp)] bg-[var(--card-bg)] flex flex-col justify-between h-[210px] relative shadow-sm">
+            <div>
+              <div class="flex justify-between items-center mb-2">
+                <span class="font-typewriter text-xs font-bold text-[var(--ink-stamp)]">SHOT B · 镜头 B</span>
+                <span class="text-[9px] font-typewriter px-1.5 py-0.5 rounded bg-[var(--ink-stamp)]/10 text-[var(--ink-stamp)] font-bold">核心增量</span>
               </div>
-              <div class="h-28 flex items-center justify-center">
-                <svg class="w-full h-full" viewBox="0 0 300 100" fill="none">
-                  <!-- 节点 A: 动机 -->
-                  <rect x="15" y="30" width="65" height="40" rx="3" stroke="currentColor" class="text-[var(--board-text)]" stroke-width="1.5" fill="none" />
-                  <text x="47" y="48" font-family="var(--font-mono)" font-size="8" fill="currentColor" class="text-[var(--card-muted)]" text-anchor="middle">镜头 A</text>
-                  <text x="47" y="60" font-family="var(--font-mono)" font-size="9" font-weight="bold" fill="currentColor" class="text-[var(--board-text)]" text-anchor="middle">动机与因</text>
+              <h4 class="font-editorial-serif text-lg font-medium text-[var(--ink-stamp)] mb-2">新信息增量</h4>
+              <p class="text-xs text-[var(--card-text)] leading-relaxed">切镜瞬间揭示全新视角、环境变动或角色意料之外的反应，决不给已知冗余画面。</p>
+            </div>
+            <div class="pt-2 border-t border-[var(--hairline)] font-typewriter text-[10px] text-[var(--ink-stamp)] font-bold">
+              铁律：拒绝进门/喝水等无效过渡
+            </div>
+            <div class="absolute -right-3 top-1/2 -translate-y-1/2 w-6 h-6 rounded-full bg-[var(--board-bg)] border border-[var(--hairline)] flex items-center justify-center text-[var(--ink-stamp)] text-xs font-bold z-10">
+              →
+            </div>
+          </div>
 
-                  <!-- 箭头 1 -->
-                  <path d="M 85 50 L 110 50 M 105 45 L 112 50 L 105 55" stroke="currentColor" class="text-[var(--ink-stamp)]" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-
-                  <!-- 节点 B: 冲突/动作 -->
-                  <rect x="118" y="24" width="70" height="52" rx="3" stroke="currentColor" class="text-[var(--ink-stamp)]" stroke-width="2" fill="none" />
-                  <text x="153" y="44" font-family="var(--font-mono)" font-size="8" fill="currentColor" class="text-[var(--ink-stamp)]" text-anchor="middle">镜头 B</text>
-                  <text x="153" y="58" font-family="var(--font-mono)" font-size="9" font-weight="bold" fill="currentColor" class="text-[var(--ink-stamp)]" text-anchor="middle">信息增量</text>
-
-                  <!-- 箭头 2 -->
-                  <path d="M 193 50 L 218 50 M 213 45 L 220 50 L 213 55" stroke="currentColor" class="text-[var(--ink-stamp)]" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-
-                  <!-- 节点 C: 结果 -->
-                  <rect x="225" y="30" width="65" height="40" rx="3" stroke="currentColor" class="text-[var(--board-text)]" stroke-width="1.5" fill="none" />
-                  <text x="257" y="48" font-family="var(--font-mono)" font-size="8" fill="currentColor" class="text-[var(--card-muted)]" text-anchor="middle">镜头 C</text>
-                  <text x="257" y="60" font-family="var(--font-mono)" font-size="9" font-weight="bold" fill="currentColor" class="text-[var(--board-text)]" text-anchor="middle">推进结果</text>
-                </svg>
+          <!-- 阶段 C -->
+          <div class="p-4 rounded border border-[var(--hairline)] bg-[var(--card-bg)] flex flex-col justify-between h-[210px]">
+            <div>
+              <div class="flex justify-between items-center mb-2">
+                <span class="font-typewriter text-xs font-bold text-[var(--card-text)]">SHOT C · 镜头 C</span>
+                <span class="text-[9px] font-typewriter px-1.5 py-0.5 rounded bg-black/5 text-[var(--card-muted)]">叙事演进</span>
               </div>
-              <div class="text-[10px] font-typewriter text-[var(--card-muted)] text-center pt-2 border-t border-[var(--hairline)]">
-                每一切接均带来全新信息，剔除一切冗余过渡
-              </div>
+              <h4 class="font-editorial-serif text-lg font-medium text-[var(--card-text)] mb-2">推进情节结果</h4>
+              <p class="text-xs text-[var(--card-muted)] leading-relaxed">新信息迅速转化为戏剧动作结果，故事齿轮严密咬合，推动情节迈入下一阶段。</p>
+            </div>
+            <div class="pt-2 border-t border-[var(--hairline)] font-typewriter text-[10px] text-[var(--card-muted)]">
+              核心动作：咬合因果，加速流动
             </div>
           </div>
         </div>
 
-        <div class="p-3 rounded border border-[var(--hairline)] bg-[var(--card-bg)]/80 flex items-center justify-between font-modern-sub text-xs">
-          <div class="flex items-center gap-2">
-            <span class="font-typewriter text-[10px] font-bold text-[var(--ink-stamp)] uppercase">实战自问</span>
-            <span class="text-[var(--card-text)]">观众切入这个新镜头，到底获得了什么新的故事信息？</span>
-          </div>
-          <div class="font-typewriter text-[11px] font-bold text-[var(--ink-stamp)] shrink-0 ml-4">
-            铁律：没有信息增量的镜头，构图再美也坚决剪掉
-          </div>
+        <!-- 底部实战自问 -->
+        <div class="p-2.5 rounded border border-[var(--hairline)] bg-[var(--card-bg)]/80 flex items-center justify-between font-modern-sub text-xs mt-1">
+          <span class="text-[var(--card-text)]"><strong class="text-[var(--ink-stamp)]">实战自问：</strong>观众切入这个新镜头，到底获得了什么之前不知道的故事信息？</span>
+          <span class="font-typewriter text-[11px] font-bold text-[var(--ink-stamp)] shrink-0 ml-4">铁律：没有信息增量，构图再美也剪掉</span>
         </div>
 
         <div class="flex items-center justify-between border-t border-[var(--hairline)] pt-3 text-[10px] font-typewriter text-[var(--board-muted)] mt-2">
@@ -658,7 +652,8 @@
       </div>
 
       <!-- ====================================================================
-           SLIDE 4: PRINCIPLE 03 - RHYTHM (视听节奏 · 10%)
+           SLIDE 4: CENTER-AXIS PHYSIOLOGICAL RHYTHM (原则三 · 视听节奏 10%)
+           版式原型：中轴展开式生理波形与呼吸对称视界
            ==================================================================== -->
       <div id="slide-4" class="slide-pane" data-slide="4">
         <div class="flex items-center justify-between border-b border-[var(--hairline)] pb-3 text-[10px] font-typewriter text-[var(--board-muted)]">
@@ -666,80 +661,78 @@
           <div class="tracking-widest">权重 10%</div>
         </div>
 
-        <div class="pt-3 pb-2 flex items-baseline justify-between border-b border-[var(--hairline)]">
-          <div>
-            <span class="font-typewriter text-[10px] uppercase tracking-widest text-[var(--ink-stamp)] font-bold block mb-1">
-              PRINCIPLE 03
-            </span>
-            <h2 class="font-editorial-serif text-3xl font-normal text-[var(--board-text)]" data-editable="true" data-edit-id="s4-h2">
-              视听节奏 · <span class="italic font-light text-[var(--ink-stamp)]">Rhythm</span>
-            </h2>
+        <!-- 顶部核心命题 -->
+        <div class="pt-3 pb-1 text-center">
+          <span class="font-typewriter text-[10px] uppercase tracking-widest text-[var(--ink-stamp)] font-bold block mb-1">
+            PRINCIPLE 03 · PHYSIOLOGICAL CUT
+          </span>
+          <h2 class="font-editorial-serif text-3xl font-normal text-[var(--board-text)]" data-editable="true" data-edit-id="s4-h2">
+            眨眼即切点：<span class="italic font-light text-[var(--ink-stamp)]">生理节律与思考气口</span>
+          </h2>
+          <p class="font-modern-sub text-xs text-[var(--board-muted)] max-w-[640px] mx-auto mt-1" data-editable="true" data-edit-id="s4-p">
+            切点受控于人类生理呼吸机制。默奇指出：理想的切点往往与人物思绪停顿、自然眨眼的瞬间重合。
+          </p>
+        </div>
+
+        <!-- 中轴大波形舞台 (横跨画面) -->
+        <div class="flex-1 flex flex-col justify-center py-2">
+          <div class="relative w-full h-32 my-1 flex items-center justify-center">
+            <svg class="w-full h-full" viewBox="0 0 1100 110" fill="none">
+              <!-- 导轨基准发丝虚线 -->
+              <line x1="30" y1="60" x2="1070" y2="60" stroke="currentColor" class="text-[var(--board-text)] opacity-20" stroke-width="1" stroke-dasharray="4 4" />
+              
+              <!-- 三垂直对齐参考线 -->
+              <line x1="200" y1="15" x2="200" y2="95" stroke="currentColor" stroke-opacity="0.2" class="text-[var(--board-text)]" stroke-width="1" stroke-dasharray="3 3" />
+              <line x1="550" y1="10" x2="550" y2="100" stroke="currentColor" stroke-opacity="0.4" class="text-[var(--ink-stamp)]" stroke-width="1.5" stroke-dasharray="3 3" />
+              <line x1="900" y1="15" x2="900" y2="95" stroke="currentColor" stroke-opacity="0.2" class="text-[var(--board-text)]" stroke-width="1" stroke-dasharray="3 3" />
+
+              <!-- 生理盲区半透明光柱 (200ms Blink Gap) -->
+              <rect x="530" y="12" width="40" height="86" rx="3" fill="currentColor" fill-opacity="0.12" class="text-[var(--ink-stamp)]" />
+
+              <!-- 前半段波形：张力积蓄 -->
+              <path d="M 30 60 C 100 60, 140 50, 200 40 C 260 30, 340 32, 420 52 C 480 65, 510 24, 530 20" 
+                    stroke="currentColor" class="text-[var(--ink-stamp)]" stroke-width="2.5" stroke-linecap="round" />
+
+              <!-- 后半段波形：视线重启 -->
+              <path d="M 570 36 C 620 36, 700 60, 780 60 C 860 60, 920 60, 1070 60" 
+                    stroke="currentColor" class="text-[var(--ink-stamp)]" stroke-width="2.5" stroke-linecap="round" />
+
+              <!-- 切点关键高光 -->
+              <circle cx="530" cy="20" r="4.5" fill="currentColor" class="text-[var(--ink-stamp)]" />
+              <circle cx="570" cy="36" r="3.5" fill="currentColor" class="text-[var(--board-text)] opacity-60" />
+
+              <g transform="translate(550, 10)">
+                <rect x="-32" y="-9" width="64" height="17" rx="2" fill="var(--board-bg)" stroke="currentColor" class="text-[var(--ink-stamp)]" stroke-width="1" />
+                <text x="0" y="3" font-family="var(--font-mono)" font-size="8" font-weight="bold" fill="currentColor" class="text-[var(--ink-stamp)]" text-anchor="middle">切点 0ms</text>
+              </g>
+
+              <text x="200" y="105" font-family="var(--font-mono)" font-size="8" fill="currentColor" class="text-[var(--board-muted)]" text-anchor="middle">思绪顿挫波峰</text>
+              <text x="550" y="106" font-family="var(--font-mono)" font-size="9" font-weight="bold" fill="currentColor" class="text-[var(--ink-stamp)]" text-anchor="middle">200ms 眨眼间歇</text>
+              <text x="900" y="105" font-family="var(--font-mono)" font-size="8" fill="currentColor" class="text-[var(--board-muted)]" text-anchor="middle">视线自然重构</text>
+            </svg>
           </div>
-          <div class="text-right">
-            <span class="font-editorial-serif text-3xl font-light text-[var(--board-text)]">10%</span>
-            <span class="block font-typewriter text-[10px] text-[var(--board-muted)]">生理切点与气口</span>
+
+          <!-- 下方 3 列轻量说明 -->
+          <div class="grid grid-cols-3 gap-6 pt-3 border-t border-[var(--hairline)] font-modern-sub text-xs text-center">
+            <div>
+              <span class="font-typewriter text-[10px] text-[var(--ink-stamp)] font-bold">阶段一 · 思考顿挫</span>
+              <p class="text-[11px] text-[var(--board-muted)] mt-0.5">人在转换思绪时会自然眨眼，切点应落在生理气口。</p>
+            </div>
+            <div>
+              <span class="font-typewriter text-[10px] text-[var(--ink-stamp)] font-bold">阶段二 · 200ms 盲区</span>
+              <p class="text-[11px] text-[var(--board-muted)] mt-0.5">落在此间隙的画面切换，大脑将自动消除机械跳跃感。</p>
+            </div>
+            <div>
+              <span class="font-typewriter text-[10px] text-[var(--ink-stamp)] font-bold">阶段三 · 顺畅重启</span>
+              <p class="text-[11px] text-[var(--board-muted)] mt-0.5">眼皮重开后视线自然平稳落入下一镜头，达成完全无缝。</p>
+            </div>
           </div>
         </div>
 
-        <div class="grid grid-cols-12 gap-8 flex-1 items-center py-4">
-          <div class="col-span-7 pr-4 space-y-3 font-modern-sub text-xs">
-            <p class="text-sm leading-relaxed text-[var(--board-text)]" data-editable="true" data-edit-id="s4-p">
-              切点受控于人类生理机制与情绪呼吸，而非单调的节拍器。默奇指出：理想的切点往往与人物思考落定、眨眼的瞬间自然重合。
-            </p>
-            <div class="space-y-2 pt-1 border-t border-[var(--hairline)] text-[var(--board-muted)]">
-              <div class="flex items-start gap-2">
-                <span class="w-1.5 h-1.5 rounded-full bg-[var(--ink-stamp)] mt-1.5 shrink-0"></span>
-                <span><strong class="text-[var(--board-text)]">眨眼切点论：</strong>人在转换思绪时会自然眨眼，切点应落在该生理气口上。</span>
-              </div>
-              <div class="flex items-start gap-2">
-                <span class="w-1.5 h-1.5 rounded-full bg-[var(--ink-stamp)] mt-1.5 shrink-0"></span>
-                <span><strong class="text-[var(--board-text)]">谨防踩点陷阱：</strong>切勿单纯按照背景音乐节拍机械切，情绪气口优先于配乐。</span>
-              </div>
-              <div class="flex items-start gap-2">
-                <span class="w-1.5 h-1.5 rounded-full bg-[var(--ink-stamp)] mt-1.5 shrink-0"></span>
-                <span><strong class="text-[var(--board-text)]">呼吸与张弛：</strong>紧凑剪辑积蓄戏剧紧张，气口留白给观众消化与沉淀余味。</span>
-              </div>
-            </div>
-          </div>
-
-          <!-- 右侧几何图示：眨眼间歇与脉冲切点 -->
-          <div class="col-span-5 border-l border-[var(--hairline)] pl-6 flex flex-col justify-center">
-            <div class="p-4 rounded border border-[var(--hairline)] bg-[var(--card-bg)]">
-              <div class="font-typewriter text-[10px] text-[var(--card-muted)] mb-2 flex justify-between">
-                <span>PHYSIOLOGICAL CUT</span>
-                <span class="font-bold text-[var(--ink-stamp)]">BLINK GAP</span>
-              </div>
-              <div class="h-28 flex items-center justify-center">
-                <svg class="w-full h-full" viewBox="0 0 300 100" fill="none">
-                  <line x1="10" y1="50" x2="290" y2="50" stroke="currentColor" class="text-[var(--card-muted)] opacity-20" stroke-width="1" stroke-dasharray="3 3" />
-                  <!-- 眨眼光柱 200ms -->
-                  <rect x="135" y="15" width="30" height="70" rx="2" fill="currentColor" fill-opacity="0.12" class="text-[var(--ink-stamp)]" />
-                  <!-- 前段脉冲 -->
-                  <path d="M 15 50 Q 70 50, 100 35 T 135 25" stroke="currentColor" class="text-[var(--ink-stamp)]" stroke-width="2" stroke-linecap="round" />
-                  <!-- 后段延展 -->
-                  <path d="M 165 40 Q 200 60, 240 50 T 285 50" stroke="currentColor" class="text-[var(--board-text)]" stroke-width="2" stroke-linecap="round" />
-                  <circle cx="135" cy="25" r="4" fill="currentColor" class="text-[var(--ink-stamp)]" />
-                  <circle cx="165" cy="40" r="3.5" fill="currentColor" class="text-[var(--board-text)] opacity-60" />
-                  <text x="150" y="10" font-family="var(--font-mono)" font-size="8" font-weight="bold" fill="currentColor" class="text-[var(--ink-stamp)]" text-anchor="middle">200ms 盲区</text>
-                  <text x="70" y="70" font-family="var(--font-mono)" font-size="8" fill="currentColor" class="text-[var(--card-muted)]">思考顿挫</text>
-                  <text x="230" y="70" font-family="var(--font-mono)" font-size="8" fill="currentColor" class="text-[var(--board-muted)]">视线重启</text>
-                </svg>
-              </div>
-              <div class="text-[10px] font-typewriter text-[var(--card-muted)] text-center pt-2 border-t border-[var(--hairline)]">
-                切点落于眨眼瞬间，观众获得完全无缝的心理转场
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="p-3 rounded border border-[var(--hairline)] bg-[var(--card-bg)]/80 flex items-center justify-between font-modern-sub text-xs">
-          <div class="flex items-center gap-2">
-            <span class="font-typewriter text-[10px] font-bold text-[var(--ink-stamp)] uppercase">实战自问</span>
-            <span class="text-[var(--card-text)]">这里的剪接是跟随角色的呼吸思绪，还是机械卡在音乐鼓点上？</span>
-          </div>
-          <div class="font-typewriter text-[11px] font-bold text-[var(--ink-stamp)] shrink-0 ml-4">
-            铁律：角色的生理眨眼与情绪停顿，永远先于背景音乐
-          </div>
+        <!-- 底部铁律 -->
+        <div class="p-2.5 rounded border border-[var(--hairline)] bg-[var(--card-bg)]/80 flex items-center justify-between font-modern-sub text-xs">
+          <span class="text-[var(--card-text)]"><strong class="text-[var(--ink-stamp)]">实战自问：</strong>这里的剪切是跟随角色的呼吸与思绪，还是机械卡在音乐鼓点上？</span>
+          <span class="font-typewriter text-[11px] font-bold text-[var(--ink-stamp)] shrink-0 ml-4">铁律：生理眨眼与情绪气口永远先于音乐</span>
         </div>
 
         <div class="flex items-center justify-between border-t border-[var(--hairline)] pt-3 text-[10px] font-typewriter text-[var(--board-muted)] mt-2">
@@ -750,7 +743,8 @@
       </div>
 
       <!-- ====================================================================
-           SLIDE 5: PRINCIPLE 04 - EYE-TRACE (视线落点 · 7%)
+           SLIDE 5: DUAL CINEMATIC EYE-TRACE (原则四 · 视线落点 7%)
+           版式原型：双画框视线轨迹连续性追踪版
            ==================================================================== -->
       <div id="slide-5" class="slide-pane" data-slide="5">
         <div class="flex items-center justify-between border-b border-[var(--hairline)] pb-3 text-[10px] font-typewriter text-[var(--board-muted)]">
@@ -760,8 +754,8 @@
 
         <div class="pt-3 pb-2 flex items-baseline justify-between border-b border-[var(--hairline)]">
           <div>
-            <span class="font-typewriter text-[10px] uppercase tracking-widest text-[var(--ink-stamp)] font-bold block mb-1">
-              PRINCIPLE 04
+            <span class="font-typewriter text-[10px] uppercase tracking-widest text-[var(--ink-stamp)] font-bold block mb-0.5">
+              PRINCIPLE 04 · 视线引导
             </span>
             <h2 class="font-editorial-serif text-3xl font-normal text-[var(--board-text)]" data-editable="true" data-edit-id="s5-h2">
               视线落点 · <span class="italic font-light text-[var(--ink-stamp)]">Eye-trace</span>
@@ -773,69 +767,52 @@
           </div>
         </div>
 
-        <div class="grid grid-cols-12 gap-8 flex-1 items-center py-4">
-          <div class="col-span-7 pr-4 space-y-3 font-modern-sub text-xs">
-            <p class="text-sm leading-relaxed text-[var(--board-text)]" data-editable="true" data-edit-id="s5-p">
-              观众在银幕上的注视点，不应在切镜瞬间产生剧烈无序的跳跃。优秀的剪辑如同无形的指挥棒，将观众注意力平滑引向下一画面的核心。
-            </p>
-            <div class="space-y-2 pt-1 border-t border-[var(--hairline)] text-[var(--board-muted)]">
-              <div class="flex items-start gap-2">
-                <span class="w-1.5 h-1.5 rounded-full bg-[var(--board-text)] mt-1.5 shrink-0"></span>
-                <span><strong class="text-[var(--board-text)]">焦点落点继承：</strong>镜头 A 结束时观众看哪里，镜头 B 核心就应落在对应区域。</span>
-              </div>
-              <div class="flex items-start gap-2">
-                <span class="w-1.5 h-1.5 rounded-full bg-[var(--board-text)] mt-1.5 shrink-0"></span>
-                <span><strong class="text-[var(--board-text)]">消除视觉疲劳：</strong>避免视线在银幕极左与极右之间无预警极速拉扯。</span>
-              </div>
-              <div class="flex items-start gap-2">
-                <span class="w-1.5 h-1.5 rounded-full bg-[var(--board-text)] mt-1.5 shrink-0"></span>
-                <span><strong class="text-[var(--board-text)]">动势顺水推舟：</strong>借由主体动作或视线方向，自然引导观众眼球迁移。</span>
-              </div>
+        <!-- 主体：双 16:9 画框视线轨迹追踪视图 -->
+        <div class="flex-1 flex flex-col justify-center py-2 font-modern-sub">
+          <div class="p-4 rounded border border-[var(--hairline)] bg-[var(--card-bg)]">
+            <div class="font-typewriter text-[10px] text-[var(--card-muted)] mb-3 flex justify-between">
+              <span>DUAL-FRAME FOCUS CONTINUITY TRACKING</span>
+              <span class="font-bold text-[var(--ink-stamp)]">SMOOTH GAZE MIGRATION</span>
             </div>
-          </div>
 
-          <!-- 右侧几何图示：双画框视线轨迹追踪 -->
-          <div class="col-span-5 border-l border-[var(--hairline)] pl-6 flex flex-col justify-center">
-            <div class="p-4 rounded border border-[var(--hairline)] bg-[var(--card-bg)]">
-              <div class="font-typewriter text-[10px] text-[var(--card-muted)] mb-2 flex justify-between">
-                <span>GAZE TRAJECTORY</span>
-                <span class="font-bold text-[var(--board-text)]">SMOOTH TRACE</span>
-              </div>
-              <div class="h-28 flex items-center justify-center">
-                <svg class="w-full h-full" viewBox="0 0 300 100" fill="none">
-                  <!-- 画框 1 -->
-                  <rect x="20" y="20" width="115" height="65" rx="3" stroke="currentColor" class="text-[var(--card-muted)]" stroke-width="1.2" stroke-dasharray="2 2" fill="none" />
-                  <text x="30" y="34" font-family="var(--font-mono)" font-size="8" fill="currentColor" class="text-[var(--card-muted)]">镜头 A</text>
-                  <!-- 焦点 A -->
-                  <circle cx="95" cy="50" r="5" fill="currentColor" class="text-[var(--board-text)]" />
-                  <circle cx="95" cy="50" r="11" stroke="currentColor" class="text-[var(--board-text)]" stroke-width="1" stroke-dasharray="2 2" />
+            <!-- 双画幅几何图 -->
+            <div class="h-36 flex items-center justify-center">
+              <svg class="w-full h-full" viewBox="0 0 600 130" fill="none">
+                <!-- 镜头 A 16:9 画框 -->
+                <rect x="40" y="15" width="220" height="100" rx="3" stroke="currentColor" class="text-[var(--card-muted)]" stroke-width="1.5" stroke-dasharray="3 3" fill="none" />
+                <text x="55" y="32" font-family="var(--font-mono)" font-size="9" font-weight="bold" fill="currentColor" class="text-[var(--card-muted)]">镜头 A (出点)</text>
+                
+                <!-- 焦点 A (演员眼神位置) -->
+                <circle cx="190" cy="55" r="7" fill="currentColor" class="text-[var(--board-text)]" />
+                <circle cx="190" cy="55" r="16" stroke="currentColor" class="text-[var(--board-text)]" stroke-width="1.2" stroke-dasharray="2 2" />
+                <text x="190" y="85" font-family="var(--font-mono)" font-size="8" fill="currentColor" class="text-[var(--board-muted)]" text-anchor="middle">出点焦点 (右上)</text>
 
-                  <!-- 平滑转移曲线 -->
-                  <path d="M 95 50 C 130 50, 150 48, 195 45" stroke="currentColor" class="text-[var(--ink-stamp)]" stroke-width="2" stroke-linecap="round" />
+                <!-- 视线跨画框引导弧线 (平滑贝塞尔) -->
+                <path d="M 190 55 C 260 55, 300 62, 380 65" stroke="currentColor" class="text-[var(--ink-stamp)]" stroke-width="2.5" stroke-dasharray="4 3" />
+                <path d="M 374 61 L 382 65 L 374 69" stroke="currentColor" class="text-[var(--ink-stamp)]" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" />
 
-                  <!-- 画框 2 -->
-                  <rect x="165" y="20" width="115" height="65" rx="3" stroke="currentColor" class="text-[var(--card-muted)]" stroke-width="1.2" stroke-dasharray="2 2" fill="none" />
-                  <text x="175" y="34" font-family="var(--font-mono)" font-size="8" fill="currentColor" class="text-[var(--card-muted)]">镜头 B</text>
-                  <!-- 焦点 B -->
-                  <circle cx="195" cy="45" r="5" fill="currentColor" class="text-[var(--ink-stamp)]" />
-                  <circle cx="195" cy="45" r="11" stroke="currentColor" class="text-[var(--ink-stamp)]" stroke-width="1" stroke-dasharray="2 2" />
-                </svg>
-              </div>
-              <div class="text-[10px] font-typewriter text-[var(--card-muted)] text-center pt-2 border-t border-[var(--hairline)]">
-                视线平滑落位，无需观众在大银幕中四处搜索目标
-              </div>
+                <!-- 镜头 B 16:9 画框 -->
+                <rect x="340" y="15" width="220" height="100" rx="3" stroke="currentColor" class="text-[var(--ink-stamp)]" stroke-width="1.8" fill="none" />
+                <text x="355" y="32" font-family="var(--font-mono)" font-size="9" font-weight="bold" fill="currentColor" class="text-[var(--ink-stamp)]">镜头 B (入点)</text>
+
+                <!-- 焦点 B (对应承接位置) -->
+                <circle cx="410" cy="65" r="7" fill="currentColor" class="text-[var(--ink-stamp)]" />
+                <circle cx="410" cy="65" r="16" stroke="currentColor" class="text-[var(--ink-stamp)]" stroke-width="1.2" stroke-dasharray="2 2" />
+                <text x="410" y="95" font-family="var(--font-mono)" font-size="8" font-weight="bold" fill="currentColor" class="text-[var(--ink-stamp)]" text-anchor="middle">继承落点 (平滑承接)</text>
+              </svg>
+            </div>
+
+            <div class="grid grid-cols-3 gap-4 pt-3 border-t border-[var(--hairline)] text-xs text-[var(--card-muted)]">
+              <div><strong class="text-[var(--card-text)]">焦点落点继承：</strong>镜头 A 结束时观众看哪里，镜头 B 核心就置于对应区域。</div>
+              <div><strong class="text-[var(--card-text)]">消除视觉疲劳：</strong>避免视线在银幕左右两极无预警极速拉扯扫视。</div>
+              <div><strong class="text-[var(--card-text)]">动势顺流引导：</strong>借由主体动作速度或视线方向，自然牵引注意力。</div>
             </div>
           </div>
         </div>
 
-        <div class="p-3 rounded border border-[var(--hairline)] bg-[var(--card-bg)]/80 flex items-center justify-between font-modern-sub text-xs">
-          <div class="flex items-center gap-2">
-            <span class="font-typewriter text-[10px] font-bold text-[var(--ink-stamp)] uppercase">实战自问</span>
-            <span class="text-[var(--card-text)]">镜头切换后，观众需要花费几分之一秒去画面中重新找焦点？</span>
-          </div>
-          <div class="font-typewriter text-[11px] font-bold text-[var(--ink-stamp)] shrink-0 ml-4">
-            铁律：焦点无缝交接，严禁毫无预期的眼球剧烈拉扯
-          </div>
+        <div class="p-2.5 rounded border border-[var(--hairline)] bg-[var(--card-bg)]/80 flex items-center justify-between font-modern-sub text-xs">
+          <span class="text-[var(--card-text)]"><strong class="text-[var(--ink-stamp)]">实战自问：</strong>镜头切换后，观众需要花费几分之一秒去画面里重新找焦点？</span>
+          <span class="font-typewriter text-[11px] font-bold text-[var(--ink-stamp)] shrink-0 ml-4">铁律：焦点无缝交接，严禁左右眼球剧烈拉扯</span>
         </div>
 
         <div class="flex items-center justify-between border-t border-[var(--hairline)] pt-3 text-[10px] font-typewriter text-[var(--board-muted)] mt-2">
@@ -846,7 +823,8 @@
       </div>
 
       <!-- ====================================================================
-           SLIDE 6: PRINCIPLE 05 - 2D PLANE (二维平面 · 5%)
+           SLIDE 6: 180-DEGREE AXIS SEMI-CIRCLE (原则五 · 二维平面 5%)
+           版式原型：180° 轴线俯视几何空间图解版
            ==================================================================== -->
       <div id="slide-6" class="slide-pane" data-slide="6">
         <div class="flex items-center justify-between border-b border-[var(--hairline)] pb-3 text-[10px] font-typewriter text-[var(--board-muted)]">
@@ -856,8 +834,8 @@
 
         <div class="pt-3 pb-2 flex items-baseline justify-between border-b border-[var(--hairline)]">
           <div>
-            <span class="font-typewriter text-[10px] uppercase tracking-widest text-[var(--ink-stamp)] font-bold block mb-1">
-              PRINCIPLE 05
+            <span class="font-typewriter text-[10px] uppercase tracking-widest text-[var(--ink-stamp)] font-bold block mb-0.5">
+              PRINCIPLE 05 · 银幕矢量
             </span>
             <h2 class="font-editorial-serif text-3xl font-normal text-[var(--board-text)]" data-editable="true" data-edit-id="s6-h2">
               二维平面 · <span class="italic font-light text-[var(--ink-stamp)]">2D Plane</span>
@@ -869,74 +847,60 @@
           </div>
         </div>
 
-        <div class="grid grid-cols-12 gap-8 flex-1 items-center py-4">
-          <div class="col-span-7 pr-4 space-y-3 font-modern-sub text-xs">
-            <p class="text-sm leading-relaxed text-[var(--board-text)]" data-editable="true" data-edit-id="s6-p">
-              电影银幕是二维平面。剪辑必须守恒 180° 动作轴线与运动矢量，确保对话双方视线正对、奔跑方向统一，防止视觉方位错乱。
-            </p>
-            <div class="space-y-2 pt-1 border-t border-[var(--hairline)] text-[var(--board-muted)]">
-              <div class="flex items-start gap-2">
-                <span class="w-1.5 h-1.5 rounded-full bg-[var(--board-text)] mt-1.5 shrink-0"></span>
-                <span><strong class="text-[var(--board-text)]">180° 轴线守恒：</strong>摄像机置于轴线同侧，确保正反打时二人视线能够对望。</span>
+        <div class="grid grid-cols-12 gap-8 flex-1 items-center py-2 font-modern-sub">
+          <!-- 左侧：180° 半圆几何俯视图 -->
+          <div class="col-span-6 flex flex-col justify-center">
+            <div class="p-4 rounded border border-[var(--hairline)] bg-[var(--card-bg)]">
+              <div class="font-typewriter text-[10px] text-[var(--card-muted)] mb-2 flex justify-between">
+                <span>180° ACTION AXIS BLUEPRINT</span>
+                <span class="font-bold text-[var(--ink-stamp)]">OVERHEAD SETUP</span>
               </div>
-              <div class="flex items-start gap-2">
-                <span class="w-1.5 h-1.5 rounded-full bg-[var(--board-text)] mt-1.5 shrink-0"></span>
-                <span><strong class="text-[var(--board-text)]">运动矢量守恒：</strong>人物向右奔跑出画，下一个镜头必须自左向右继续入画。</span>
-              </div>
-              <div class="flex items-start gap-2">
-                <span class="w-1.5 h-1.5 rounded-full bg-[var(--board-text)] mt-1.5 shrink-0"></span>
-                <span><strong class="text-[var(--board-text)]">破轴的主动权：</strong>违背二维轴线会造成迷航；但若为了极致情感震撼，可主动破轴。</span>
+              <div class="h-40 flex items-center justify-center">
+                <svg class="w-full h-full" viewBox="0 0 320 140" fill="none">
+                  <!-- 动作轴线 Line -->
+                  <line x1="30" y1="60" x2="290" y2="60" stroke="currentColor" class="text-[var(--card-muted)] opacity-30" stroke-width="1.5" stroke-dasharray="4 4" />
+                  <text x="160" y="42" font-family="var(--font-mono)" font-size="8" fill="currentColor" class="text-[var(--card-muted)]" text-anchor="middle">动作轴线 (Action Axis)</text>
+
+                  <!-- 角色 A 与 角色 B -->
+                  <circle cx="100" cy="60" r="9" fill="currentColor" class="text-[var(--board-text)]" />
+                  <text x="100" y="80" font-family="var(--font-mono)" font-size="8" font-weight="bold" fill="currentColor" class="text-[var(--board-text)]" text-anchor="middle">角色 A</text>
+
+                  <circle cx="220" cy="60" r="9" fill="currentColor" class="text-[var(--board-text)]" />
+                  <text x="220" y="80" font-family="var(--font-mono)" font-size="8" font-weight="bold" fill="currentColor" class="text-[var(--board-text)]" text-anchor="middle">角色 B</text>
+
+                  <!-- 180度安全半圆弧 -->
+                  <path d="M 40 60 A 120 60 0 0 0 280 60" stroke="currentColor" class="text-[var(--ink-stamp)]" stroke-width="2" fill="none" stroke-dasharray="4 3" />
+
+                  <!-- 机位 1 与 机位 2 -->
+                  <rect x="110" y="102" width="18" height="14" rx="2" fill="currentColor" class="text-[var(--ink-stamp)]" />
+                  <text x="119" y="127" font-family="var(--font-mono)" font-size="7" font-weight="bold" fill="currentColor" class="text-[var(--ink-stamp)]" text-anchor="middle">机位1</text>
+
+                  <rect x="192" y="102" width="18" height="14" rx="2" fill="currentColor" class="text-[var(--ink-stamp)]" />
+                  <text x="201" y="127" font-family="var(--font-mono)" font-size="7" font-weight="bold" fill="currentColor" class="text-[var(--ink-stamp)]" text-anchor="middle">机位2</text>
+
+                  <!-- 越轴禁区 -->
+                  <text x="160" y="20" font-family="var(--font-mono)" font-size="8" fill="currentColor" class="text-[var(--card-muted)]" text-anchor="middle">越轴禁区 (除非上位情感强烈需要)</text>
+                </svg>
               </div>
             </div>
           </div>
 
-          <!-- 右侧几何图示：180° 轴线半圆规范 -->
-          <div class="col-span-5 border-l border-[var(--hairline)] pl-6 flex flex-col justify-center">
-            <div class="p-4 rounded border border-[var(--hairline)] bg-[var(--card-bg)]">
-              <div class="font-typewriter text-[10px] text-[var(--card-muted)] mb-2 flex justify-between">
-                <span>180° AXIS RULE</span>
-                <span class="font-bold text-[var(--board-text)]">5% VECTOR</span>
-              </div>
-              <div class="h-28 flex items-center justify-center">
-                <svg class="w-full h-full" viewBox="0 0 300 100" fill="none">
-                  <!-- 轴线 Line -->
-                  <line x1="40" y1="45" x2="260" y2="45" stroke="currentColor" class="text-[var(--card-muted)] opacity-30" stroke-width="1.5" stroke-dasharray="4 4" />
-                  <!-- 角色 A 与 角色 B -->
-                  <circle cx="100" cy="45" r="7" fill="currentColor" class="text-[var(--board-text)]" />
-                  <text x="100" y="32" font-family="var(--font-mono)" font-size="8" font-weight="bold" fill="currentColor" class="text-[var(--board-text)]" text-anchor="middle">角色 A</text>
-
-                  <circle cx="200" cy="45" r="7" fill="currentColor" class="text-[var(--board-text)]" />
-                  <text x="200" y="32" font-family="var(--font-mono)" font-size="8" font-weight="bold" fill="currentColor" class="text-[var(--board-text)]" text-anchor="middle">角色 B</text>
-
-                  <!-- 180度半圆机位范围 -->
-                  <path d="M 50 45 A 100 45 0 0 0 250 45" stroke="currentColor" class="text-[var(--ink-stamp)]" stroke-width="1.5" fill="none" stroke-dasharray="3 3" />
-
-                  <!-- 机位 1 与 机位 2 -->
-                  <rect x="110" y="75" width="16" height="12" rx="2" fill="currentColor" class="text-[var(--ink-stamp)]" />
-                  <text x="118" y="96" font-family="var(--font-mono)" font-size="7" fill="currentColor" class="text-[var(--ink-stamp)]" text-anchor="middle">机位1</text>
-
-                  <rect x="174" y="75" width="16" height="12" rx="2" fill="currentColor" class="text-[var(--ink-stamp)]" />
-                  <text x="182" y="96" font-family="var(--font-mono)" font-size="7" fill="currentColor" class="text-[var(--ink-stamp)]" text-anchor="middle">机位2</text>
-
-                  <!-- 禁区跨轴 -->
-                  <text x="150" y="20" font-family="var(--font-mono)" font-size="7" fill="currentColor" class="text-[var(--card-muted)]" text-anchor="middle">越轴禁区 (除非情感需要)</text>
-                </svg>
-              </div>
-              <div class="text-[10px] font-typewriter text-[var(--card-muted)] text-center pt-2 border-t border-[var(--hairline)]">
-                同侧拍摄保证二人视线对齐，防止空间认知颠倒
-              </div>
+          <!-- 右侧：二维原则精要 -->
+          <div class="col-span-6 border-l border-[var(--hairline)] pl-6 flex flex-col justify-center space-y-3 text-xs">
+            <p class="text-[var(--board-text)] leading-relaxed" data-editable="true" data-edit-id="s6-p">
+              电影银幕是绝对二维的。必须严守 180° 动作轴线，确保正反打对话双方视线正对、奔跑方向前后一致，防止视觉方位错乱。
+            </p>
+            <div class="space-y-2 pt-1 border-t border-[var(--hairline)] text-[var(--board-muted)]">
+              <div><strong class="text-[var(--board-text)]">视线守恒：</strong>机位始终位于轴线同侧，确保角色 A 看向画面右侧，角色 B 望向左侧。</div>
+              <div><strong class="text-[var(--board-text)]">运动矢量一致：</strong>人物向右奔跑出画，下一个镜头必须自左侧入画继续向右。</div>
+              <div><strong class="text-[var(--board-text)]">破轴主动权：</strong>除非为营造心理惊悚或认知震荡，绝不可出现无意识误剪破轴。</div>
             </div>
           </div>
         </div>
 
-        <div class="p-3 rounded border border-[var(--hairline)] bg-[var(--card-bg)]/80 flex items-center justify-between font-modern-sub text-xs">
-          <div class="flex items-center gap-2">
-            <span class="font-typewriter text-[10px] font-bold text-[var(--ink-stamp)] uppercase">实战自问</span>
-            <span class="text-[var(--card-text)]">切换镜头后，两人视线是在面对面对视，还是看似望向同一侧？</span>
-          </div>
-          <div class="font-typewriter text-[11px] font-bold text-[var(--ink-stamp)] shrink-0 ml-4">
-            铁律：严守 180° 轴线；但上位情感需要时可果断打破
-          </div>
+        <div class="p-2.5 rounded border border-[var(--hairline)] bg-[var(--card-bg)]/80 flex items-center justify-between font-modern-sub text-xs mt-1">
+          <span class="text-[var(--card-text)]"><strong class="text-[var(--ink-stamp)]">实战自问：</strong>切换镜头后，两人视线是在面对面对视，还是看似望向了同一侧？</span>
+          <span class="font-typewriter text-[11px] font-bold text-[var(--ink-stamp)] shrink-0 ml-4">铁律：守住 180° 轴线；上位情感需要时可打破</span>
         </div>
 
         <div class="flex items-center justify-between border-t border-[var(--hairline)] pt-3 text-[10px] font-typewriter text-[var(--board-muted)] mt-2">
@@ -947,7 +911,8 @@
       </div>
 
       <!-- ====================================================================
-           SLIDE 7: PRINCIPLE 06 - 3D SPACE (三维空间 · 4%)
+           SLIDE 7: DIAGONAL SPATIAL DECONSTRUCTION (原则六 · 三维空间 4%)
+           版式原型：对角线空间解构与上位压制对比版
            ==================================================================== -->
       <div id="slide-7" class="slide-pane" data-slide="7">
         <div class="flex items-center justify-between border-b border-[var(--hairline)] pb-3 text-[10px] font-typewriter text-[var(--board-muted)]">
@@ -957,75 +922,59 @@
 
         <div class="pt-3 pb-2 flex items-baseline justify-between border-b border-[var(--hairline)]">
           <div>
-            <span class="font-typewriter text-[10px] uppercase tracking-widest text-[var(--ink-stamp)] font-bold block mb-1">
-              PRINCIPLE 06
+            <span class="font-typewriter text-[10px] uppercase tracking-widest text-[var(--ink-stamp)] font-bold block mb-0.5">
+              PRINCIPLE 06 · 最先让步准则
             </span>
             <h2 class="font-editorial-serif text-3xl font-normal text-[var(--board-text)]" data-editable="true" data-edit-id="s7-h2">
-              三维空间 · <span class="italic font-light text-[var(--ink-stamp)]">3D Space</span>
+              三维空间 · <span class="italic font-light text-[var(--ink-stamp)]">3D Continuity</span>
             </h2>
           </div>
           <div class="text-right">
             <span class="font-editorial-serif text-3xl font-light text-[var(--board-text)]">4%</span>
-            <span class="block font-typewriter text-[10px] text-[var(--board-muted)]">物理连贯与最先让步</span>
+            <span class="block font-typewriter text-[10px] text-[var(--board-muted)]">物理连贯与动作匹配</span>
           </div>
         </div>
 
-        <div class="grid grid-cols-12 gap-8 flex-1 items-center py-4">
-          <div class="col-span-7 pr-4 space-y-3 font-modern-sub text-xs">
-            <p class="text-sm leading-relaxed text-[var(--board-text)]" data-editable="true" data-edit-id="s7-p">
-              真实物理世界中的空间与动作连贯性。虽排在六原则最末（仅占 4%），却是初学者最常纠结、也最应该在上位原则需要时牺牲的底层项。
-            </p>
-            <div class="space-y-2 pt-1 border-t border-[var(--hairline)] text-[var(--board-muted)]">
-              <div class="flex items-start gap-2">
-                <span class="w-1.5 h-1.5 rounded-full bg-[var(--board-text)] mt-1.5 shrink-0"></span>
-                <span><strong class="text-[var(--board-text)]">动作匹配陷阱：</strong>过于执着人物拿杯高度、衣领整理等无关紧要的物理匹配。</span>
-              </div>
-              <div class="flex items-start gap-2">
-                <span class="w-1.5 h-1.5 rounded-full bg-[var(--board-text)] mt-1.5 shrink-0"></span>
-                <span><strong class="text-[var(--board-text)]">大脑自动脑补：</strong>只要情感与故事饱满，观众大脑会自然忽略物理上的微小瑕疵。</span>
-              </div>
-              <div class="flex items-start gap-2">
-                <span class="w-1.5 h-1.5 rounded-full bg-[var(--board-text)] mt-1.5 shrink-0"></span>
-                <span><strong class="text-[var(--board-text)]">最先牺牲项：</strong>绝不要为了修补空间连贯，舍弃演员最好的一条情绪表演。</span>
-              </div>
+        <!-- 对角对冲视觉构图 -->
+        <div class="grid grid-cols-12 gap-8 flex-1 items-center py-2 font-modern-sub">
+          <!-- 左侧：底层空间与动作匹配陷阱 -->
+          <div class="col-span-5 p-4 rounded border border-[var(--hairline)] bg-[var(--card-bg)] flex flex-col justify-between h-[210px]">
+            <div>
+              <span class="font-typewriter text-[10px] text-[var(--card-muted)] uppercase block mb-1">LOWEST PRIORITY · 4%</span>
+              <h4 class="font-editorial-serif text-xl font-medium text-[var(--card-text)] mb-2">物理世界的动作连贯</h4>
+              <p class="text-xs text-[var(--card-muted)] leading-relaxed">
+                传统剪辑最常纠结的人物手拿水杯高低、夹烟手指、站起姿势等微小物理匹配。
+              </p>
+            </div>
+            <div class="pt-2 border-t border-[var(--hairline)] text-[10px] font-typewriter text-[var(--card-muted)]">
+              ⚠️ 初学者陷阱：死磕无意义的物理缝合
             </div>
           </div>
 
-          <!-- 右侧几何图示：物理动作容忍度与上位压制 -->
-          <div class="col-span-5 border-l border-[var(--hairline)] pl-6 flex flex-col justify-center">
-            <div class="p-4 rounded border border-[var(--hairline)] bg-[var(--card-bg)]">
-              <div class="font-typewriter text-[10px] text-[var(--card-muted)] mb-2 flex justify-between">
-                <span>PHYSICAL CONTINUITY</span>
-                <span class="font-bold text-[var(--board-text)]">LOWEST RANK</span>
-              </div>
-              <div class="h-28 flex items-center justify-center">
-                <svg class="w-full h-full" viewBox="0 0 300 100" fill="none">
-                  <!-- 空间立方线框示意 -->
-                  <path d="M 60 40 L 100 20 L 160 20 L 120 40 Z" stroke="currentColor" class="text-[var(--card-muted)] opacity-40" stroke-width="1.2" fill="none" />
-                  <path d="M 60 40 L 60 80 L 120 80 L 120 40 Z" stroke="currentColor" class="text-[var(--card-muted)] opacity-50" stroke-width="1.2" fill="none" />
-                  <path d="M 160 20 L 160 60 L 120 80" stroke="currentColor" class="text-[var(--card-muted)] opacity-40" stroke-width="1.2" fill="none" />
+          <!-- 中间压制连接符 -->
+          <div class="col-span-2 flex flex-col items-center justify-center text-center">
+            <span class="font-editorial-serif text-3xl text-[var(--ink-stamp)] font-light italic">VS</span>
+            <span class="text-[10px] font-typewriter text-[var(--board-muted)] mt-1">无条件让步</span>
+          </div>
 
-                  <!-- 上位情感覆盖罩 -->
-                  <rect x="180" y="25" width="100" height="50" rx="3" stroke="currentColor" class="text-[var(--ink-stamp)]" stroke-width="1.5" fill="none" />
-                  <text x="230" y="44" font-family="var(--font-mono)" font-size="8" fill="currentColor" class="text-[var(--ink-stamp)]" text-anchor="middle">上位情感与故事</text>
-                  <text x="230" y="60" font-family="var(--font-mono)" font-size="9" font-weight="bold" fill="currentColor" class="text-[var(--ink-stamp)]" text-anchor="middle">74% 绝对压制</text>
-                </svg>
-              </div>
-              <div class="text-[10px] font-typewriter text-[var(--card-muted)] text-center pt-2 border-t border-[var(--hairline)]">
-                空间只是幻觉，观众真正追随的是心智与情感的流动
-              </div>
+          <!-- 右侧：上位情感与故事的绝对统治力 -->
+          <div class="col-span-5 p-4 rounded border-2 border-[var(--ink-stamp)] bg-[var(--card-bg)] flex flex-col justify-between h-[210px] shadow-sm">
+            <div>
+              <span class="font-typewriter text-[10px] text-[var(--ink-stamp)] font-bold uppercase block mb-1">HIGHEST PRIORITY · 74%</span>
+              <h4 class="font-editorial-serif text-xl font-medium text-[var(--ink-stamp)] mb-2">上位心理真实的绝对压制</h4>
+              <p class="text-xs text-[var(--card-text)] leading-relaxed">
+                只要表演震撼心灵、故事因果推进，观众的大脑会自发修补空间穿帮，完全无视细微动作瑕疵。
+              </p>
+            </div>
+            <div class="pt-2 border-t border-[var(--hairline)] text-[10px] font-typewriter text-[var(--ink-stamp)] font-bold">
+              ✓ 终极铁律：绝不为动作修补牺牲最佳表演
             </div>
           </div>
         </div>
 
-        <div class="p-3 rounded border border-[var(--hairline)] bg-[var(--card-bg)]/80 flex items-center justify-between font-modern-sub text-xs">
-          <div class="flex items-center gap-2">
-            <span class="font-typewriter text-[10px] font-bold text-[var(--ink-stamp)] uppercase">实战自问</span>
-            <span class="text-[var(--card-text)]">我们是否为了修补无关紧要的动作穿帮，而牺牲了最打动人的表演？</span>
-          </div>
-          <div class="font-typewriter text-[11px] font-bold text-[var(--ink-stamp)] shrink-0 ml-4">
-            铁律：永远不要为了三维连贯，牺牲上位 51% 的情感张力
-          </div>
+        <div class="p-2.5 rounded border border-[var(--hairline)] bg-[var(--card-bg)]/80 flex items-center justify-between font-modern-sub text-xs mt-1">
+          <span class="text-[var(--card-text)]"><strong class="text-[var(--ink-stamp)]">实战自问：</strong>我们是否为了修补无关紧要的动作穿帮，而牺牲了演员最打动人的表演？</span>
+          <span class="font-typewriter text-[11px] font-bold text-[var(--ink-stamp)] shrink-0 ml-4">铁律：永远不要为三维连贯牺牲 51% 情感</span>
         </div>
 
         <div class="flex items-center justify-between border-t border-[var(--hairline)] pt-3 text-[10px] font-typewriter text-[var(--board-muted)] mt-2">
@@ -1036,7 +985,8 @@
       </div>
 
       <!-- ====================================================================
-           SLIDE 8: THE HIERARCHY OF SACRIFICE (六原则取舍金字塔 · 终章)
+           SLIDE 8: MONOLITHIC STEPPED PYRAMID (终章 · 六原则取舍金字塔)
+           版式原型：巨石阶梯金字塔与经典铁律引语版
            ==================================================================== -->
       <div id="slide-8" class="slide-pane" data-slide="8">
         <div class="flex items-center justify-between border-b border-[var(--hairline)] pb-3 text-[10px] font-typewriter text-[var(--board-muted)]">
@@ -1470,7 +1420,7 @@
       });
     }
 
-    // GSAP 幻灯片动效 (1-8 页)
+    // GSAP 幻灯片动效 (针对 8 种专属版式原型定制)
     function playSlideAnimation(slideIndex) {
       if (slideTimelines[slideIndex]) {
         slideTimelines[slideIndex].kill();
@@ -1483,19 +1433,45 @@
       slideTimelines[slideIndex] = tl;
 
       if (slideIndex === 1) {
-        tl.fromTo(slide.querySelector('.col-span-5'), { x: -25, opacity: 0 }, { x: 0, opacity: 1, duration: 0.5, ease: 'power2.out' })
-          .fromTo(slide.querySelectorAll('[data-toc-item]'), { x: 25, opacity: 0 }, { x: 0, opacity: 1, duration: 0.35, stagger: 0.05, ease: 'power2.out' }, '-=0.3');
-      } else if (slideIndex >= 2 && slideIndex <= 7) {
+        // Slide 1: 封面大字与顺位清单
+        tl.fromTo(slide.querySelector('.col-span-5'), { x: -30, opacity: 0 }, { x: 0, opacity: 1, duration: 0.55, ease: 'power2.out' })
+          .fromTo(slide.querySelectorAll('[data-toc-item]'), { x: 25, opacity: 0 }, { x: 0, opacity: 1, duration: 0.35, stagger: 0.05, ease: 'power2.out' }, '-=0.35');
+      } else if (slideIndex === 2) {
+        // Slide 2: 极端巨数字 51% 下落放大
+        tl.fromTo(slide.querySelector('[data-edit-id="s2-big-num"]'), { scale: 0.85, y: -20, opacity: 0 }, { scale: 1, y: 0, opacity: 1, duration: 0.65, ease: 'power3.out' })
+          .fromTo(slide.querySelector('h2'), { y: 15, opacity: 0 }, { y: 0, opacity: 1, duration: 0.45, ease: 'power2.out' }, '-=0.4')
+          .fromTo(slide.querySelectorAll('.col-span-7 svg path, .col-span-7 svg circle'), { opacity: 0 }, { opacity: 1, duration: 0.6, stagger: 0.1, ease: 'power2.out' }, '-=0.3')
+          .fromTo(slide.querySelectorAll('.col-span-7 .grid > div, .col-span-7 .space-y-3 > div'), { y: 15, opacity: 0 }, { y: 0, opacity: 1, duration: 0.35, stagger: 0.06, ease: 'power2.out' }, '-=0.3');
+      } else if (slideIndex === 3) {
+        // Slide 3: 横向因果连环带自左向右流动
         tl.fromTo(slide.querySelector('h2'), { y: 15, opacity: 0 }, { y: 0, opacity: 1, duration: 0.45, ease: 'power2.out' })
-          .fromTo(slide.querySelector('.col-span-7 p'), { y: 10, opacity: 0 }, { y: 0, opacity: 1, duration: 0.4, ease: 'power2.out' }, '-=0.25')
-          .fromTo(slide.querySelectorAll('.col-span-7 .space-y-2 > div'), { x: -15, opacity: 0 }, { x: 0, opacity: 1, duration: 0.35, stagger: 0.06, ease: 'power2.out' }, '-=0.2')
-          .fromTo(slide.querySelector('.col-span-5'), { scale: 0.95, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.45, ease: 'power2.out' }, '-=0.3')
-          .fromTo(slide.querySelectorAll('.col-span-5 svg path, .col-span-5 svg circle, .col-span-5 svg rect'), { opacity: 0 }, { opacity: 1, duration: 0.5, stagger: 0.04, ease: 'power2.out' }, '-=0.2')
-          .fromTo(slide.querySelector('.p-3.rounded'), { y: 10, opacity: 0 }, { y: 0, opacity: 1, duration: 0.35, ease: 'power2.out' }, '-=0.2');
+          .fromTo(slide.querySelectorAll('.grid-cols-3 > div'), { x: -25, opacity: 0 }, { x: 0, opacity: 1, duration: 0.45, stagger: 0.12, ease: 'power2.out' }, '-=0.25');
+      } else if (slideIndex === 4) {
+        // Slide 4: 中轴呼吸波形展开
+        tl.fromTo(slide.querySelector('h2'), { scale: 0.95, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.5, ease: 'power2.out' })
+          .fromTo(slide.querySelectorAll('svg line, svg rect, svg path'), { opacity: 0 }, { opacity: 1, duration: 0.6, stagger: 0.04, ease: 'power2.out' }, '-=0.3')
+          .fromTo(slide.querySelectorAll('.grid-cols-3 > div'), { y: 15, opacity: 0 }, { y: 0, opacity: 1, duration: 0.4, stagger: 0.08, ease: 'power2.out' }, '-=0.3');
+      } else if (slideIndex === 5) {
+        // Slide 5: 双画框视线引导曲线连接
+        tl.fromTo(slide.querySelector('h2'), { y: 15, opacity: 0 }, { y: 0, opacity: 1, duration: 0.45, ease: 'power2.out' })
+          .fromTo(slide.querySelectorAll('svg rect'), { scale: 0.96, opacity: 0, transformOrigin: 'center' }, { scale: 1, opacity: 1, duration: 0.5, stagger: 0.1, ease: 'power2.out' }, '-=0.25')
+          .fromTo(slide.querySelector('svg path'), { opacity: 0 }, { opacity: 1, duration: 0.5, ease: 'power2.out' }, '-=0.2')
+          .fromTo(slide.querySelectorAll('.grid-cols-3 > div'), { y: 10, opacity: 0 }, { y: 0, opacity: 1, duration: 0.35, stagger: 0.06, ease: 'power2.out' }, '-=0.2');
+      } else if (slideIndex === 6) {
+        // Slide 6: 180° 俯视半圆旋转展开
+        tl.fromTo(slide.querySelector('svg path'), { opacity: 0 }, { opacity: 1, duration: 0.5, ease: 'power2.out' })
+          .fromTo(slide.querySelectorAll('svg circle, svg rect'), { scale: 0.8, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.4, stagger: 0.05, ease: 'back.out(1.4)' }, '-=0.3')
+          .fromTo(slide.querySelector('.col-span-6:last-child'), { x: 20, opacity: 0 }, { x: 0, opacity: 1, duration: 0.45, ease: 'power2.out' }, '-=0.3');
+      } else if (slideIndex === 7) {
+        // Slide 7: 对角对冲入场
+        tl.fromTo(slide.querySelector('.col-span-5:first-child'), { x: -25, opacity: 0 }, { x: 0, opacity: 1, duration: 0.45, ease: 'power2.out' })
+          .fromTo(slide.querySelector('.col-span-2'), { scale: 0.8, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.4, ease: 'back.out(1.5)' }, '-=0.25')
+          .fromTo(slide.querySelector('.col-span-5:last-child'), { x: 25, opacity: 0 }, { x: 0, opacity: 1, duration: 0.45, ease: 'power2.out' }, '-=0.3');
       } else if (slideIndex === 8) {
-        tl.fromTo(slide.querySelectorAll('[data-pyramid]'), { x: -30, opacity: 0 }, { x: 0, opacity: 1, duration: 0.4, stagger: 0.07, ease: 'power2.out' })
-          .fromTo(slide.querySelector('blockquote'), { y: 20, opacity: 0 }, { y: 0, opacity: 1, duration: 0.5, ease: 'power2.out' }, '-=0.3')
-          .fromTo(slide.querySelector('.col-span-5 .space-y-2'), { y: 15, opacity: 0 }, { y: 0, opacity: 1, duration: 0.4, ease: 'power2.out' }, '-=0.2');
+        // Slide 8: 终章取舍金字塔自底向上升起
+        tl.fromTo(slide.querySelectorAll('[data-pyramid]'), { x: -25, opacity: 0 }, { x: 0, opacity: 1, duration: 0.35, stagger: -0.05, ease: 'power2.out' })
+          .fromTo(slide.querySelector('blockquote'), { y: 20, opacity: 0 }, { y: 0, opacity: 1, duration: 0.55, ease: 'power2.out' }, '-=0.3')
+          .fromTo(slide.querySelector('p'), { y: 15, opacity: 0 }, { y: 0, opacity: 1, duration: 0.4, ease: 'power2.out' }, '-=0.2');
       }
     }
 
