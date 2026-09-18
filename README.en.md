@@ -41,60 +41,60 @@ We adhere to the **Zero-Template Doctrine** — every slide layout is derived di
 
 ---
 
-### 3. All-Palette & Diverse-Layout Matrix (全母色演色矩阵 · 一色一版式)
+### 3. All-Palette & Diverse-Layout Matrix
 
-Each aesthetic system is paired with bespoke physical paper base colors. To showcase both **the complete tactile spectrum of paper hues** and **the zero-template organic slide structures**, each colorway is captured on a different slide layout with automatic high-contrast callout adaptation complying with **WCAG AAA** readability standards.
+Each aesthetic system is paired with curated traditional paper base colors. Each colorway is captured on a different slide layout with automatic high-contrast callout adaptation complying with **WCAG AAA** readability standards.
 
-#### Style A · Artisan Paper Palette Matrix (9 Curated Workshop Colors)
+#### Style A · Artisan Paper Palette Matrix (9 Chinese Traditional Colors)
 
-| 01. Celadon (冷杉青绿) | 02. Terracotta (陶土红棕) | 03. Butter (黄油票据) |
+| 01. Celadon (艾绿) | 02. Terracotta (赭石) | 03. Butter (秋香) |
 | :---: | :---: | :---: |
 | [![Celadon - Slide 1](assets/screenshots/palette_artisan_1_celadon_s1.png)](assets/screenshots/palette_artisan_1_celadon_s1.png) | [![Terracotta - Slide 2](assets/screenshots/palette_artisan_2_terracotta_s2.png)](assets/screenshots/palette_artisan_2_terracotta_s2.png) | [![Butter - Slide 3](assets/screenshots/palette_artisan_3_butter_s3.png)](assets/screenshots/palette_artisan_3_butter_s3.png) |
-| `Slide 1` · Asymmetrical Cover & Workshop Seal | `Slide 2` · 51% Polarizing Tension Field | `Slide 3` · Blink & Neural Waveforms |
-| **04. Olive (橄榄麻布)** | **05. Blush (干枯粉彩)** | **06. Beige (燕麦米色)** |
+| `Slide 1` · Asymmetrical Cover & Workshop Seal | `Slide 2` · 51% Weight Contrast Field | `Slide 3` · Blink & Cognitive Waveforms |
+| **04. Olive (松柏)** | **05. Blush (灰粉)** | **06. Beige (素绢)** |
 | [![Olive - Slide 4](assets/screenshots/palette_artisan_4_olive_s4.png)](assets/screenshots/palette_artisan_4_olive_s4.png) | [![Blush - Slide 5](assets/screenshots/palette_artisan_5_blush_s5.png)](assets/screenshots/palette_artisan_5_blush_s5.png) | [![Beige - Slide 6](assets/screenshots/palette_artisan_6_beige_s6.png)](assets/screenshots/palette_artisan_6_beige_s6.png) |
-| `Slide 4` · 6-Step Sacrifice Staircase | `Slide 5` · 2D Screen & 180° Spatial Axis | `Slide 6` · Intentional Whitespace Conclusion |
-| **07. Pistachio (薄荷浅绿)** | **08. Oyster (暖灰水泥)** | **09. Laid Antique (古典棉纸)** |
+| `Slide 4` · 6-Step Priority Staircase | `Slide 5` · 2D Screen & 180° Spatial Axis | `Slide 6` · Intentional Whitespace Conclusion |
+| **07. Pistachio (竹青)** | **08. Oyster (苍灰)** | **09. Laid Antique (玄墨)** |
 | [![Pistachio - Slide 2](assets/screenshots/palette_artisan_7_pistachio_s2.png)](assets/screenshots/palette_artisan_7_pistachio_s2.png) | [![Oyster - Slide 4](assets/screenshots/palette_artisan_8_oyster_s4.png)](assets/screenshots/palette_artisan_8_oyster_s4.png) | [![Laid - Slide 1](assets/screenshots/palette_artisan_9_laid_s1.png)](assets/screenshots/palette_artisan_9_laid_s1.png) |
-| `Slide 2` · 51% Law in Fresh Pale Mint | `Slide 4` · Architectural Concrete Staircase | `Slide 1` · Dark Cotton Paper with Gold Foil |
+| `Slide 2` · High Contrast on Light Green | `Slide 4` · Concrete Gray Staircase | `Slide 1` · Dark Paper with Gold Highlights |
 
-#### Style B · Minimal Editorial Palette Matrix (6 Warm Neutral Palettes 1:1)
+#### Style B · Minimal Editorial Palette Matrix (6 Chinese Traditional Colors)
 
-| 01. Ecru & Charcoal (原胚冷炭) | 02. Alabaster & Olive (雪花深榄) | 03. Sand & Raw Umber (细沙生赭) |
+| 01. Ecru & Charcoal (素白与墨黑) | 02. Alabaster & Olive (霜白与松青) | 03. Sand & Raw Umber (牙白与茶褐) |
 | :---: | :---: | :---: |
 | [![Ecru - Slide 1](assets/screenshots/palette_editorial_1_ecru_s1.png)](assets/screenshots/palette_editorial_1_ecru_s1.png) | [![Alabaster - Slide 2](assets/screenshots/palette_editorial_2_alabaster_s2.png)](assets/screenshots/palette_editorial_2_alabaster_s2.png) | [![Sand - Slide 3](assets/screenshots/palette_editorial_3_sand_s3.png)](assets/screenshots/palette_editorial_3_sand_s3.png) |
-| `Slide 1` · Hairline Grid Cover & TOC | `Slide 2` · Eye Focus & Perceptual Loop | `Slide 3` · Giant Statement & Definition |
-| **04. Parchment & Navy (羊皮群青)** | **05. Chalk & Slate (白垩岩板)** | **06. Cream & Espresso (暖乳浓缩)** |
+| `Slide 1` · Hairline Grid Cover & TOC | `Slide 2` · Focus & Perceptual Loop | `Slide 3` · Clear Statement & Definition |
+| **04. Parchment & Navy (宣白与黛蓝)** | **05. Chalk & Slate (铅白与岩灰)** | **06. Cream & Espresso (米白与深咖)** |
 | [![Navy - Slide 4](assets/screenshots/palette_editorial_4_navy_s4.png)](assets/screenshots/palette_editorial_4_navy_s4.png) | [![Slate - Slide 5](assets/screenshots/palette_editorial_5_slate_s5.png)](assets/screenshots/palette_editorial_5_slate_s5.png) | [![Espresso - Slide 6](assets/screenshots/palette_editorial_6_espresso_s6.png)](assets/screenshots/palette_editorial_6_espresso_s6.png) |
-| `Slide 4` · Hairline 3-Tier Concentrics | `Slide 5` · 3D Camera 180° Spatial Axis Grid | `Slide 6` · Serene Editorial Conclusion |
+| `Slide 4` · 3-Tier Concentric Model | `Slide 5` · Spatial Matrix & Guidance | `Slide 6` · Calm Editorial Conclusion |
 
 ---
 
 ### 4. Interactive Deck Engine
 
-| True Fullscreen Presentation | WYSIWYG Inline Text Editing | Live Mother Color Drawer |
+| True Fullscreen Presentation | Inline Copy Editing | Color Palette Drawer |
 | :---: | :---: | :---: |
 | [![True Fullscreen](assets/screenshots/feature_fullscreen.png)](assets/screenshots/feature_fullscreen.png) | [![Inline Editing](assets/screenshots/feature_inline_edit.png)](assets/screenshots/feature_inline_edit.png) | [![Mother Color Drawer](assets/screenshots/feature_drawer.png)](assets/screenshots/feature_drawer.png) |
-| Press `F` for native fullscreen. Navigation buttons hide automatically while a minimalist bottom indicator pill floats into view. | Press `E` to click and edit any copy directly on screen with dashed bounding outlines. Save instantly with `Cmd+S`. | Click the color chip at top right to open the drawer. Switch paper hues in real time and bake clean standalone HTML. |
+| Press `F` for fullscreen. Controls hide automatically while a minimalist bottom indicator pill floats into view. | Press `E` to edit copy directly on screen. Save instantly with `Cmd+S`. | Click top right to open the drawer. Switch palettes in real time and export standalone HTML. |
 
 ---
 
 ## 🌟 Key Highlights
 
 ### 1. Strict Word Budget & 3-Second Rule
-- **Word Limit**: Strictly **≤ 35–50 words** per slide. Eliminate clutter, bullet point dumps, and wall of text.
-- **3-Second Rule**: The audience grasps the core thesis in 3 seconds without having to read a wall of text.
-- **Intentional Negative Space**: 65%–75% whitespace serves as the primary visual hierarchy.
+- **Word Limit**: Strictly **≤ 35–50 words** per slide. Eliminate clutter, bullet point dumps, and walls of text.
+- **3-Second Rule**: The audience grasps the core thesis within 3 seconds.
+- **Natural Whitespace**: Comfortable whitespace serves to elevate the core message.
 
-### 2. Zero-Template Doctrine
+### 2. Content-Driven Layout
 - Layouts are derived organically from the core concept—never forced into rigid cards.
-- Bespoke visual structures: Asymmetrical tension fields, neural blink waveforms, bottom-up sacrifice staircases, and hairline concentric circles.
+- Clear visual structures: Contrast fields, neural blink waveforms, bottom-up priority staircases, and concentric circles.
 
-### 3. Robust Interactive Deck Engine
-- **16:9 Transform Scaling**: Native JS transform engine ensures exact 16:9 aspect ratio across any screen resolution without letterboxing bugs.
-- **True Fullscreen Mode**: HTML5 Fullscreen API with floating minimalist indicator pill and hidden navigation buttons.
-- **One-Click Baked Clean HTML Export**: Bakes live edits and active color schemes directly into static HTML source code. Works 100% offline on any device with zero dependencies.
-- **Seamless 16:9 PDF Export**: Full multi-page landscape PDF export via `window.print()` (`P` key) or headless Puppeteer CLI.
+### 3. Practical Interactive Features
+- **16:9 Aspect Ratio Scaling**: Native JS transform engine ensures exact 16:9 ratio across any screen.
+- **True Fullscreen Mode**: HTML5 Fullscreen API with floating indicator pill and hidden navigation buttons.
+- **Baked HTML Export**: Saves live edits and active color schemes directly into static HTML source code. Works offline on any device.
+- **Clean 16:9 PDF Export**: Multi-page landscape PDF export via `window.print()` (`P` key) or headless Puppeteer CLI.
 - **Inline Editing**: Press `E` to edit text directly on screen, with `Cmd+S` auto-persistence.
 
 ---

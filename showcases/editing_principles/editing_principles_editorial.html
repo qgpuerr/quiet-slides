@@ -300,35 +300,24 @@
 
   <!-- 顶部控制台 -->
   <header id="deck-top-bar" class="h-12 border-b border-[rgba(28,25,23,0.1)] bg-[var(--board-bg)] px-6 flex items-center justify-between text-xs shrink-0 z-40 transition-colors">
-    <div class="flex items-center gap-3">
+    <div class="flex items-center gap-2.5">
       <span class="inline-flex items-center justify-center w-2 h-2 rounded-full bg-[var(--ink-stamp)]"></span>
-      <span class="font-typewriter uppercase tracking-wider font-semibold text-[var(--board-text)] text-[11px]">MINIMAL EDITORIAL // RULE OF SIX</span>
-      <span class="text-[var(--board-muted)] opacity-40">|</span>
-      <span class="font-editorial-serif text-[var(--board-muted)] italic text-[13px]">Walter Murch 沃尔特·默奇剪辑论</span>
-    </div>
-
-    <!-- 快捷按键提示 -->
-    <div class="hidden lg:flex items-center gap-4 text-[var(--board-muted)] font-typewriter text-[10px]">
-      <span class="flex items-center gap-1.5"><kbd class="px-1.5 py-0.5 rounded bg-black/5 border border-black/10 font-mono text-[9px] text-neutral-800">←</kbd><kbd class="px-1.5 py-0.5 rounded bg-black/5 border border-black/10 font-mono text-[9px] text-neutral-800">→</kbd> 翻页</span>
-      <span class="flex items-center gap-1.5"><kbd class="px-1.5 py-0.5 rounded bg-black/5 border border-black/10 font-mono text-[9px] text-neutral-800">F</kbd> 全屏</span>
-      <span class="flex items-center gap-1.5"><kbd class="px-1.5 py-0.5 rounded bg-black/5 border border-black/10 font-mono text-[9px] text-neutral-800">R</kbd> 重播</span>
-      <span class="flex items-center gap-1.5"><kbd class="px-1.5 py-0.5 rounded bg-black/5 border border-black/10 font-mono text-[9px] text-neutral-800">E</kbd> 直编</span>
-      <span class="flex items-center gap-1.5"><kbd class="px-1.5 py-0.5 rounded bg-black/5 border border-black/10 font-mono text-[9px] text-neutral-800">P</kbd> 导出PDF</span>
+      <span class="font-medium text-[var(--board-text)] text-xs tracking-wide">电影剪辑六原则</span>
     </div>
 
     <!-- 右侧动作按钮 -->
     <div class="flex items-center gap-2">
-      <a href="editing_principles_artisan.html" class="px-2.5 py-1 rounded text-[11px] font-medium border border-neutral-400/40 hover:bg-black/5 text-[var(--board-text)] transition flex items-center gap-1.5" title="Style A (物料档案)">
+      <a href="editing_principles_artisan.html" class="px-2.5 py-1 rounded text-[11px] font-medium border border-neutral-400/40 hover:bg-black/5 text-[var(--board-text)] transition flex items-center gap-1.5" title="切换到档案版">
         <svg class="w-3 h-3 text-amber-700" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path></svg>
-        <span>切换到 Style A</span>
+        <span>档案版</span>
       </a>
 
-      <button id="btn-export-clean" class="px-2.5 py-1 rounded text-[11px] font-medium border border-neutral-400/40 hover:bg-black/5 text-[var(--board-text)] transition flex items-center gap-1" title="导出不含编辑栏与配置项的静态纯净演示文件，烘焙文案与配色，任意设备离线可用">
+      <button id="btn-export-clean" class="px-2.5 py-1 rounded text-[11px] font-medium border border-neutral-400/40 hover:bg-black/5 text-[var(--board-text)] transition flex items-center gap-1" title="导出纯净演示文件，保存当前文案与配色，离线可用">
         <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
-        <span>导出纯净 HTML</span>
+        <span>导出 HTML</span>
       </button>
 
-      <button id="btn-export-pdf" class="px-2.5 py-1 rounded text-[11px] font-medium border border-neutral-400/40 hover:bg-black/5 text-[var(--board-text)] transition flex items-center gap-1" title="打印或导出全部 6 页 16:9 PDF (P)">
+      <button id="btn-export-pdf" class="px-2.5 py-1 rounded text-[11px] font-medium border border-neutral-400/40 hover:bg-black/5 text-[var(--board-text)] transition flex items-center gap-1" title="导出全部 6 页 16:9 PDF (P)">
         <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z"></path></svg>
         <span>导出 PDF</span>
       </button>
@@ -338,14 +327,14 @@
         <span>全屏</span>
       </button>
 
-      <button id="btn-toggle-edit" class="px-2.5 py-1 rounded text-[11px] font-medium border border-neutral-400/40 hover:bg-black/5 text-[var(--board-text)] transition flex items-center gap-1" title="开启行内文案直编 (E)">
+      <button id="btn-toggle-edit" class="px-2.5 py-1 rounded text-[11px] font-medium border border-neutral-400/40 hover:bg-black/5 text-[var(--board-text)] transition flex items-center gap-1" title="开启行内文案编辑 (E)">
         <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path></svg>
-        <span id="edit-mode-text">直编文案</span>
+        <span id="edit-mode-text">编辑文案</span>
       </button>
 
-      <button id="btn-toggle-tune" class="px-2.5 py-1 rounded text-[11px] font-semibold bg-[var(--board-text)] text-[var(--board-bg)] hover:opacity-90 transition flex items-center gap-1 shadow-sm" title="母色调校与高级选项">
+      <button id="btn-toggle-tune" class="px-2.5 py-1 rounded text-[11px] font-semibold bg-[var(--board-text)] text-[var(--board-bg)] hover:opacity-90 transition flex items-center gap-1 shadow-sm" title="配色方案与选项">
         <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4"></path></svg>
-        <span>母色调校</span>
+        <span>配色</span>
       </button>
     </div>
   </header>
@@ -386,16 +375,16 @@
             <div id="s1-subtitle" class="font-typewriter text-xs tracking-widest text-[var(--ink-stamp)] uppercase mb-3 font-semibold" data-editable="true" data-edit-id="s1-sub">
               THE RULE OF SIX IN FILM EDITING
             </div>
-            <h1 id="s1-title" class="font-editorial-serif text-[68px] leading-[1.04] font-normal text-[var(--board-text)] mb-6 tracking-tight" data-editable="true" data-edit-id="s1-h1">
+            <h1 id="s1-title" class="font-editorial-serif text-[64px] font-normal leading-[1.05] tracking-tight text-[var(--board-text)] mb-4" data-editable="true" data-edit-id="s1-title">
               剪辑的<br>
-              <span class="italic font-light">六项割舍法则</span>
+              <span class="italic font-light">六项核心准则</span>
             </h1>
             <p id="s1-lead" class="font-editorial-sans text-[15px] leading-relaxed text-[var(--board-muted)] max-w-[540px] mb-8" data-editable="true" data-edit-id="s1-p">
-              不可逆的优先权序列：两项冲突时，永远牺牲下位。
+              不可逆的优先级序列：两项冲突时，优先保留顺位更高的原则。
             </p>
             <div id="s1-quote-box" class="border-l-2 border-[var(--ink-stamp)] pl-4 py-1">
               <span class="font-editorial-serif italic text-sm text-[var(--board-text)] block" data-editable="true" data-edit-id="s1-quote">
-                “情感成立，心智自会缝合一切错乱。”
+                “如果情感成立，观众自会接受时空的转换。”
               </span>
               <span class="font-typewriter text-[10px] text-[var(--board-muted)] uppercase tracking-wider block mt-1">
                 — Walter Murch, ACE, CAS
@@ -464,7 +453,7 @@
 
         <!-- 底栏元数据 -->
         <div class="flex items-center justify-between border-t border-[var(--hairline)] pt-3 text-[10px] font-typewriter text-[var(--board-muted)]">
-          <div>DOCUMENT ID: MC-1995-EDITING-DOCTRINE</div>
+          <div>DOCUMENT ID: MC-ED-1995</div>
           <div>IN THE BLINK OF AN EYE · SILMAN-JAMES PRESS</div>
           <div class="font-bold text-[var(--board-text)]">01 / 06</div>
         </div>
@@ -527,19 +516,19 @@
               <!-- 节点 02: 剪辑切点 (右侧) -->
               <div class="s2-node absolute right-0 top-1/2 -translate-y-1/2 bg-[var(--board-bg)] px-3 py-1.5 border border-[var(--hairline)] rounded-sm shadow-sm text-center">
                 <div class="font-typewriter text-[9px] text-[var(--board-muted)] font-bold">NODE 02</div>
-                <div class="font-editorial-sans text-xs font-semibold text-[var(--board-text)]">时空切点爆发</div>
+                <div class="font-editorial-sans text-xs font-semibold text-[var(--board-text)]">镜头切点转换</div>
               </div>
 
               <!-- 节点 03: 心理重构 (底部) -->
               <div class="s2-node absolute bottom-4 left-1/2 -translate-x-1/2 bg-[var(--board-bg)] px-3 py-1.5 border border-[var(--hairline)] rounded-sm shadow-sm text-center">
                 <div class="font-typewriter text-[9px] text-[var(--board-muted)] font-bold">NODE 03</div>
-                <div class="font-editorial-sans text-xs font-semibold text-[var(--board-text)]">情绪心智重构</div>
+                <div class="font-editorial-sans text-xs font-semibold text-[var(--board-text)]">感知自然承接</div>
               </div>
 
-              <!-- 节点 04: 因果回流 (左侧) -->
+              <!-- 节点 04: 因果流动 (左侧) -->
               <div class="s2-node absolute left-0 top-1/2 -translate-y-1/2 bg-[var(--board-bg)] px-3 py-1.5 border border-[var(--hairline)] rounded-sm shadow-sm text-center">
                 <div class="font-typewriter text-[9px] text-[var(--board-muted)] font-bold">NODE 04</div>
-                <div class="font-editorial-sans text-xs font-semibold text-[var(--board-text)]">叙事因果回流</div>
+                <div class="font-editorial-sans text-xs font-semibold text-[var(--board-text)]">叙事因果流动</div>
               </div>
             </div>
 
@@ -559,7 +548,7 @@
             </h2>
             <div class="space-y-3 font-editorial-sans text-[13px] leading-relaxed text-[var(--board-muted)]" data-editable="true" data-edit-id="s2-body">
               <p>
-                捕捉眨眼先兆，在微秒间执行切点。<strong class="font-medium text-[var(--board-text)]">跳跃隐于无形，思维直接跃迁。</strong>
+                捕捉自然的生理节律与思维停顿。<strong class="font-medium text-[var(--board-text)]">切点衔接顺畅，视线与注意力自然流动。</strong>
               </p>
             </div>
 
@@ -642,7 +631,7 @@
 
             <div class="space-y-3 font-editorial-sans text-[14px] text-[var(--board-muted)] leading-relaxed" data-editable="true" data-edit-id="s3-text">
               <p>
-                <strong class="font-semibold text-[var(--board-text)]">宁要穿帮的情感真实，不要工整的机械连贯。</strong> 只要观众为之屏息，就绝不碰它。
+                <strong class="font-semibold text-[var(--board-text)]">宁要真实的情感表达，不要生硬的机械连贯。</strong> 只要情感饱满连贯，细微的物理瑕疵往往无伤大雅。
               </p>
             </div>
 
@@ -650,11 +639,11 @@
             <div class="mt-6 space-y-2 border-t border-[var(--hairline)] pt-4">
               <div class="flex items-start gap-3 text-xs">
                 <span class="font-typewriter text-[var(--ink-stamp)] font-bold">01.</span>
-                <span class="text-[var(--board-text)]"><strong>真实胜于规整：</strong> 情绪高潮不遵从几何空间，遵从同理心脉动。</span>
+                <span class="text-[var(--board-text)]"><strong>真实胜于规整：</strong> 高潮段落遵从同理心与情绪共鸣，而非单纯的几何空间。</span>
               </div>
               <div class="flex items-start gap-3 text-xs">
                 <span class="font-typewriter text-[var(--ink-stamp)] font-bold">02.</span>
-                <span class="text-[var(--board-text)]"><strong>割舍铁律：</strong> 切勿为了修补几何跳切，削弱分毫情感张力。</span>
+                <span class="text-[var(--board-text)]"><strong>取舍准则：</strong> 切勿为了修补机械跳切，而削弱核心镜头的情感冲击力。</span>
               </div>
             </div>
           </div>
@@ -709,11 +698,11 @@
                 <line x1="185" y1="330" x2="185" y2="355" stroke="currentColor" class="text-[var(--board-text)]" stroke-opacity="0.25" stroke-width="1" />
               </svg>
 
-              <!-- 中心文字: 内核灵魂层 (高对比度精编) -->
+              <!-- 中心文字: 内核核心层 (高对比度精编) -->
               <div class="absolute inset-0 flex flex-col items-center justify-center text-center pointer-events-none">
                 <span class="font-typewriter text-[9px] uppercase tracking-widest text-[var(--ink-stamp)] font-bold">CORE TIER</span>
                 <span class="font-editorial-serif text-[32px] font-normal leading-none text-[var(--board-text)] my-1">74%</span>
-                <span class="font-editorial-sans text-[11px] font-bold text-[var(--board-text)] tracking-wide">核心 · 灵魂层</span>
+                <span class="font-editorial-sans text-[11px] font-bold text-[var(--board-text)] tracking-wide">核心 · 情感与故事</span>
               </div>
 
               <!-- 中环标签: 感官层 (统一中英规范) -->
@@ -737,39 +726,39 @@
 
           <!-- 右侧：三层阶梯解析卡片 (极简发丝排版) -->
           <div class="col-span-6 space-y-2.5">
-            <!-- Tier 1: 灵魂层 (74%) -->
+            <!-- Tier 1: 核心层 (74%) -->
             <div class="p-3 border-l-2 border-[var(--ink-stamp)] bg-[var(--card-bg)] shadow-sm rounded-r">
               <div class="flex items-center justify-between mb-1.5">
-                <span class="font-typewriter text-[10px] uppercase font-bold text-[var(--ink-stamp)]">TIER 01 // 灵魂内核 (74%)</span>
+                <span class="font-typewriter text-[10px] uppercase font-bold text-[var(--ink-stamp)]">TIER 01 // 核心层 (74%)</span>
                 <span class="font-typewriter text-xs font-bold text-[var(--ink-stamp)]">EMOTION + STORY</span>
               </div>
               <h3 class="font-editorial-serif text-base font-semibold text-[var(--card-text)] mb-1">情感共振 (51%) 与 叙事逻辑推进 (23%)</h3>
               <p class="font-editorial-sans text-xs text-[var(--card-muted)] leading-relaxed">
-                统治级核心。二者立，则电影立；一切技术失误皆可原谅。
+                两项成立，观众便能沉浸其中；细微的技术瑕疵容易被包容。
               </p>
             </div>
 
             <!-- Tier 2: 感官层 (17%) -->
             <div class="p-3 border-l-2 border-[var(--board-text)] bg-[var(--card-bg)] shadow-sm rounded-r">
               <div class="flex items-center justify-between mb-1.5">
-                <span class="font-typewriter text-[10px] uppercase font-bold text-[var(--board-text)]">TIER 02 // 感官生理导轨 (17%)</span>
+                <span class="font-typewriter text-[10px] uppercase font-bold text-[var(--board-text)]">TIER 02 // 感官层 (17%)</span>
                 <span class="font-typewriter text-xs font-semibold text-[var(--board-text)]">RHYTHM + EYE TRACE</span>
               </div>
               <h3 class="font-editorial-serif text-base font-semibold text-[var(--card-text)] mb-1">视听节奏 (10%) 与 视线焦点引导 (7%)</h3>
               <p class="font-editorial-sans text-xs text-[var(--card-muted)] leading-relaxed">
-                神经生理桥梁。平滑视觉能量，避免视线无序搜寻。
+                衔接视听能量，引导观众注意力平滑过渡。
               </p>
             </div>
 
             <!-- Tier 3: 物理层 (9%) -->
             <div class="p-3 border-l-2 border-neutral-300 bg-[var(--card-bg)] shadow-sm rounded-r">
               <div class="flex items-center justify-between mb-1.5">
-                <span class="font-typewriter text-[10px] uppercase font-semibold text-[var(--card-muted)]">TIER 03 // 几何物理坐标 (9%)</span>
+                <span class="font-typewriter text-[10px] uppercase font-semibold text-[var(--card-muted)]">TIER 03 // 物理层 (9%)</span>
                 <span class="font-typewriter text-xs text-[var(--card-muted)]">2D PLANE + 3D SPACE</span>
               </div>
               <h3 class="font-editorial-serif text-base font-semibold text-[var(--card-text)] mb-1">二维轴线 (5%) 与 三维真实空间 (4%)</h3>
               <p class="font-editorial-sans text-xs text-[var(--card-muted)] leading-relaxed">
-                外围机械规则。遇冲突时，永远先行割舍。
+                空间与轴线规则。遇冲突时，优先保留上位原则。
               </p>
             </div>
           </div>
@@ -804,7 +793,7 @@
         <div class="py-4 border-b border-[var(--hairline)]">
           <div class="flex items-baseline justify-between">
             <h2 id="s5-h2" class="font-editorial-serif text-[26px] font-normal text-[var(--board-text)]" data-editable="true" data-edit-id="s5-h2">
-              物理三维与视线矩阵：<span class="italic font-light text-[var(--board-muted)]">何时遵循，何时悍然打破</span>
+              物理三维与视线矩阵：<span class="italic font-light text-[var(--board-muted)]">何时遵循，何时灵活调整</span>
             </h2>
             <span class="font-typewriter text-xs text-[var(--board-muted)]">CUMULATIVE WEIGHT: 16%</span>
           </div>
@@ -831,7 +820,7 @@
             
             <div class="border-t border-[var(--hairline)] pt-3 text-[11px] font-editorial-sans">
               <span class="font-typewriter text-[9px] uppercase text-[var(--board-muted)] block mb-1">PRACTICAL RULE</span>
-              <div class="text-[var(--board-text)] font-medium">落差过大将产生 250ms 搜寻延迟，导致节奏断崖。</div>
+              <div class="text-[var(--board-text)] font-medium">落差过大将产生 250ms 搜寻延迟，影响注意力连贯。</div>
             </div>
           </div>
 
@@ -853,7 +842,7 @@
 
             <div class="border-t border-[var(--hairline)] pt-3 text-[11px] font-editorial-sans">
               <span class="font-typewriter text-[9px] uppercase text-[var(--board-muted)] block mb-1">PRACTICAL RULE</span>
-              <div class="text-[var(--board-text)] font-medium">情绪激烈反转时，主动越轴能带来惊艳震颤。</div>
+              <div class="text-[var(--board-text)] font-medium">情绪激烈反转时，主动越轴能带来显著戏剧张力。</div>
             </div>
           </div>
 
@@ -869,13 +858,13 @@
                 <span class="italic font-light text-sm text-[var(--board-muted)]">Three-Dimensional Space</span>
               </h3>
               <p class="font-editorial-sans text-xs text-[var(--board-muted)] leading-relaxed mb-4" data-editable="true" data-edit-id="s5-c3-p">
-                最低顺位项。在剪辑台上，它是最先被牺牲的法则。
+                顺位末项。在发生冲突时，优先考虑让步的法则。
               </p>
             </div>
 
             <div class="border-t border-[var(--hairline)] pt-3 text-[11px] font-editorial-sans">
               <span class="font-typewriter text-[9px] uppercase text-[var(--board-muted)] block mb-1">PRACTICAL RULE</span>
-              <div class="text-[var(--board-text)] font-medium">不因物理位移切镜头；仅在具备戏剧张力时动刀。</div>
+              <div class="text-[var(--board-text)] font-medium">不因物理位移切镜头；仅在具备戏剧需求时动刀。</div>
             </div>
           </div>
 
@@ -891,19 +880,18 @@
 
 
       <!-- ====================================================================
-           SLIDE 6: UNFRAMED EPILOGUE (纯粹无框 · 静奢意犹未尽)
-           全页字数预算: ≤ 25 字 | 彻底无框，开阔非对称呼吸
+           SLIDE 6: UNFRAMED EPILOGUE (纯粹无框 · 终章)
            ==================================================================== -->
       <div id="slide-6" class="slide-pane" data-slide="6">
         <!-- 顶栏导引 -->
         <div class="flex items-center justify-between border-b border-[var(--hairline)] pb-4">
           <div class="flex items-center gap-3">
-            <span class="font-typewriter text-[10px] tracking-widest uppercase text-[var(--ink-stamp)] font-bold">[ EPILOGUE // THE RESIDUAL ]</span>
+            <span class="font-typewriter text-[10px] tracking-widest uppercase text-[var(--ink-stamp)] font-bold">[ EPILOGUE // SUMMARY ]</span>
             <span class="text-[var(--board-muted)] text-[10px] opacity-40">/</span>
             <span class="font-typewriter text-[10px] tracking-wider text-[var(--board-muted)] uppercase">DOCTRINE SUMMARY</span>
           </div>
           <div class="font-typewriter text-[10px] text-[var(--board-muted)] tracking-widest uppercase">
-            FIGURE 06 — OPEN CANON
+            FIGURE 06 — SUMMARY
           </div>
         </div>
 
@@ -911,7 +899,7 @@
         <div class="grid grid-cols-12 gap-12 flex-1 items-center py-6">
           <div class="col-span-8 pr-6 flex flex-col justify-center">
             <span class="font-typewriter text-[10px] uppercase tracking-widest text-[var(--ink-stamp)] font-bold mb-4 block">
-              FINAL THESIS // 终局真理
+              SUMMARY // 总结
             </span>
 
             <h2 id="s6-h2" class="font-editorial-serif text-[48px] font-normal text-[var(--board-text)] leading-[1.16] mb-6 tracking-tight" data-editable="true" data-edit-id="s6-h2">
@@ -920,7 +908,7 @@
             </h2>
 
             <p id="s6-summary" class="font-editorial-sans text-sm text-[var(--board-muted)] leading-relaxed max-w-[560px]" data-editable="true" data-edit-id="s6-p">
-              六原则不是禁锢灵感的铁锁，而是在迷雾中辨识优先级的罗盘。
+              六原则不是刻板的规则，而是在面对取舍时辨识优先级的参考。
             </p>
           </div>
 
@@ -1000,21 +988,21 @@
     <div>
       <div class="flex items-center justify-between pb-4 border-b border-neutral-200">
         <div>
-          <h3 class="font-editorial-serif text-lg font-bold text-neutral-900">静奢编辑调校</h3>
-          <p class="text-[11px] text-neutral-500 font-typewriter">Minimal Editorial Master Palettes</p>
+          <h3 class="font-editorial-serif text-lg font-bold text-neutral-900">配色方案</h3>
+          <p class="text-[11px] text-neutral-500 font-typewriter">6 种中国传统色</p>
         </div>
         <button id="btn-close-drawer" class="p-1 rounded hover:bg-neutral-100 text-neutral-400 hover:text-neutral-700 transition">
           <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
         </button>
       </div>
 
-      <!-- 静奢编辑 6 大经典暖中性母色 -->
+      <!-- 6 款配色选择网格 -->
       <div class="mt-6">
         <label class="block text-xs font-typewriter uppercase tracking-wider text-neutral-500 font-semibold mb-3">
-          WARM NEUTRAL PALETTES (6 经典色调)
+          COLOR PALETTES (6 款传统色)
         </label>
         <div id="palette-selector-grid" class="grid grid-cols-1 gap-2.5">
-          <!-- JS 动态渲染 6 款静奢暖中性母色 -->
+          <!-- JS 动态渲染 6 款配色 -->
         </div>
       </div>
 
@@ -1028,24 +1016,24 @@
           <div class="flex justify-between"><span>[ ← ]</span><span>上一页</span></div>
           <div class="flex justify-between"><span>[ F ]</span><span>全屏放映模式</span></div>
           <div class="flex justify-between"><span>[ R ]</span><span>重播当前页入场动画</span></div>
-          <div class="flex justify-between"><span>[ E ]</span><span>开启 / 退出文案直编</span></div>
+          <div class="flex justify-between"><span>[ E ]</span><span>开启 / 退出文案编辑</span></div>
           <div class="flex justify-between"><span>[ Cmd + S ]</span><span>保存文案到本地</span></div>
-          <div class="flex justify-between"><span>[ P ]</span><span>原生 16:9 PDF 打印</span></div>
+          <div class="flex justify-between"><span>[ P ]</span><span>原生 16:9 PDF 导出</span></div>
         </div>
       </div>
     </div>
 
     <div class="pt-6 border-t border-neutral-200 space-y-2.5">
-      <button id="drawer-btn-export-clean" class="w-full py-2 bg-[var(--board-text)] text-[var(--board-bg)] hover:opacity-90 text-xs font-semibold rounded transition flex items-center justify-center gap-1.5 shadow-sm" title="烘焙当前所有文案修改与母色变量，导出纯净版 HTML">
+      <button id="drawer-btn-export-clean" class="w-full py-2 bg-[var(--board-text)] text-[var(--board-bg)] hover:opacity-90 text-xs font-semibold rounded transition flex items-center justify-center gap-1.5 shadow-sm" title="保存当前文案与配色，导出纯净版 HTML">
         <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
-        <span>导出纯净版 HTML (烘焙母色与文案)</span>
+        <span>导出 HTML (保存当前文案与配色)</span>
       </button>
       <button id="drawer-btn-export-pdf" class="w-full py-2 border border-neutral-300 text-neutral-800 hover:bg-neutral-100 text-xs font-semibold rounded transition flex items-center justify-center gap-1.5" title="导出全部 6 页 16:9 PDF">
         <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z"></path></svg>
-        <span>打印 / 导出全部 6 页 16:9 PDF</span>
+        <span>导出全部 6 页 16:9 PDF</span>
       </button>
       <button id="btn-clear-edits" class="w-full py-1.5 border border-red-200 text-red-600 hover:bg-red-50 text-[11px] font-medium rounded transition">
-        恢复默认文案与设置
+        恢复默认文案与配色
       </button>
     </div>
   </div>
@@ -1059,10 +1047,10 @@
        INTERACTIVE ENGINE SCRIPT (固定 16:9、GSAP 动效、键盘事件、本地存储)
        ==================================================================== -->
   <script>
-    // 6 大经典静奢中性母色表
+    // 6 大经典传统配色表
     const editorialPalettes = {
       'ecru-charcoal': {
-        name: 'Ecru & Charcoal (原胚冷炭)',
+        name: '素白与墨黑',
         bgStage: '#EAE6DF',
         boardBg: '#F5F2EB',
         boardText: '#1C1917',
@@ -1077,7 +1065,7 @@
         accent: '#9C4A2F'
       },
       'alabaster-olive': {
-        name: 'Alabaster & Olive (雪花深榄)',
+        name: '霜白与松青',
         bgStage: '#E8E8E4',
         boardBg: '#F4F4F0',
         boardText: '#232B25',
@@ -1092,7 +1080,7 @@
         accent: '#4A5D4E'
       },
       'sand-umber': {
-        name: 'Sand & Raw Umber (细沙生赭)',
+        name: '牙白与茶褐',
         bgStage: '#ECE7DF',
         boardBg: '#F7F3EC',
         boardText: '#2C2523',
@@ -1107,7 +1095,7 @@
         accent: '#8C5835'
       },
       'parchment-navy': {
-        name: 'Parchment & Navy (羊皮群青)',
+        name: '宣白与黛蓝',
         bgStage: '#E5E7EB',
         boardBg: '#F3F1ED',
         boardText: '#152238',
@@ -1122,7 +1110,7 @@
         accent: '#2C4263'
       },
       'chalk-slate': {
-        name: 'Chalk & Slate (白垩岩板)',
+        name: '铅白与岩灰',
         bgStage: '#E2E4E6',
         boardBg: '#EDEDED',
         boardText: '#202426',
@@ -1137,7 +1125,7 @@
         accent: '#4B5861'
       },
       'cream-espresso': {
-        name: 'Cream & Espresso (暖乳浓缩)',
+        name: '米白与深咖',
         bgStage: '#EDE7DE',
         boardBg: '#F9F6F0',
         boardText: '#211A18',
