@@ -94,13 +94,22 @@ description: "Design and build aesthetic, distraction-free 16:9 presentation sli
     @page { size: 16in 9in; margin: 0; }
     *, *::before, *::after { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
     html, body { background-color: var(--board-bg) !important; width: 100% !important; height: auto !important; min-height: 100% !important; overflow: visible !important; margin: 0 !important; }
-    #deck-top-bar, #drawer, #deck-nav, #shortcuts-modal, #paper-fiber-overlay, #editorial-grid-overlay { display: none !important; }
+    #deck-top-bar, #drawer, #deck-nav, #shortcuts-modal, #deck-merge-capsule, #merge-modal, #paper-fiber-overlay, #editorial-grid-overlay { display: none !important; }
     #deck-viewport-wrap { display: block !important; position: static !important; width: 100% !important; height: auto !important; overflow: visible !important; }
     #deck-stage { display: block !important; position: static !important; transform: none !important; box-shadow: none !important; border-radius: 0 !important; width: 100% !important; height: auto !important; overflow: visible !important; }
     .slide-pane { display: flex !important; flex-direction: column !important; justify-content: space-between !important; position: relative !important; width: 100vw !important; height: 100vh !important; box-sizing: border-box !important; break-after: page !important; page-break-after: always !important; }
   }
   ```
 - 保证无论是通过浏览器快捷键 `P` (调用 `window.print()`)，还是通过 Puppeteer 自动化导出，都能准确连续输出全部幻灯片，无裁切、无白边。
+
+### 5. 元素级三方智能合并与基准指纹 (Granular 3-Way Smart Merge)
+- **解决人机协同冲突**：用户在浏览器中直编文案后存在 `localStorage`，后续若再让 AI 调整排版或修改 HTML 代码，系统采用**三方智能合并算法**：
+  - **稳定指纹寻址**：基于元素 `id` 或语义结构路径生成唯一稳定的 `data-edit-id`，防止增删节点导致顺序移位；
+  - **三方基准存储**：记录 `{ userText, baseOriginal, timestamp }`；
+  - **无冲突自动保留**：对于代码未改动的元素，100% 保留用户在浏览器中手写的文案；
+  - **代码更新优先呈现**：对于被外部或 AI 专门改写过的元素，优先展示最新代码排版，并在顶栏滑出轻量通知胶囊；
+  - **一键对比与撤回**：提供独立对比卡片，用户可随时一键还原为本地草稿；
+  - **导出即固化**：点击“导出 HTML”时将合并后的文案直接烧录进独立文件，并自动将本地缓存基准重置为最新状态。
 
 ---
 

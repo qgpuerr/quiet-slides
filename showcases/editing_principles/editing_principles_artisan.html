@@ -229,7 +229,7 @@
         margin: 0 !important;
         padding: 0 !important;
       }
-      #deck-top-bar, #drawer, #deck-nav, #btn-toggle-tune, #deck-toast, #shortcuts-modal, #paper-fiber-overlay, #editorial-grid-overlay {
+      #deck-top-bar, #drawer, #deck-nav, #btn-toggle-tune, #deck-toast, #shortcuts-modal, #deck-merge-capsule, #merge-modal, #paper-fiber-overlay, #editorial-grid-overlay {
         display: none !important;
       }
       #deck-viewport-wrap {
@@ -790,6 +790,38 @@
     </div>
   </div>
 
+  <!-- 智能合并提示胶囊 -->
+  <div id="deck-merge-capsule" class="fixed top-12 left-1/2 -translate-x-1/2 px-3.5 py-1.5 bg-neutral-900/90 hover:bg-neutral-900 backdrop-blur-md text-white text-xs font-medium rounded-full shadow-2xl z-40 transition-all duration-300 flex items-center gap-2.5 cursor-pointer border border-white/15 opacity-0 pointer-events-none -translate-y-3">
+    <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+    <span id="deck-merge-capsule-text">✨ 已智能合并：保留本地文案，应用代码更新</span>
+    <span class="px-2 py-0.5 rounded bg-white/20 text-[10px] text-white hover:bg-white/30 font-sans">查看对比</span>
+  </div>
+
+  <!-- 智能合并差异对比弹窗 -->
+  <div id="merge-modal" class="fixed inset-0 bg-black/40 backdrop-blur-sm z-50 flex items-center justify-center opacity-0 pointer-events-none transition-opacity duration-200">
+    <div id="merge-modal-card" class="bg-[#F7F4EC] text-[#202624] border border-neutral-300 rounded-xl p-6 shadow-2xl max-w-lg w-full mx-4 max-h-[85vh] flex flex-col transform scale-95 transition-transform duration-200">
+      <div class="flex items-center justify-between pb-3 border-b border-neutral-300">
+        <div class="flex items-center gap-2">
+          <span class="text-emerald-700 font-bold text-sm">✨</span>
+          <h3 class="font-editorial-serif text-base font-bold text-neutral-900">代码更新与本地文案合并</h3>
+        </div>
+        <button id="btn-close-merge-modal" class="p-1 rounded hover:bg-black/5 text-neutral-500 hover:text-neutral-800 transition">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+        </button>
+      </div>
+      <p class="text-xs text-neutral-600 mt-3 mb-4 leading-relaxed font-sans">
+        检测到 HTML 源码已被外部或 AI 调整。未冲突的本地修改已自动保留；发生代码变更的元素已优先采用最新排版文案，您可在此对比或一键撤回：
+      </p>
+      <div id="merge-diff-list" class="flex-1 overflow-y-auto space-y-3 pr-1">
+        <!-- 差异比对列表动态渲染 -->
+      </div>
+      <div class="flex items-center justify-between pt-4 border-t border-neutral-300 mt-4">
+        <button id="btn-merge-revert-all" class="text-xs px-3 py-1.5 rounded border border-neutral-400 hover:bg-black/5 font-medium transition font-sans">全部还原为本地草稿</button>
+        <button id="btn-merge-accept-all" class="text-xs px-3 py-1.5 rounded bg-[#823838] text-white font-medium hover:opacity-90 transition font-sans">确认保留代码更新</button>
+      </div>
+    </div>
+  </div>
+
   <!-- Toast 消息浮层 -->
   <div id="deck-toast" class="fixed bottom-16 left-1/2 -translate-x-1/2 px-4 py-2 bg-neutral-900/90 backdrop-blur-md text-white text-xs font-medium rounded-full shadow-lg pointer-events-none opacity-0 -translate-y-2 transition-all duration-300 z-50 flex items-center gap-2">
     <span id="deck-toast-msg">提示消息</span>
@@ -1083,7 +1115,22 @@
 
     // 行内直编
     
-    // 全自动全量文案可编辑扫描引擎 (Zero-Omission Automated Text Scanner)
+    // 3-Way Granular Smart Merge & Fingerprinting State
+    let activeMergeDiffs = [];
+
+    // 生成元素稳定唯一指纹 ID (避免增删 DOM 节点导致索引移位)
+    function getStableEditId(slideId, el, candidateIdx) {
+      if (el.id) return el.id;
+      const explicitId = el.getAttribute('data-edit-id');
+      if (explicitId && !explicitId.startsWith(`s${slideId}_auto_`)) return explicitId;
+
+      const tag = el.tagName.toLowerCase();
+      const rawText = (el.textContent || '').trim().replace(/[^\w\u4e00-\u9fa5]/g, '');
+      const textSnippet = rawText.slice(0, 8);
+      return `s${slideId}_${tag}_${textSnippet || candidateIdx}`;
+    }
+
+    // 全自动全量文案可编辑扫描与指纹注册
     function autoRegisterEditableElements() {
       document.querySelectorAll('.slide-pane').forEach((slide, sIdx) => {
         const slideId = slide.dataset.slide || (sIdx + 1);
@@ -1092,7 +1139,7 @@
 
         candidates.forEach(el => {
           // 排除系统UI控制台、抽屉、导航、SVG内部、显式声明不编辑的元素
-          if (el.closest('svg') || el.closest('#deck-top-bar') || el.closest('#deck-nav') || el.closest('#drawer') || el.hasAttribute('data-no-edit') || el.classList.contains('crosshair')) return;
+          if (el.closest('svg') || el.closest('#deck-top-bar') || el.closest('#deck-nav') || el.closest('#drawer') || el.closest('#shortcuts-modal') || el.closest('#merge-modal') || el.closest('#deck-merge-capsule') || el.hasAttribute('data-no-edit') || el.classList.contains('crosshair')) return;
 
           // 避免多重嵌套外层容器变成输入框：如果有结构性块子元素，跳过
           const hasBlockChildren = Array.from(el.children).some(child => 
@@ -1111,16 +1158,18 @@
 
           if (hasDirectText || el.classList.contains('editable-text') || el.classList.contains('deck-text') || el.getAttribute('data-editable') === 'true') {
             counter++;
+            const editId = getStableEditId(slideId, el, counter);
             el.setAttribute('data-editable', 'true');
-            if (!el.getAttribute('data-edit-id')) {
-              el.setAttribute('data-edit-id', `s${slideId}_auto_${counter}`);
+            el.setAttribute('data-edit-id', editId);
+            if (!el.hasAttribute('data-initial-html')) {
+              el.setAttribute('data-initial-html', el.innerHTML);
             }
             el.classList.add('deck-editable-node');
           }
         });
       });
     }
-  
+
     function toggleEditMode(forceState) {
       isEditingMode = forceState !== undefined ? forceState : !isEditingMode;
       document.body.classList.toggle('is-editing-mode', isEditingMode);
@@ -1145,31 +1194,259 @@
       }
     }
 
+    function loadRawEditsFromStorage() {
+      try {
+        const saved = localStorage.getItem(STORAGE_KEY);
+        if (!saved) return { version: 2, edits: {} };
+        const parsed = JSON.parse(saved);
+        if (parsed && parsed.version === 2 && parsed.edits) {
+          return parsed;
+        }
+        // 兼容旧版扁平结构
+        const migratedEdits = {};
+        if (parsed && typeof parsed === 'object') {
+          Object.keys(parsed).forEach(k => {
+            if (typeof parsed[k] === 'string') {
+              migratedEdits[k] = { userText: parsed[k], baseOriginal: '', timestamp: 0 };
+            } else if (parsed[k] && parsed[k].userText) {
+              migratedEdits[k] = parsed[k];
+            }
+          });
+        }
+        return { version: 2, edits: migratedEdits };
+      } catch (e) {
+        return { version: 2, edits: {} };
+      }
+    }
+
+    // 保存编辑到本地缓存 (存储: { userText, baseOriginal, timestamp })
     function saveEditsToLocalStorage(silent = false) {
       try {
-        const edits = {};
+        const currentSaved = loadRawEditsFromStorage();
+        const edits = currentSaved.edits || {};
+
         document.querySelectorAll('[data-edit-id]').forEach(el => {
-          edits[el.dataset.editId] = el.innerHTML;
+          const id = el.dataset.editId;
+          const userText = el.innerHTML;
+          const initialHTML = el.getAttribute('data-initial-html') || userText;
+
+          if (userText !== initialHTML || edits[id]) {
+            edits[id] = {
+              userText: userText,
+              baseOriginal: edits[id] ? edits[id].baseOriginal : initialHTML,
+              timestamp: Date.now()
+            };
+          }
         });
-        localStorage.setItem(STORAGE_KEY, JSON.stringify(edits));
+
+        localStorage.setItem(STORAGE_KEY, JSON.stringify({
+          version: 2,
+          updatedAt: Date.now(),
+          edits: edits
+        }));
+
         if (!silent) showToast('✅ 剪辑文案已保存至本地，刷新依然保留！');
       } catch (e) {
         console.warn('Save failed:', e);
       }
     }
 
+    // 元素级三方智能合并算法 (3-Way Smart Merge)
     function loadEditsFromLocalStorage() {
       try {
-        const saved = localStorage.getItem(STORAGE_KEY);
-        if (!saved) return;
-        const edits = JSON.parse(saved);
-        Object.keys(edits).forEach(id => {
+        const raw = loadRawEditsFromStorage();
+        const edits = raw.edits || {};
+        const editKeys = Object.keys(edits);
+        if (editKeys.length === 0) return;
+
+        let preservedCount = 0;
+        let aiUpdatedCount = 0;
+        activeMergeDiffs = [];
+
+        editKeys.forEach(id => {
           const el = document.querySelector(`[data-edit-id="${id}"]`);
-          if (el) el.innerHTML = edits[id];
+          if (!el) return;
+
+          const item = edits[id];
+          const userText = item.userText;
+          const baseOriginal = item.baseOriginal;
+          const currentHTML = el.getAttribute('data-initial-html') || el.innerHTML;
+
+          // 判定1: 本地修改与当前源码一致（已固化或完全相同）
+          if (userText.trim() === currentHTML.trim()) {
+            return;
+          }
+
+          // 判定2: 源码未发生外部改动 (currentHTML 与基准一致，或无基准)，安全保留用户文案
+          if (!baseOriginal || currentHTML.trim() === baseOriginal.trim()) {
+            el.innerHTML = userText;
+            preservedCount++;
+            return;
+          }
+
+          // 判定3: 源码发生外部变更 (currentHTML !== baseOriginal 且 !== userText)，AI 更新了源码
+          // 优先展示 AI 最新代码，同时记录差异供用户对比/撤回
+          aiUpdatedCount++;
+          const slideEl = el.closest('.slide-pane');
+          const slideNum = slideEl ? (slideEl.dataset.slide || '0') : '';
+          const tag = el.tagName.toLowerCase();
+          const cleanSnippet = el.textContent.trim().slice(0, 18);
+
+          activeMergeDiffs.push({
+            id: id,
+            label: `第 ${slideNum} 页 · <${tag}> ${cleanSnippet}`,
+            userText: userText,
+            aiText: currentHTML,
+            baseOriginal: baseOriginal
+          });
         });
+
+        if (aiUpdatedCount > 0) {
+          renderMergeNotification(preservedCount, aiUpdatedCount);
+        }
       } catch (e) {
-        console.warn('Load failed:', e);
+        console.warn('3-way merge failed:', e);
       }
+    }
+
+    function renderMergeNotification(preservedCount, aiUpdatedCount) {
+      const capsule = document.getElementById('deck-merge-capsule');
+      const textEl = document.getElementById('deck-merge-capsule-text');
+      if (!capsule || !textEl) return;
+
+      textEl.textContent = `✨ 已智能合并：保留 ${preservedCount} 处本地修改，应用 ${aiUpdatedCount} 处代码更新`;
+      capsule.classList.remove('opacity-0', 'pointer-events-none', '-translate-y-3');
+    }
+
+    function openMergeModal() {
+      const modal = document.getElementById('merge-modal');
+      const list = document.getElementById('merge-diff-list');
+      if (!modal || !list) return;
+
+      list.innerHTML = '';
+      if (activeMergeDiffs.length === 0) {
+        list.innerHTML = '<div class="text-xs text-neutral-500 py-4 text-center">暂无发生冲突的代码更新，所有本地修改均已正常生效。</div>';
+      } else {
+        activeMergeDiffs.forEach((diff, idx) => {
+          const item = document.createElement('div');
+          item.className = 'p-3 rounded-lg border border-neutral-300 bg-black/[0.02] text-xs space-y-2';
+          item.innerHTML = `
+            <div class="flex items-center justify-between font-semibold text-neutral-900">
+              <span>${diff.label}</span>
+              <button class="btn-revert-single px-2 py-0.5 rounded border border-neutral-400 hover:bg-black/5 text-[11px] transition" data-diff-idx="${idx}">
+                还原为此本地草稿
+              </button>
+            </div>
+            <div class="space-y-1.5 font-sans">
+              <div class="p-2 rounded bg-emerald-500/10 border border-emerald-500/20 text-neutral-800">
+                <span class="text-[10px] font-bold text-emerald-800 block mb-0.5">代码最新内容 (AI / 外部更新)</span>
+                <div>${diff.aiText}</div>
+              </div>
+              <div class="p-2 rounded bg-amber-500/10 border border-amber-500/20 text-neutral-800">
+                <span class="text-[10px] font-bold text-amber-800 block mb-0.5">本地未导出草稿</span>
+                <div>${diff.userText}</div>
+              </div>
+            </div>
+          `;
+          list.appendChild(item);
+        });
+
+        list.querySelectorAll('.btn-revert-single').forEach(btn => {
+          btn.addEventListener('click', () => {
+            const idx = parseInt(btn.dataset.diffIdx);
+            revertDiffItem(idx);
+          });
+        });
+      }
+
+      modal.classList.remove('opacity-0', 'pointer-events-none');
+      const card = document.getElementById('merge-modal-card');
+      if (card) card.classList.remove('scale-95');
+    }
+
+    function closeMergeModal() {
+      const modal = document.getElementById('merge-modal');
+      if (modal) modal.classList.add('opacity-0', 'pointer-events-none');
+      const card = document.getElementById('merge-modal-card');
+      if (card) card.classList.add('scale-95');
+    }
+
+    function revertDiffItem(idx) {
+      const diff = activeMergeDiffs[idx];
+      if (!diff) return;
+      const el = document.querySelector(`[data-edit-id="${diff.id}"]`);
+      if (el) {
+        el.innerHTML = diff.userText;
+        el.setAttribute('data-initial-html', diff.userText);
+      }
+      activeMergeDiffs.splice(idx, 1);
+      saveEditsToLocalStorage(true);
+      if (activeMergeDiffs.length === 0) {
+        closeMergeModal();
+        hideMergeCapsule();
+        showToast('✅ 已还原为您的本地草稿！');
+      } else {
+        openMergeModal();
+      }
+    }
+
+    function revertAllDiffs() {
+      activeMergeDiffs.forEach(diff => {
+        const el = document.querySelector(`[data-edit-id="${diff.id}"]`);
+        if (el) {
+          el.innerHTML = diff.userText;
+          el.setAttribute('data-initial-html', diff.userText);
+        }
+      });
+      activeMergeDiffs = [];
+      saveEditsToLocalStorage(true);
+      closeMergeModal();
+      hideMergeCapsule();
+      showToast('✅ 已全部还原为您的本地草稿！');
+    }
+
+    function acceptAllDiffs() {
+      const raw = loadRawEditsFromStorage();
+      const edits = raw.edits || {};
+      activeMergeDiffs.forEach(diff => {
+        if (edits[diff.id]) {
+          edits[diff.id].baseOriginal = diff.aiText;
+          edits[diff.id].userText = diff.aiText;
+        }
+      });
+      localStorage.setItem(STORAGE_KEY, JSON.stringify({ version: 2, updatedAt: Date.now(), edits }));
+      activeMergeDiffs = [];
+      closeMergeModal();
+      hideMergeCapsule();
+      showToast('✅ 已采纳代码更新为基准！');
+    }
+
+    function hideMergeCapsule() {
+      const capsule = document.getElementById('deck-merge-capsule');
+      if (capsule) capsule.classList.add('opacity-0', 'pointer-events-none', '-translate-y-3');
+    }
+
+    function solidifyEditsAfterExport() {
+      try {
+        const edits = {};
+        document.querySelectorAll('[data-edit-id]').forEach(el => {
+          const id = el.dataset.editId;
+          const html = el.innerHTML;
+          edits[id] = {
+            userText: html,
+            baseOriginal: html,
+            timestamp: Date.now()
+          };
+          el.setAttribute('data-initial-html', html);
+        });
+        localStorage.setItem(STORAGE_KEY, JSON.stringify({
+          version: 2,
+          updatedAt: Date.now(),
+          edits: edits
+        }));
+        hideMergeCapsule();
+        activeMergeDiffs = [];
+      } catch (e) {}
     }
 
     function saveDeckConfig() {
@@ -1228,7 +1505,9 @@
 
     // 导出纯净版演示文稿 HTML (完全独立烘焙，无配置栏，任意设备离线可用)
     function exportCleanDeckHTML() {
-      // 1. 采集当前所有编辑后的文本
+      // 1. 采集当前所有编辑后的文本并自动固化为本地缓存基准
+      solidifyEditsAfterExport();
+
       const currentEdits = {};
       document.querySelectorAll('[data-edit-id]').forEach(el => {
         const id = el.getAttribute('data-edit-id');
@@ -1678,6 +1957,23 @@
         });
       }
 
+      // 智能合并浮层控制
+      const mergeCapsule = document.getElementById('deck-merge-capsule');
+      const mergeModal = document.getElementById('merge-modal');
+      const btnCloseMerge = document.getElementById('btn-close-merge-modal');
+      const btnRevertAll = document.getElementById('btn-merge-revert-all');
+      const btnAcceptAll = document.getElementById('btn-merge-accept-all');
+
+      if (mergeCapsule) mergeCapsule.addEventListener('click', openMergeModal);
+      if (btnCloseMerge) btnCloseMerge.addEventListener('click', closeMergeModal);
+      if (btnRevertAll) btnRevertAll.addEventListener('click', revertAllDiffs);
+      if (btnAcceptAll) btnAcceptAll.addEventListener('click', acceptAllDiffs);
+      if (mergeModal) {
+        mergeModal.addEventListener('click', (e) => {
+          if (e.target === mergeModal) closeMergeModal();
+        });
+      }
+
       const btnEdit = document.getElementById('btn-toggle-edit');
       if (btnEdit) btnEdit.addEventListener('click', () => toggleEditMode());
 
@@ -1711,6 +2007,10 @@
         }
 
         if (e.key === 'Escape') {
+          if (mergeModal && !mergeModal.classList.contains('opacity-0')) {
+            closeMergeModal();
+            return;
+          }
           if (shortcutsModal && !shortcutsModal.classList.contains('opacity-0')) {
             closeShortcutsModal();
             return;

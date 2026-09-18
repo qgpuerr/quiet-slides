@@ -96,6 +96,7 @@ Each aesthetic system is paired with curated traditional paper base colors. Each
 - **Baked HTML Export**: Saves live edits and active color schemes directly into static HTML source code. Works offline on any device.
 - **Clean 16:9 PDF Export**: Multi-page landscape PDF export via `window.print()` (`P` key) or headless Puppeteer CLI.
 - **Inline Editing**: Press `E` to edit text directly on screen, with `Cmd+S` auto-persistence.
+- **Granular 3-Way Smart Merge**: Seamless human-AI collaboration. When you customize copy in the browser and later ask AI to adjust layout or code, the fingerprinting engine preserves 100% of your unconflicted edits while adopting AI updates, complete with an instant diff & revert card.
 
 ---
 
