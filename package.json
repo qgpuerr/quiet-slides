@@ -4,7 +4,8 @@
   "description": "Design and build aesthetic, distraction-free 16:9 presentation slides powered by HTML, Tailwind CSS, and headless export.",
   "scripts": {
     "export:pdf": "node scripts/export_pdf.js",
-    "export:clean": "node scripts/export_clean_html.js"
+    "export:clean": "node scripts/export_clean_html.js",
+    "screenshots": "node scripts/generate_screenshots.js"
   },
   "keywords": [
     "slides",
@@ -22,6 +23,6 @@
     "url": "https://github.com/qgpuerr/quiet-slides.git"
   },
   "optionalDependencies": {
-    "puppeteer-core": "^22.0.0"
+    "puppeteer-core": "^22.15.0"
   }
 }
