@@ -150,24 +150,32 @@ quiet-slides/
 
 ### 1. 🤖 作为 Agent 技能安装 (Install as AI Skill)
 
-Quiet Slides 是一套完全遵循 Antigravity 与现代 Agent 技能规范的演示文稿设计系统。将其安装至你的 AI 助手后，AI 即可直接根据你的文案主题自主设计、排版并交付高质量 16:9 幻灯片。
+Quiet Slides 是一套完全遵循 Agent 技能规范（skills.sh / Antigravity）的演示文稿设计系统。将其安装至你的 AI 助手后，AI 即可直接根据你的文案主题自主设计、排版并交付高质量 16:9 幻灯片。
 
-#### 方式 A：Antigravity 全局安装 (推荐)
-直接克隆到全局技能目录，所有工程与会话自动识别生效：
+#### 🌟 方式 A：通用 Skills CLI 一键安装 (强烈推荐，生态主流)
+无论你使用 **Antigravity、Cursor、Claude Code、Windsurf** 还是其他主流 Agent，均可直接运行官方 Skills 包管理器一键安装：
+
 ```bash
-git clone https://github.com/qgpuerr/quiet-slides.git ~/.gemini/config/skills/quiet-slides
-```
+# 全局安装 (所有项目与会话均可调用，推荐)
+npx skills add qgpuerr/quiet-slides -g
 
-#### 方式 B：工作区/项目局部引入
-仅在当前项目工程内引入时，克隆至工作区技能目录：
-```bash
-git clone https://github.com/qgpuerr/quiet-slides.git .gemini/skills/quiet-slides
-# 或标准通用 Agent 规范
-git clone https://github.com/qgpuerr/quiet-slides.git .agent/skills/quiet-slides
+# 或仅安装到当前项目工作区
+npx skills add qgpuerr/quiet-slides
 ```
+*(CLI 会自动识别当前运行的 Agent 环境，并自动配置对应的技能路径)*
 
-#### 方式 C：其他主流 Agent (Claude Code / Cursor / Windsurf)
-直接将本仓库克隆至你的 Agent 自定义技能或知识库检索路径下，AI 将自动读取并遵循根目录的 `SKILL.md` 规范。
+#### 方式 B：Git Clone 手动安装
+如果你更习惯使用 Git 管理或在内网/离线环境下使用：
+- **Antigravity 全局安装**：
+  ```bash
+  git clone https://github.com/qgpuerr/quiet-slides.git ~/.gemini/config/skills/quiet-slides
+  ```
+- **项目局部引入**：
+  ```bash
+  git clone https://github.com/qgpuerr/quiet-slides.git .gemini/skills/quiet-slides
+  # 或标准通用 Agent 规范
+  git clone https://github.com/qgpuerr/quiet-slides.git .agent/skills/quiet-slides
+  ```
 
 ---
 

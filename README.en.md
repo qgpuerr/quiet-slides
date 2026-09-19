@@ -149,24 +149,32 @@ quiet-slides/
 
 ### 1. 🤖 Install as AI Agent Skill
 
-Quiet Slides strictly complies with Antigravity and modern AI Agent skill specifications. Installing it empowers your AI assistant to design, layout, and deliver handcrafted 16:9 presentation slides autonomously.
+Quiet Slides strictly complies with modern AI Agent skill specifications (skills.sh / Antigravity). Installing it empowers your AI assistant to design, layout, and deliver handcrafted 16:9 presentation slides autonomously.
 
-#### Option A: Antigravity Global Installation (Recommended)
-Clone directly to your global skills directory to enable it across all projects:
+#### 🌟 Option A: Universal Skills CLI One-Click Install (Highly Recommended)
+Whether you are using **Antigravity, Cursor, Claude Code, Windsurf**, or any other major AI coding agent, install it directly using the official agent skills package manager:
+
 ```bash
-git clone https://github.com/qgpuerr/quiet-slides.git ~/.gemini/config/skills/quiet-slides
-```
+# Global installation (available across all projects and sessions, recommended)
+npx skills add qgpuerr/quiet-slides -g
 
-#### Option B: Workspace / Project-Local
-Clone into your project's workspace skills directory:
-```bash
-git clone https://github.com/qgpuerr/quiet-slides.git .gemini/skills/quiet-slides
-# or standard generic Agent specification
-git clone https://github.com/qgpuerr/quiet-slides.git .agent/skills/quiet-slides
+# Or install locally into current workspace
+npx skills add qgpuerr/quiet-slides
 ```
+*(The CLI automatically detects your active AI agent environment and links the skill accordingly)*
 
-#### Option C: Generic AI Agents (Claude Code / Cursor / Windsurf)
-Clone this repository into your agent's custom skills or knowledge directory; the agent will automatically parse and follow `SKILL.md` in the root.
+#### Option B: Manual Git Clone
+If you prefer managing skills via Git or work in offline/air-gapped environments:
+- **Antigravity Global Installation**:
+  ```bash
+  git clone https://github.com/qgpuerr/quiet-slides.git ~/.gemini/config/skills/quiet-slides
+  ```
+- **Project-Local Installation**:
+  ```bash
+  git clone https://github.com/qgpuerr/quiet-slides.git .gemini/skills/quiet-slides
+  # or standard generic agent directory
+  git clone https://github.com/qgpuerr/quiet-slides.git .agent/skills/quiet-slides
+  ```
 
 ---
 
