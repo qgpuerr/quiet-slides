@@ -94,9 +94,13 @@
       transition: background-color 0.4s cubic-bezier(0.16, 1, 0.3, 1), color 0.4s ease, box-shadow 0.3s ease;
     }
 
-    /* 全屏放映模式 (原生 Fullscreen 沉浸式演讲) */
+    /* 全屏放映模式 (原生 Fullscreen 沉浸式演讲，除 PPT 外其余区域纯黑) */
+    html:fullscreen,
+    html:-webkit-full-screen,
+    body:fullscreen,
+    body:-webkit-full-screen,
     body.is-fullscreen {
-      background-color: var(--board-bg) !important;
+      background-color: #000000 !important;
       overflow: hidden !important;
     }
     body.is-fullscreen #deck-top-bar {
@@ -113,42 +117,19 @@
       z-index: 20 !important;
       padding: 0 !important;
       margin: 0 !important;
+      background-color: #000000 !important;
     }
+    :fullscreen #deck-stage,
+    :-webkit-full-screen #deck-stage,
     body.is-fullscreen #deck-stage {
       box-shadow: none !important;
       border-radius: 0 !important;
     }
+    /* 全屏下彻底隐藏底部导航栏，仅留纯粹 16:9 画布 */
+    :fullscreen #deck-nav,
+    :-webkit-full-screen #deck-nav,
     body.is-fullscreen #deck-nav {
-      position: fixed !important;
-      bottom: 24px !important;
-      left: 50% !important;
-      transform: translateX(-50%) !important;
-      width: auto !important;
-      height: auto !important;
-      padding: 8px 20px !important;
-      border-radius: 9999px !important;
-      background: rgba(0, 0, 0, 0.22) !important;
-      backdrop-filter: blur(12px) !important;
-      -webkit-backdrop-filter: blur(12px) !important;
-      border: 1px solid rgba(255, 255, 255, 0.1) !important;
-      box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.3) !important;
-      display: flex !important;
-      justify-content: center !important;
-      align-items: center !important;
-      pointer-events: auto !important;
-      z-index: 50 !important;
-      transition: opacity 0.35s ease;
-    }
-    body.is-fullscreen #btn-prev,
-    body.is-fullscreen #btn-next,
-    body.is-fullscreen #deck-nav > div:first-child,
-    body.is-fullscreen #deck-nav > div:last-child {
       display: none !important;
-    }
-    body.is-fullscreen #deck-indicators {
-      display: flex !important;
-      align-items: center !important;
-      gap: 8px !important;
     }
 
     /* 行内直编模式 (E) 高亮虚线 */
@@ -724,20 +705,20 @@
               <!-- 镜头 A 画框 -->
               <rect x="50" y="15" width="230" height="110" stroke="currentColor" class="text-[var(--board-muted)]" stroke-width="1" stroke-dasharray="3 3" fill="none" />
               <text x="65" y="34" font-family="var(--font-mono)" font-size="9" fill="currentColor" class="text-[var(--board-muted)]">SHOT A · 镜头 A (出点)</text>
-              <circle cx="210" cy="65" r="6" fill="currentColor" class="text-[var(--board-text)]" />
-              <circle cx="210" cy="65" r="16" stroke="currentColor" class="text-[var(--board-text)]" stroke-width="1" stroke-dasharray="2 2" />
-              <text x="210" y="96" font-family="var(--font-mono)" font-size="8" fill="currentColor" class="text-[var(--board-muted)]" text-anchor="middle">出点注视中心</text>
+              <circle cx="210" cy="70" r="6" fill="currentColor" class="text-[var(--board-text)]" />
+              <circle cx="210" cy="70" r="16" stroke="currentColor" class="text-[var(--board-text)]" stroke-width="1" stroke-dasharray="2 2" />
+              <text x="210" y="100" font-family="var(--font-mono)" font-size="8" fill="currentColor" class="text-[var(--board-muted)]" text-anchor="middle">出点注视中心</text>
 
-              <!-- 视线转移曲线 -->
-              <path d="M 210 65 C 280 65, 330 70, 410 75" stroke="currentColor" class="text-[var(--ink-stamp)]" stroke-width="2" stroke-dasharray="4 3" />
-              <path d="M 404 71 L 412 75 L 404 79" stroke="currentColor" class="text-[var(--ink-stamp)]" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+              <!-- 视线水平对齐转移直线 -->
+              <path d="M 210 70 L 412 70" stroke="currentColor" class="text-[var(--ink-stamp)]" stroke-width="2" stroke-dasharray="4 3" />
+              <path d="M 404 66 L 412 70 L 404 74" stroke="currentColor" class="text-[var(--ink-stamp)]" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
 
               <!-- 镜头 B 画框 -->
               <rect x="360" y="15" width="230" height="110" stroke="currentColor" class="text-[var(--ink-stamp)]" stroke-width="1.5" fill="none" />
               <text x="375" y="34" font-family="var(--font-mono)" font-size="9" font-weight="bold" fill="currentColor" class="text-[var(--ink-stamp)]">SHOT B · 镜头 B (入点)</text>
-              <circle cx="440" cy="75" r="6" fill="currentColor" class="text-[var(--ink-stamp)]" />
-              <circle cx="440" cy="75" r="16" stroke="currentColor" class="text-[var(--ink-stamp)]" stroke-width="1" stroke-dasharray="2 2" />
-              <text x="440" y="106" font-family="var(--font-mono)" font-size="8" font-weight="bold" fill="currentColor" class="text-[var(--ink-stamp)]" text-anchor="middle">落点精准承接</text>
+              <circle cx="440" cy="70" r="6" fill="currentColor" class="text-[var(--ink-stamp)]" />
+              <circle cx="440" cy="70" r="16" stroke="currentColor" class="text-[var(--ink-stamp)]" stroke-width="1" stroke-dasharray="2 2" />
+              <text x="440" y="100" font-family="var(--font-mono)" font-size="8" font-weight="bold" fill="currentColor" class="text-[var(--ink-stamp)]" text-anchor="middle">落点精准承接</text>
             </svg>
           </div>
 
@@ -1253,9 +1234,9 @@
       root.style.setProperty('--ink-stamp', p.inkStamp);
       root.style.setProperty('--border-ink', p.borderInk);
       root.style.setProperty('--hairline', p.hairline);
-      root.style.setProperty('--accent', p.accent);
-
-      document.body.style.backgroundColor = p.bgStage;
+      if (!document.body.classList.contains('is-fullscreen') && !document.fullscreenElement) {
+        document.body.style.backgroundColor = p.bgStage;
+      }
 
       // 更新调色板选中高亮
       document.querySelectorAll('.palette-btn').forEach(btn => {
@@ -1759,12 +1740,18 @@
     // 初始化
     
     
-    // 原生全屏放映控制 (True Browser Fullscreen)
+    // 原生全屏放映控制 (True Browser Fullscreen - 沉浸式纯黑舞台)
     function toggleFullScreen() {
       if (!document.fullscreenElement) {
         document.documentElement.requestFullscreen().catch(err => {
           console.warn('Fullscreen request rejected, using CSS fallback:', err);
           document.body.classList.toggle('is-fullscreen');
+          if (document.body.classList.contains('is-fullscreen')) {
+            document.body.style.setProperty('background-color', '#000000', 'important');
+          } else {
+            const curPal = masterPalettes[deckConfig.palette];
+            document.body.style.backgroundColor = curPal ? curPal.bgStage : '';
+          }
           updateStageScale();
         });
       } else {
@@ -1777,8 +1764,11 @@
     document.addEventListener('fullscreenchange', () => {
       if (document.fullscreenElement) {
         document.body.classList.add('is-fullscreen');
+        document.body.style.setProperty('background-color', '#000000', 'important');
       } else {
         document.body.classList.remove('is-fullscreen');
+        const curPal = masterPalettes[deckConfig.palette];
+        document.body.style.backgroundColor = curPal ? curPal.bgStage : '';
       }
       updateStageScale();
     });

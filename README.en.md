@@ -145,27 +145,61 @@ quiet-slides/
 
 ---
 
-## 🚀 Quick Start
+## 🚀 Installation & Quick Start
 
-### 1. View Locally
-Open any of the showcase decks directly in any modern browser—no build step or backend required:
-- Dual-style comparison center: `showcases/editing_principles/demo_showcase.html`
-- Style A (Artisan Paper): `showcases/editing_principles/editing_principles_artisan.html`
-- Style B (Minimal Editorial): `showcases/editing_principles/editing_principles_editorial.html`
+### 1. 🤖 Install as AI Agent Skill
 
-### 2. Export Clean Offline HTML
-1. Open any deck in your browser, press `E` to customize the copy, and choose your preferred paper palette from the drawer.
-2. Click **"Export Clean HTML"** in the top navigation bar.
-3. Download a standalone, zero-dependency HTML file ready for keynote presentations on any computer!
+Quiet Slides strictly complies with Antigravity and modern AI Agent skill specifications. Installing it empowers your AI assistant to design, layout, and deliver handcrafted 16:9 presentation slides autonomously.
 
-### 3. Automated PDF Export via CLI
+#### Option A: Antigravity Global Installation (Recommended)
+Clone directly to your global skills directory to enable it across all projects:
 ```bash
-# Install Puppeteer
+git clone https://github.com/qgpuerr/quiet-slides.git ~/.gemini/config/skills/quiet-slides
+```
+
+#### Option B: Workspace / Project-Local
+Clone into your project's workspace skills directory:
+```bash
+git clone https://github.com/qgpuerr/quiet-slides.git .gemini/skills/quiet-slides
+# or standard generic Agent specification
+git clone https://github.com/qgpuerr/quiet-slides.git .agent/skills/quiet-slides
+```
+
+#### Option C: Generic AI Agents (Claude Code / Cursor / Windsurf)
+Clone this repository into your agent's custom skills or knowledge directory; the agent will automatically parse and follow `SKILL.md` in the root.
+
+---
+
+### 2. 🖥️ Human In-Browser Experience (Zero Setup Required)
+
+If you are using Quiet Slides purely as a web presentation toolkit, **no Node.js or build steps are needed**:
+
+1. **Direct In-Browser Preview**: Open any showcase deck in any modern browser:
+   - Dual-style comparison center: `showcases/editing_principles/demo_showcase.html`
+   - Style A (Artisan Paper): `showcases/editing_principles/editing_principles_artisan.html`
+   - Style B (Minimal Editorial): `showcases/editing_principles/editing_principles_editorial.html`
+2. **Zero-Setup PDF Export**: Simply press **`P`** in your browser (triggers native print), select "Save as PDF", and immediately obtain a pristine 16:9 multi-page vector PDF.
+3. **Baked Clean HTML Export**: Press `E` to edit text inline, pick your favorite color scheme, and click **"Export Clean HTML"** in the top bar to download an offline single-file deck.
+
+---
+
+### 3. ⚙️ Headless CLI Automation (For CI / Developers / AI Agents)
+
+Built-in automated headless scripts allow developers, CI pipelines, or **AI Agents to autonomously export deliverables in the background**:
+
+```bash
+# Install lightweight dependency (reuses existing system Chrome, no heavy Chromium download)
+npm install puppeteer-core
+# Or install full package with bundled Chromium
 npm install puppeteer
 
-# Export Artisan 16:9 PDF
+# Automated headless 16:9 PDF export
 node scripts/export_pdf.js showcases/editing_principles/editing_principles_artisan.html my_deck.pdf
+
+# Automated headless clean HTML export
+node scripts/export_clean_html.js showcases/editing_principles/editing_principles_artisan.html my_deck_clean.html
 ```
+*(Note: When requested, your AI Agent can automatically run these scripts in the background and resolve dependencies without manual intervention)*
 
 ---
 

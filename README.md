@@ -146,27 +146,61 @@ quiet-slides/
 
 ---
 
-## 🚀 快速开始
+## 🚀 安装与快速开始
 
-### 1. 直接本地体验
-无需安装任何复杂编译环境或后台，直接用任意现代浏览器打开以下文件即可：
-- 双风格体验：`showcases/editing_principles/demo_showcase.html`
-- 档案版：`showcases/editing_principles/editing_principles_artisan.html`
-- 简洁版：`showcases/editing_principles/editing_principles_editorial.html`
+### 1. 🤖 作为 Agent 技能安装 (Install as AI Skill)
 
-### 2. 导出演示文件
-1. 在浏览器打开任意页面，按 `E` 编辑修改文字，在“配色”抽屉选择喜爱的颜色。
-2. 点击顶部控制栏的 **“导出 HTML”**。
-3. 即可下载完全独立、无控制台的 HTML 文件，拷贝至任何设备均可直接放映！
+Quiet Slides 是一套完全遵循 Antigravity 与现代 Agent 技能规范的演示文稿设计系统。将其安装至你的 AI 助手后，AI 即可直接根据你的文案主题自主设计、排版并交付高质量 16:9 幻灯片。
 
-### 3. 使用命令行自动化导出 PDF
+#### 方式 A：Antigravity 全局安装 (推荐)
+直接克隆到全局技能目录，所有工程与会话自动识别生效：
 ```bash
-# 安装 puppeteer
+git clone https://github.com/qgpuerr/quiet-slides.git ~/.gemini/config/skills/quiet-slides
+```
+
+#### 方式 B：工作区/项目局部引入
+仅在当前项目工程内引入时，克隆至工作区技能目录：
+```bash
+git clone https://github.com/qgpuerr/quiet-slides.git .gemini/skills/quiet-slides
+# 或标准通用 Agent 规范
+git clone https://github.com/qgpuerr/quiet-slides.git .agent/skills/quiet-slides
+```
+
+#### 方式 C：其他主流 Agent (Claude Code / Cursor / Windsurf)
+直接将本仓库克隆至你的 Agent 自定义技能或知识库检索路径下，AI 将自动读取并遵循根目录的 `SKILL.md` 规范。
+
+---
+
+### 2. 🖥️ 人类用户本地体验与导出 (零环境依赖)
+
+作为独立的前端演示套件使用时，**完全无需安装 Node.js 或任何后端编译环境**：
+
+1. **直接双击体验**：用现代浏览器打开以下文件即可直接播放与演示：
+   - 双风格对比中心：`showcases/editing_principles/demo_showcase.html`
+   - 档案版典藏：`showcases/editing_principles/editing_principles_artisan.html`
+   - 简洁版典藏：`showcases/editing_principles/editing_principles_editorial.html`
+2. **零门槛导出 16:9 PDF**：在页面中直接按下键盘 **`P`** 键（调用系统打印），选择“另存为 PDF”，即可无缝生成无边距、严格 16:9 的多页矢量 PDF。
+3. **一键导出脱水 HTML**：按 `E` 键行内编辑修改文字，在右上角抽屉挑选配色，点击顶栏 **“导出 HTML”**，即可下载零依赖、纯净脱水的单文件 HTML，拷贝至任意设备即用。
+
+---
+
+### 3. ⚙️ 无头自动化脚本 (适合 CI / 开发者 / AI Agent 后台自主执行)
+
+仓库内置了 Headless 导出脚本，供终端开发者、持续集成流水线或**具备执行能力的 AI Agent 在后台自主调用交付**：
+
+```bash
+# 安装轻量依赖（优先自动复用系统已有 Chrome，免下载庞大 Chromium）
+npm install puppeteer-core
+# 或安装自带 Chromium 的完整包
 npm install puppeteer
 
-# 导出 Artisan 版 16:9 PDF
+# 命令行自动化导出 16:9 多页 PDF
 node scripts/export_pdf.js showcases/editing_principles/editing_principles_artisan.html my_deck.pdf
+
+# 命令行自动化导出脱水纯净 HTML
+node scripts/export_clean_html.js showcases/editing_principles/editing_principles_artisan.html my_deck_clean.html
 ```
+*(注：当您要求 AI 智能体导出时，AI 会在后台自主检测环境、调用该脚本完成转换并交付产物，无需您手动在终端配置)*
 
 ---
 

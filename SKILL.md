@@ -113,6 +113,30 @@ description: "Design and build aesthetic, distraction-free 16:9 presentation sli
 
 ---
 
+## 自动化工程与智能体工作流 (Agent Automation & Tooling)
+
+### 1. 智能体端到端交付工作流
+- **模板与排版定制**：AI 优先以 `templates/starter_artisan.html` (物料档案版) 或 `templates/starter_editorial.html` (静奢编辑版) 为骨架，严格遵循字数预算（≤35–50 字/页）与版式原型生成 16:9 演示文稿。
+- **自主无头导出**：当用户提出“帮我导出 PDF”或“导出脱水 HTML”时，具备终端权限的 Agent 应直接在后台调用仓库内置脚本完成导出，并将产物路径直接交付用户，无需用户手动在终端配置。
+
+### 2. 自动化脚本调用标准
+- **无损 16:9 多页 PDF 导出**：
+  ```bash
+  node scripts/export_pdf.js <input-html-path> [output-pdf-path]
+  ```
+  *(脚本已内置 macOS / Linux / Windows 常见 Chrome 路径探测，以严格 16in 9in 无边距打印，输出完整多页矢量 PDF)*
+- **无头纯净脱水 HTML 导出**：
+  ```bash
+  node scripts/export_clean_html.js <input-interactive-html> [output-clean-html]
+  ```
+  *(无头加载页面后执行清理，将行内编辑文案与选定配色变量固化进 DOM，剥离顶栏与抽屉控件，生成零依赖独立单文件)*
+
+### 3. 依赖自主管理与用户免配置保障
+- **环境依赖自动处理**：若环境中未安装 Puppeteer，AI 可在后台自主安装 `puppeteer-core`（体积轻量，复用本地 Chrome）或 `puppeteer`，全自动排除环境故障，无需打扰用户。
+- **免安装备用交互**：向用户交付产物时，AI 可告知：“若您想在浏览器中直接体验或导出，只需双击打开 HTML，在页面中按下键盘快捷键 `P` 即可一键调用系统打印另存为 16:9 PDF，零环境依赖”。
+
+---
+
 ## 快捷键一览
 
 | 按键 | 功能 |
@@ -122,7 +146,8 @@ description: "Design and build aesthetic, distraction-free 16:9 presentation sli
 | `F` | 全屏放映模式 |
 | `E` | 行内文案编辑 |
 | `Cmd + S` / `Ctrl + S` | 保存文案到本地缓存 |
-| `P` | 导出完整 16:9 PDF |
+| `P` | 导出完整 16:9 PDF (浏览器原生打印) |
 | `R` | 重播当前页入场动画 |
 | `?` / `/` | 展开 / 关闭快捷键帮助卡片 |
 | `Esc` | 退出全屏 / 关闭浮层窗口 / 退出编辑 |
+

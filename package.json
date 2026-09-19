@@ -1,0 +1,27 @@
+{
+  "name": "quiet-slides",
+  "version": "1.0.0",
+  "description": "Design and build aesthetic, distraction-free 16:9 presentation slides powered by HTML, Tailwind CSS, and headless export.",
+  "scripts": {
+    "export:pdf": "node scripts/export_pdf.js",
+    "export:clean": "node scripts/export_clean_html.js"
+  },
+  "keywords": [
+    "slides",
+    "presentation",
+    "agent-skill",
+    "antigravity",
+    "16-9",
+    "pdf-export",
+    "gsap"
+  ],
+  "author": "qgpuerr",
+  "license": "CC-BY-NC-SA-4.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/qgpuerr/quiet-slides.git"
+  },
+  "optionalDependencies": {
+    "puppeteer-core": "^22.0.0"
+  }
+}
